@@ -1,0 +1,357 @@
+{
+  "E:\\Owais-Bhat\\App.js": {
+    "mtime": 1779695247.5803306,
+    "ast_hash": "ba59cba60a5d52d5b4e279e0d56757a5",
+    "semantic_hash": "ba59cba60a5d52d5b4e279e0d56757a5"
+  },
+  "E:\\Owais-Bhat\\app.json": {
+    "mtime": 1779695247.5813434,
+    "ast_hash": "2ab17c8652b40b23b2ef455108dd4d95",
+    "semantic_hash": "2ab17c8652b40b23b2ef455108dd4d95"
+  },
+  "E:\\Owais-Bhat\\babel.config.js": {
+    "mtime": 1779695247.5954733,
+    "ast_hash": "0cd171559601b8994a428952070f133d",
+    "semantic_hash": "0cd171559601b8994a428952070f133d"
+  },
+  "E:\\Owais-Bhat\\package.json": {
+    "mtime": 1779695247.6042898,
+    "ast_hash": "4a92e1a9c939eb20c0dd22610fce8a3f",
+    "semantic_hash": "4a92e1a9c939eb20c0dd22610fce8a3f"
+  },
+  "E:\\Owais-Bhat\\components\\Footer.js": {
+    "mtime": 1779695247.5964742,
+    "ast_hash": "63dafe8909e0b54094cc4f1333afec3c",
+    "semantic_hash": "63dafe8909e0b54094cc4f1333afec3c"
+  },
+  "E:\\Owais-Bhat\\components\\Header.js": {
+    "mtime": 1779695247.5964742,
+    "ast_hash": "1aa65a5f2bfb0ad2847fe992de2cee18",
+    "semantic_hash": "1aa65a5f2bfb0ad2847fe992de2cee18"
+  },
+  "E:\\Owais-Bhat\\components\\Layout.js": {
+    "mtime": 1779695247.5964742,
+    "ast_hash": "42e73e5467c5bc369bea2ffa0cd08d2d",
+    "semantic_hash": "42e73e5467c5bc369bea2ffa0cd08d2d"
+  },
+  "E:\\Owais-Bhat\\components\\SearchBar.js": {
+    "mtime": 1779695247.5974755,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "E:\\Owais-Bhat\\contexts\\AuthContext.js": {
+    "mtime": 1779695247.5974755,
+    "ast_hash": "9c8ba3c2f21a2ce5d56a230211f4841d",
+    "semantic_hash": "9c8ba3c2f21a2ce5d56a230211f4841d"
+  },
+  "E:\\Owais-Bhat\\contexts\\CartContext.js": {
+    "mtime": 1779695247.598478,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "E:\\Owais-Bhat\\navigation\\AppNavigator.js": {
+    "mtime": 1779695247.6004746,
+    "ast_hash": "e674c69aac564482436f0f9f1d82315c",
+    "semantic_hash": "e674c69aac564482436f0f9f1d82315c"
+  },
+  "E:\\Owais-Bhat\\navigation\\DrawerNavigator.js": {
+    "mtime": 1779695247.6004746,
+    "ast_hash": "005a7e51fa5e13e63295d7f3d86cfdc4",
+    "semantic_hash": "005a7e51fa5e13e63295d7f3d86cfdc4"
+  },
+  "E:\\Owais-Bhat\\navigation\\TabNavigator.js": {
+    "mtime": 1779695247.6004746,
+    "ast_hash": "cc74cba6ec231f7abe69b6cd3da3413a",
+    "semantic_hash": "cc74cba6ec231f7abe69b6cd3da3413a"
+  },
+  "E:\\Owais-Bhat\\screens\\AboutScreen.js": {
+    "mtime": 1779695247.6052935,
+    "ast_hash": "7d6ae40566e07e682820788b56bc7b80",
+    "semantic_hash": "7d6ae40566e07e682820788b56bc7b80"
+  },
+  "E:\\Owais-Bhat\\screens\\AdmissionsScreen.js": {
+    "mtime": 1779695247.6052935,
+    "ast_hash": "0d1afd83a64214910a07c85ee627f31d",
+    "semantic_hash": "0d1afd83a64214910a07c85ee627f31d"
+  },
+  "E:\\Owais-Bhat\\screens\\CartScreen.js": {
+    "mtime": 1779695247.606292,
+    "ast_hash": "832b76957b78988874c3ae9255fa65e1",
+    "semantic_hash": "832b76957b78988874c3ae9255fa65e1"
+  },
+  "E:\\Owais-Bhat\\screens\\ContactUsScreen.js": {
+    "mtime": 1779695247.606292,
+    "ast_hash": "d9bf65c0315149540edf860af8c2729c",
+    "semantic_hash": "d9bf65c0315149540edf860af8c2729c"
+  },
+  "E:\\Owais-Bhat\\screens\\HomeScreen.js": {
+    "mtime": 1779695247.606292,
+    "ast_hash": "6c29a3fb033cf39186ac8fd0448054af",
+    "semantic_hash": "6c29a3fb033cf39186ac8fd0448054af"
+  },
+  "E:\\Owais-Bhat\\screens\\LoginScreen.js": {
+    "mtime": 1779695247.6072938,
+    "ast_hash": "db0f8897a6dcbd4ab6cc83c21778b91b",
+    "semantic_hash": "db0f8897a6dcbd4ab6cc83c21778b91b"
+  },
+  "E:\\Owais-Bhat\\screens\\ModulesScreen.js": {
+    "mtime": 1779695247.6072938,
+    "ast_hash": "0c2c5537ce927db6247c76ef0a373cd2",
+    "semantic_hash": "0c2c5537ce927db6247c76ef0a373cd2"
+  },
+  "E:\\Owais-Bhat\\screens\\PrivacyPolicyScreen.js": {
+    "mtime": 1779695247.6072938,
+    "ast_hash": "c845ab9c7ab94f1f9013db9a18428398",
+    "semantic_hash": "c845ab9c7ab94f1f9013db9a18428398"
+  },
+  "E:\\Owais-Bhat\\screens\\ProductDetailsScreen.js": {
+    "mtime": 1779695247.608003,
+    "ast_hash": "880c9e1514bd6312610819a826677614",
+    "semantic_hash": "880c9e1514bd6312610819a826677614"
+  },
+  "E:\\Owais-Bhat\\screens\\ProfileScreen.js": {
+    "mtime": 1779695247.608003,
+    "ast_hash": "1e7a55a7f2456f14b5c8591d8481116e",
+    "semantic_hash": "1e7a55a7f2456f14b5c8591d8481116e"
+  },
+  "E:\\Owais-Bhat\\screens\\SearchScreen.js": {
+    "mtime": 1779695247.608003,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "E:\\Owais-Bhat\\screens\\StudentsScreen.js": {
+    "mtime": 1779695247.608003,
+    "ast_hash": "c55c5a9f0f6443505fdebdbae1e003b9",
+    "semantic_hash": "c55c5a9f0f6443505fdebdbae1e003b9"
+  },
+  "E:\\Owais-Bhat\\services\\admissionsService.js": {
+    "mtime": 1779695247.6091337,
+    "ast_hash": "5ed1407677a1efa61b4c114ab9202a34",
+    "semantic_hash": "5ed1407677a1efa61b4c114ab9202a34"
+  },
+  "E:\\Owais-Bhat\\services\\api.js": {
+    "mtime": 1779695247.6091337,
+    "ast_hash": "a34c2dbe2bb69a5c45c1304dd294ca6f",
+    "semantic_hash": "a34c2dbe2bb69a5c45c1304dd294ca6f"
+  },
+  "E:\\Owais-Bhat\\services\\authService.js": {
+    "mtime": 1779695247.6091337,
+    "ast_hash": "3e247d42db4ce576fcbb1d7da4bede29",
+    "semantic_hash": "3e247d42db4ce576fcbb1d7da4bede29"
+  },
+  "E:\\Owais-Bhat\\services\\studentsService.js": {
+    "mtime": 1779695247.6101353,
+    "ast_hash": "9838e0b62d0dc2c346fdb7b751590941",
+    "semantic_hash": "9838e0b62d0dc2c346fdb7b751590941"
+  },
+  "E:\\Owais-Bhat\\styles\\colors.js": {
+    "mtime": 1779695247.6101353,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "E:\\Owais-Bhat\\styles\\fonts.js": {
+    "mtime": 1779695247.6101353,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "E:\\Owais-Bhat\\styles\\globalStyles.js": {
+    "mtime": 1779695247.6111333,
+    "ast_hash": "2171bd0f99523124bd34ee779bd41b55",
+    "semantic_hash": "2171bd0f99523124bd34ee779bd41b55"
+  },
+  "E:\\Owais-Bhat\\webapp\\package.json": {
+    "mtime": 1779695247.6121337,
+    "ast_hash": "83afe7467618e9fd7abe59acd8f8ba24",
+    "semantic_hash": "83afe7467618e9fd7abe59acd8f8ba24"
+  },
+  "E:\\Owais-Bhat\\webapp\\vite.config.js": {
+    "mtime": 1779695247.6230483,
+    "ast_hash": "3a94472e790d743fd028927548dfa8ed",
+    "semantic_hash": "3a94472e790d743fd028927548dfa8ed"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\App.jsx": {
+    "mtime": 1779695247.6121337,
+    "ast_hash": "13b5d9faeedce1d743c61fa024f6d309",
+    "semantic_hash": "13b5d9faeedce1d743c61fa024f6d309"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\main.jsx": {
+    "mtime": 1779695247.615307,
+    "ast_hash": "9c7b547e83febe877ea3ad2bdb8c97dc",
+    "semantic_hash": "9c7b547e83febe877ea3ad2bdb8c97dc"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\components\\PageHeader.jsx": {
+    "mtime": 1779695247.6131332,
+    "ast_hash": "fdcdbb3171ad1f10afe6d50e4351f031",
+    "semantic_hash": "fdcdbb3171ad1f10afe6d50e4351f031"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\context\\AppDataContext.jsx": {
+    "mtime": 1779695247.6141365,
+    "ast_hash": "921d1c17972cc557597a99eb5a5806e9",
+    "semantic_hash": "921d1c17972cc557597a99eb5a5806e9"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\lib\\config.js": {
+    "mtime": 1779695247.615307,
+    "ast_hash": "26403a0a679e9d876d9906b58b13ac3f",
+    "semantic_hash": "26403a0a679e9d876d9906b58b13ac3f"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\lib\\mockData.js": {
+    "mtime": 1779695247.615307,
+    "ast_hash": "dd4f35bfb3b441f59804215dedadb805",
+    "semantic_hash": "dd4f35bfb3b441f59804215dedadb805"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\lib\\modules.js": {
+    "mtime": 1779695247.615307,
+    "ast_hash": "e75dfb8cb64e8150e7cb1a099d068b02",
+    "semantic_hash": "e75dfb8cb64e8150e7cb1a099d068b02"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\AcademicsPage.jsx": {
+    "mtime": 1779695247.6163056,
+    "ast_hash": "c93719d909e471b2ef4e279d798c0d21",
+    "semantic_hash": "c93719d909e471b2ef4e279d798c0d21"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\AdmissionsPage.jsx": {
+    "mtime": 1779695247.6163056,
+    "ast_hash": "d658c966ca8fdf83fbd93d2576bb1d1c",
+    "semantic_hash": "d658c966ca8fdf83fbd93d2576bb1d1c"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\AttendancePage.jsx": {
+    "mtime": 1779695247.6163056,
+    "ast_hash": "ff5ae80cad0f1b5efbc8c5ffc7e5d8cf",
+    "semantic_hash": "ff5ae80cad0f1b5efbc8c5ffc7e5d8cf"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\AutomationPage.jsx": {
+    "mtime": 1779695247.6173053,
+    "ast_hash": "d304ed8acb798e72e17c43ca4e0cc95d",
+    "semantic_hash": "d304ed8acb798e72e17c43ca4e0cc95d"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\CommunicationPage.jsx": {
+    "mtime": 1779695247.617757,
+    "ast_hash": "66af535938b5e2bf57115cc544274e7c",
+    "semantic_hash": "66af535938b5e2bf57115cc544274e7c"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\DashboardPage.jsx": {
+    "mtime": 1779695247.617757,
+    "ast_hash": "565d1c8df4c977d4d73cd7c07ffc77f0",
+    "semantic_hash": "565d1c8df4c977d4d73cd7c07ffc77f0"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\ExamsPage.jsx": {
+    "mtime": 1779695247.617757,
+    "ast_hash": "738c68732424c9484c6413ce5f00c9b5",
+    "semantic_hash": "738c68732424c9484c6413ce5f00c9b5"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\FeesPage.jsx": {
+    "mtime": 1779695247.6189604,
+    "ast_hash": "96458c7d19979485d1153e629789a6e3",
+    "semantic_hash": "96458c7d19979485d1153e629789a6e3"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\HostelPage.jsx": {
+    "mtime": 1779695247.6189604,
+    "ast_hash": "c0cd5b5c645c5386c1a01d9078de2b0d",
+    "semantic_hash": "c0cd5b5c645c5386c1a01d9078de2b0d"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\IntelligencePage.jsx": {
+    "mtime": 1779695247.6189604,
+    "ast_hash": "1ae4b0941bbeba8e167dd9e2827389de",
+    "semantic_hash": "1ae4b0941bbeba8e167dd9e2827389de"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\InventoryPage.jsx": {
+    "mtime": 1779695247.6199696,
+    "ast_hash": "1624101395414fbf6088fa1ad7759630",
+    "semantic_hash": "1624101395414fbf6088fa1ad7759630"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\LibraryPage.jsx": {
+    "mtime": 1779695247.6199696,
+    "ast_hash": "05700a13c467ea29cce8e77d1847216e",
+    "semantic_hash": "05700a13c467ea29cce8e77d1847216e"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\ModuleLandingPage.jsx": {
+    "mtime": 1779695247.6199696,
+    "ast_hash": "0d4f95cc85574d96a89b978fe8951afd",
+    "semantic_hash": "0d4f95cc85574d96a89b978fe8951afd"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\ModulesPage.jsx": {
+    "mtime": 1779695247.6199696,
+    "ast_hash": "d486230ceabc92c2d318c29c3e9a3159",
+    "semantic_hash": "d486230ceabc92c2d318c29c3e9a3159"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\PayrollPage.jsx": {
+    "mtime": 1779695247.6209671,
+    "ast_hash": "8c364e1c7405ca244b8da185bf72fb2d",
+    "semantic_hash": "8c364e1c7405ca244b8da185bf72fb2d"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\PredictivePage.jsx": {
+    "mtime": 1779695247.6209671,
+    "ast_hash": "526ae30a534fc72445b868494f704286",
+    "semantic_hash": "526ae30a534fc72445b868494f704286"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\StudentsPage.jsx": {
+    "mtime": 1779695247.6209671,
+    "ast_hash": "51977e87c5fc93708c11d08efad09b7e",
+    "semantic_hash": "51977e87c5fc93708c11d08efad09b7e"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\TimetablePage.jsx": {
+    "mtime": 1779695247.6219175,
+    "ast_hash": "5f11384e14adc444edc8091b7357ae76",
+    "semantic_hash": "5f11384e14adc444edc8091b7357ae76"
+  },
+  "E:\\Owais-Bhat\\webapp\\src\\pages\\TransportPage.jsx": {
+    "mtime": 1779695247.6219175,
+    "ast_hash": "6f930ab06bc11fca8c3008c2016baebc",
+    "semantic_hash": "6f930ab06bc11fca8c3008c2016baebc"
+  },
+  "E:\\Owais-Bhat\\README.md": {
+    "mtime": 1779695247.5803306,
+    "ast_hash": "128146650e2c027b45b5b6c1f1e4329a",
+    "semantic_hash": "128146650e2c027b45b5b6c1f1e4329a"
+  },
+  "E:\\Owais-Bhat\\docs\\ERP_MASTER_PLAN.md": {
+    "mtime": 1779695247.5994751,
+    "ast_hash": "e5e1b6e75bc222be651d235b4a1bf830",
+    "semantic_hash": "e5e1b6e75bc222be651d235b4a1bf830"
+  },
+  "E:\\Owais-Bhat\\docs\\FEATURE_BACKLOG.md": {
+    "mtime": 1779695247.5994751,
+    "ast_hash": "26e205b8288c2dba2ff00527288da410",
+    "semantic_hash": "26e205b8288c2dba2ff00527288da410"
+  },
+  "E:\\Owais-Bhat\\docs\\PHASE_WISE_COMPLETION.md": {
+    "mtime": 1779695247.5994751,
+    "ast_hash": "4f64ce146f8c463273265991222528e5",
+    "semantic_hash": "4f64ce146f8c463273265991222528e5"
+  },
+  "E:\\Owais-Bhat\\webapp\\index.html": {
+    "mtime": 1779695247.6111333,
+    "ast_hash": "7ae0d3f568db879086ef14a39a71b68f",
+    "semantic_hash": "7ae0d3f568db879086ef14a39a71b68f"
+  },
+  "E:\\Owais-Bhat\\assets\\adaptive-icon.png": {
+    "mtime": 1779695247.5829017,
+    "ast_hash": "97dae5a0e62ad8551d8a31897b425e63",
+    "semantic_hash": "97dae5a0e62ad8551d8a31897b425e63"
+  },
+  "E:\\Owais-Bhat\\assets\\bg.png": {
+    "mtime": 1779695247.5924714,
+    "ast_hash": "50e4e4d329e228947e20d8a7a1d7abf8",
+    "semantic_hash": "50e4e4d329e228947e20d8a7a1d7abf8"
+  },
+  "E:\\Owais-Bhat\\assets\\favicon.png": {
+    "mtime": 1779695247.5934732,
+    "ast_hash": "4f1cb2cac2370cd5050681232e8575a8",
+    "semantic_hash": "4f1cb2cac2370cd5050681232e8575a8"
+  },
+  "E:\\Owais-Bhat\\assets\\icon.png": {
+    "mtime": 1779695247.5944734,
+    "ast_hash": "4e3f888fc8475f69fd5fa32f1ad5216a",
+    "semantic_hash": "4e3f888fc8475f69fd5fa32f1ad5216a"
+  },
+  "E:\\Owais-Bhat\\assets\\logo.png": {
+    "mtime": 1779695247.5944734,
+    "ast_hash": "188751ff7e407338863d7e7edee2efb1",
+    "semantic_hash": "188751ff7e407338863d7e7edee2efb1"
+  },
+  "E:\\Owais-Bhat\\assets\\splash.png": {
+    "mtime": 1779695247.5954733,
+    "ast_hash": "4dc203c1f48ad8b1e9734613e88be661",
+    "semantic_hash": "4dc203c1f48ad8b1e9734613e88be661"
+  }
+}

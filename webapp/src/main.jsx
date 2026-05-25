@@ -1,16 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App";
-import { AppDataProvider } from "./context/AppDataContext";
-import "./styles/app.css";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './styles/globals.css'
+import './styles/glassmorphism.css'
+import './styles/animations.css'
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <AppDataProvider>
-        <App />
-      </AppDataProvider>
-    </BrowserRouter>
-  </React.StrictMode>
-);
+    <App />
+  </React.StrictMode>,
+)

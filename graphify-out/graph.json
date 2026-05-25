@@ -1,0 +1,5416 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "App.js",
+      "file_type": "code",
+      "source_file": "App.js",
+      "source_location": "L1",
+      "id": "app_js",
+      "community": 5,
+      "norm_label": "app.js"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "App.js",
+      "source_location": "L5",
+      "id": "owais_bhat_app_app",
+      "community": 5,
+      "norm_label": "app()"
+    },
+    {
+      "label": "app.json",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L1",
+      "id": "app_json",
+      "community": 4,
+      "norm_label": "app.json"
+    },
+    {
+      "label": "expo",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L2",
+      "id": "owais_bhat_app_expo",
+      "community": 4,
+      "norm_label": "expo"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L3",
+      "id": "owais_bhat_app_expo_name",
+      "community": 4,
+      "norm_label": "name"
+    },
+    {
+      "label": "slug",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L4",
+      "id": "owais_bhat_app_expo_slug",
+      "community": 4,
+      "norm_label": "slug"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L5",
+      "id": "owais_bhat_app_expo_version",
+      "community": 4,
+      "norm_label": "version"
+    },
+    {
+      "label": "orientation",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L6",
+      "id": "owais_bhat_app_expo_orientation",
+      "community": 4,
+      "norm_label": "orientation"
+    },
+    {
+      "label": "icon",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L7",
+      "id": "owais_bhat_app_expo_icon",
+      "community": 4,
+      "norm_label": "icon"
+    },
+    {
+      "label": "userInterfaceStyle",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L8",
+      "id": "owais_bhat_app_expo_userinterfacestyle",
+      "community": 4,
+      "norm_label": "userinterfacestyle"
+    },
+    {
+      "label": "splash",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L9",
+      "id": "owais_bhat_app_expo_splash",
+      "community": 4,
+      "norm_label": "splash"
+    },
+    {
+      "label": "image",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L10",
+      "id": "owais_bhat_app_splash_image",
+      "community": 4,
+      "norm_label": "image"
+    },
+    {
+      "label": "resizeMode",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L11",
+      "id": "owais_bhat_app_splash_resizemode",
+      "community": 4,
+      "norm_label": "resizemode"
+    },
+    {
+      "label": "backgroundColor",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L12",
+      "id": "owais_bhat_app_splash_backgroundcolor",
+      "community": 4,
+      "norm_label": "backgroundcolor"
+    },
+    {
+      "label": "ios",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L14",
+      "id": "owais_bhat_app_expo_ios",
+      "community": 4,
+      "norm_label": "ios"
+    },
+    {
+      "label": "supportsTablet",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L15",
+      "id": "owais_bhat_app_ios_supportstablet",
+      "community": 4,
+      "norm_label": "supportstablet"
+    },
+    {
+      "label": "android",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L17",
+      "id": "owais_bhat_app_expo_android",
+      "community": 4,
+      "norm_label": "android"
+    },
+    {
+      "label": "adaptiveIcon",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L18",
+      "id": "owais_bhat_app_android_adaptiveicon",
+      "community": 4,
+      "norm_label": "adaptiveicon"
+    },
+    {
+      "label": "foregroundImage",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L19",
+      "id": "owais_bhat_app_adaptiveicon_foregroundimage",
+      "community": 4,
+      "norm_label": "foregroundimage"
+    },
+    {
+      "label": "backgroundColor",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L20",
+      "id": "owais_bhat_app_adaptiveicon_backgroundcolor",
+      "community": 4,
+      "norm_label": "backgroundcolor"
+    },
+    {
+      "label": "web",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L23",
+      "id": "owais_bhat_app_expo_web",
+      "community": 4,
+      "norm_label": "web"
+    },
+    {
+      "label": "favicon",
+      "file_type": "code",
+      "source_file": "app.json",
+      "source_location": "L24",
+      "id": "owais_bhat_app_web_favicon",
+      "community": 4,
+      "norm_label": "favicon"
+    },
+    {
+      "label": "babel.config.js",
+      "file_type": "code",
+      "source_file": "babel.config.js",
+      "source_location": "L1",
+      "id": "babel_config_js",
+      "community": 11,
+      "norm_label": "babel.config.js"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "id": "package_json",
+      "community": 7,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "id": "owais_bhat_package_name",
+      "community": 7,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "id": "owais_bhat_package_version",
+      "community": 7,
+      "norm_label": "version"
+    },
+    {
+      "label": "main",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "id": "owais_bhat_package_main",
+      "community": 7,
+      "norm_label": "main"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "id": "owais_bhat_package_scripts",
+      "community": 7,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "start",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "id": "owais_bhat_package_scripts_start",
+      "community": 7,
+      "norm_label": "start"
+    },
+    {
+      "label": "android",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "id": "owais_bhat_package_scripts_android",
+      "community": 7,
+      "norm_label": "android"
+    },
+    {
+      "label": "ios",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "id": "owais_bhat_package_scripts_ios",
+      "community": 7,
+      "norm_label": "ios"
+    },
+    {
+      "label": "web",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "id": "owais_bhat_package_scripts_web",
+      "community": 7,
+      "norm_label": "web"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "id": "owais_bhat_package_dependencies",
+      "community": 3,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "@expo/metro-runtime",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "id": "owais_bhat_package_dependencies_expo_metro_runtime",
+      "community": 3,
+      "norm_label": "@expo/metro-runtime"
+    },
+    {
+      "label": "@react-native-community/masked-view",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "id": "owais_bhat_package_dependencies_react_native_community_masked_view",
+      "community": 3,
+      "norm_label": "@react-native-community/masked-view"
+    },
+    {
+      "label": "@react-navigation/bottom-tabs",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "id": "owais_bhat_package_dependencies_react_navigation_bottom_tabs",
+      "community": 3,
+      "norm_label": "@react-navigation/bottom-tabs"
+    },
+    {
+      "label": "@react-navigation/drawer",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "id": "owais_bhat_package_dependencies_react_navigation_drawer",
+      "community": 3,
+      "norm_label": "@react-navigation/drawer"
+    },
+    {
+      "label": "@react-navigation/native",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "id": "owais_bhat_package_dependencies_react_navigation_native",
+      "community": 3,
+      "norm_label": "@react-navigation/native"
+    },
+    {
+      "label": "@react-navigation/stack",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "id": "owais_bhat_package_dependencies_react_navigation_stack",
+      "community": 3,
+      "norm_label": "@react-navigation/stack"
+    },
+    {
+      "label": "expo",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "id": "owais_bhat_package_dependencies_expo",
+      "community": 3,
+      "norm_label": "expo"
+    },
+    {
+      "label": "expo-status-bar",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "id": "owais_bhat_package_dependencies_expo_status_bar",
+      "community": 3,
+      "norm_label": "expo-status-bar"
+    },
+    {
+      "label": "formik",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "id": "owais_bhat_package_dependencies_formik",
+      "community": 3,
+      "norm_label": "formik"
+    },
+    {
+      "label": "install",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "id": "owais_bhat_package_dependencies_install",
+      "community": 3,
+      "norm_label": "install"
+    },
+    {
+      "label": "npm",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "id": "owais_bhat_package_dependencies_npm",
+      "community": 3,
+      "norm_label": "npm"
+    },
+    {
+      "label": "react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "id": "owais_bhat_package_dependencies_react",
+      "community": 3,
+      "norm_label": "react"
+    },
+    {
+      "label": "react-dom",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "id": "owais_bhat_package_dependencies_react_dom",
+      "community": 3,
+      "norm_label": "react-dom"
+    },
+    {
+      "label": "react-native",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "id": "owais_bhat_package_dependencies_react_native",
+      "community": 3,
+      "norm_label": "react-native"
+    },
+    {
+      "label": "react-native-gesture-handler",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "id": "owais_bhat_package_dependencies_react_native_gesture_handler",
+      "community": 3,
+      "norm_label": "react-native-gesture-handler"
+    },
+    {
+      "label": "react-native-reanimated",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "id": "owais_bhat_package_dependencies_react_native_reanimated",
+      "community": 3,
+      "norm_label": "react-native-reanimated"
+    },
+    {
+      "label": "react-native-safe-area-context",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "id": "owais_bhat_package_dependencies_react_native_safe_area_context",
+      "community": 3,
+      "norm_label": "react-native-safe-area-context"
+    },
+    {
+      "label": "react-native-screens",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "id": "owais_bhat_package_dependencies_react_native_screens",
+      "community": 3,
+      "norm_label": "react-native-screens"
+    },
+    {
+      "label": "react-native-vector-icons",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "id": "owais_bhat_package_dependencies_react_native_vector_icons",
+      "community": 3,
+      "norm_label": "react-native-vector-icons"
+    },
+    {
+      "label": "react-native-web",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "id": "owais_bhat_package_dependencies_react_native_web",
+      "community": 3,
+      "norm_label": "react-native-web"
+    },
+    {
+      "label": "yup",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L32",
+      "id": "owais_bhat_package_dependencies_yup",
+      "community": 3,
+      "norm_label": "yup"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "id": "owais_bhat_package_devdependencies",
+      "community": 7,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@babel/core",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "id": "owais_bhat_package_devdependencies_babel_core",
+      "community": 7,
+      "norm_label": "@babel/core"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L37",
+      "id": "owais_bhat_package_private",
+      "community": 7,
+      "norm_label": "private"
+    },
+    {
+      "label": "Footer.js",
+      "file_type": "code",
+      "source_file": "components/Footer.js",
+      "source_location": "L1",
+      "id": "components_footer_js",
+      "community": 1,
+      "norm_label": "footer.js"
+    },
+    {
+      "label": "Footer()",
+      "file_type": "code",
+      "source_file": "components/Footer.js",
+      "source_location": "L9",
+      "id": "components_footer_footer",
+      "community": 1,
+      "norm_label": "footer()"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "components/Footer.js",
+      "source_location": "L19",
+      "id": "components_footer_styles",
+      "community": 1,
+      "norm_label": "styles"
+    },
+    {
+      "label": "Header.js",
+      "file_type": "code",
+      "source_file": "components/Header.js",
+      "source_location": "L1",
+      "id": "components_header_js",
+      "community": 1,
+      "norm_label": "header.js"
+    },
+    {
+      "label": "Header()",
+      "file_type": "code",
+      "source_file": "components/Header.js",
+      "source_location": "L7",
+      "id": "components_header_header",
+      "community": 1,
+      "norm_label": "header()"
+    },
+    {
+      "label": "Layout.js",
+      "file_type": "code",
+      "source_file": "components/Layout.js",
+      "source_location": "L1",
+      "id": "components_layout_js",
+      "community": 1,
+      "norm_label": "layout.js"
+    },
+    {
+      "label": "Layout()",
+      "file_type": "code",
+      "source_file": "components/Layout.js",
+      "source_location": "L8",
+      "id": "components_layout_layout",
+      "community": 1,
+      "norm_label": "layout()"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "components/Layout.js",
+      "source_location": "L18",
+      "id": "components_layout_styles",
+      "community": 1,
+      "norm_label": "styles"
+    },
+    {
+      "label": "SearchBar.js",
+      "file_type": "code",
+      "source_file": "components/SearchBar.js",
+      "source_location": "L1",
+      "id": "components_searchbar_js",
+      "community": 12,
+      "norm_label": "searchbar.js"
+    },
+    {
+      "label": "AuthContext.js",
+      "file_type": "code",
+      "source_file": "contexts/AuthContext.js",
+      "source_location": "L1",
+      "id": "contexts_authcontext_js",
+      "community": 5,
+      "norm_label": "authcontext.js"
+    },
+    {
+      "label": "AuthContext",
+      "file_type": "code",
+      "source_file": "contexts/AuthContext.js",
+      "source_location": "L4",
+      "id": "contexts_authcontext_authcontext",
+      "community": 5,
+      "norm_label": "authcontext"
+    },
+    {
+      "label": "AuthProvider()",
+      "file_type": "code",
+      "source_file": "contexts/AuthContext.js",
+      "source_location": "L6",
+      "id": "contexts_authcontext_authprovider",
+      "community": 5,
+      "norm_label": "authprovider()"
+    },
+    {
+      "label": "useAuth()",
+      "file_type": "code",
+      "source_file": "contexts/AuthContext.js",
+      "source_location": "L29",
+      "id": "contexts_authcontext_useauth",
+      "community": 5,
+      "norm_label": "useauth()"
+    },
+    {
+      "label": "CartContext.js",
+      "file_type": "code",
+      "source_file": "contexts/CartContext.js",
+      "source_location": "L1",
+      "id": "contexts_cartcontext_js",
+      "community": 13,
+      "norm_label": "cartcontext.js"
+    },
+    {
+      "label": "AppNavigator.js",
+      "file_type": "code",
+      "source_file": "navigation/AppNavigator.js",
+      "source_location": "L1",
+      "id": "navigation_appnavigator_js",
+      "community": 5,
+      "norm_label": "appnavigator.js"
+    },
+    {
+      "label": "Stack",
+      "file_type": "code",
+      "source_file": "navigation/AppNavigator.js",
+      "source_location": "L8",
+      "id": "navigation_appnavigator_stack",
+      "community": 5,
+      "norm_label": "stack"
+    },
+    {
+      "label": "AppNavigator()",
+      "file_type": "code",
+      "source_file": "navigation/AppNavigator.js",
+      "source_location": "L10",
+      "id": "navigation_appnavigator_appnavigator",
+      "community": 5,
+      "norm_label": "appnavigator()"
+    },
+    {
+      "label": "DrawerNavigator.js",
+      "file_type": "code",
+      "source_file": "navigation/DrawerNavigator.js",
+      "source_location": "L1",
+      "id": "navigation_drawernavigator_js",
+      "community": 1,
+      "norm_label": "drawernavigator.js"
+    },
+    {
+      "label": "Drawer",
+      "file_type": "code",
+      "source_file": "navigation/DrawerNavigator.js",
+      "source_location": "L8",
+      "id": "navigation_drawernavigator_drawer",
+      "community": 1,
+      "norm_label": "drawer"
+    },
+    {
+      "label": "DrawerNavigator()",
+      "file_type": "code",
+      "source_file": "navigation/DrawerNavigator.js",
+      "source_location": "L10",
+      "id": "navigation_drawernavigator_drawernavigator",
+      "community": 1,
+      "norm_label": "drawernavigator()"
+    },
+    {
+      "label": "TabNavigator.js",
+      "file_type": "code",
+      "source_file": "navigation/TabNavigator.js",
+      "source_location": "L1",
+      "id": "navigation_tabnavigator_js",
+      "community": 1,
+      "norm_label": "tabnavigator.js"
+    },
+    {
+      "label": "Tab",
+      "file_type": "code",
+      "source_file": "navigation/TabNavigator.js",
+      "source_location": "L11",
+      "id": "navigation_tabnavigator_tab",
+      "community": 1,
+      "norm_label": "tab"
+    },
+    {
+      "label": "TabNavigator()",
+      "file_type": "code",
+      "source_file": "navigation/TabNavigator.js",
+      "source_location": "L13",
+      "id": "navigation_tabnavigator_tabnavigator",
+      "community": 1,
+      "norm_label": "tabnavigator()"
+    },
+    {
+      "label": "AboutScreen.js",
+      "file_type": "code",
+      "source_file": "screens/AboutScreen.js",
+      "source_location": "L1",
+      "id": "screens_aboutscreen_js",
+      "community": 1,
+      "norm_label": "aboutscreen.js"
+    },
+    {
+      "label": "AboutScreen()",
+      "file_type": "code",
+      "source_file": "screens/AboutScreen.js",
+      "source_location": "L7",
+      "id": "screens_aboutscreen_aboutscreen",
+      "community": 1,
+      "norm_label": "aboutscreen()"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "screens/AboutScreen.js",
+      "source_location": "L20",
+      "id": "screens_aboutscreen_styles",
+      "community": 1,
+      "norm_label": "styles"
+    },
+    {
+      "label": "AdmissionsScreen.js",
+      "file_type": "code",
+      "source_file": "screens/AdmissionsScreen.js",
+      "source_location": "L1",
+      "id": "screens_admissionsscreen_js",
+      "community": 8,
+      "norm_label": "admissionsscreen.js"
+    },
+    {
+      "label": "AdmissionsScreen()",
+      "file_type": "code",
+      "source_file": "screens/AdmissionsScreen.js",
+      "source_location": "L5",
+      "id": "screens_admissionsscreen_admissionsscreen",
+      "community": 8,
+      "norm_label": "admissionsscreen()"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "screens/AdmissionsScreen.js",
+      "source_location": "L70",
+      "id": "screens_admissionsscreen_styles",
+      "community": 8,
+      "norm_label": "styles"
+    },
+    {
+      "label": "CartScreen.js",
+      "file_type": "code",
+      "source_file": "screens/CartScreen.js",
+      "source_location": "L1",
+      "id": "screens_cartscreen_js",
+      "community": 1,
+      "norm_label": "cartscreen.js"
+    },
+    {
+      "label": "CartScreen()",
+      "file_type": "code",
+      "source_file": "screens/CartScreen.js",
+      "source_location": "L4",
+      "id": "screens_cartscreen_cartscreen",
+      "community": 1,
+      "norm_label": "cartscreen()"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "screens/CartScreen.js",
+      "source_location": "L12",
+      "id": "screens_cartscreen_styles",
+      "community": 1,
+      "norm_label": "styles"
+    },
+    {
+      "label": "ContactUsScreen.js",
+      "file_type": "code",
+      "source_file": "screens/ContactUsScreen.js",
+      "source_location": "L1",
+      "id": "screens_contactusscreen_js",
+      "community": 1,
+      "norm_label": "contactusscreen.js"
+    },
+    {
+      "label": "ContactUsScreen()",
+      "file_type": "code",
+      "source_file": "screens/ContactUsScreen.js",
+      "source_location": "L4",
+      "id": "screens_contactusscreen_contactusscreen",
+      "community": 1,
+      "norm_label": "contactusscreen()"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "screens/ContactUsScreen.js",
+      "source_location": "L12",
+      "id": "screens_contactusscreen_styles",
+      "community": 1,
+      "norm_label": "styles"
+    },
+    {
+      "label": "HomeScreen.js",
+      "file_type": "code",
+      "source_file": "screens/HomeScreen.js",
+      "source_location": "L1",
+      "id": "screens_homescreen_js",
+      "community": 1,
+      "norm_label": "homescreen.js"
+    },
+    {
+      "label": "METRICS",
+      "file_type": "code",
+      "source_file": "screens/HomeScreen.js",
+      "source_location": "L11",
+      "id": "screens_homescreen_metrics",
+      "community": 1,
+      "norm_label": "metrics"
+    },
+    {
+      "label": "MODULES",
+      "file_type": "code",
+      "source_file": "screens/HomeScreen.js",
+      "source_location": "L18",
+      "id": "screens_homescreen_modules",
+      "community": 1,
+      "norm_label": "modules"
+    },
+    {
+      "label": "HomeScreen()",
+      "file_type": "code",
+      "source_file": "screens/HomeScreen.js",
+      "source_location": "L29",
+      "id": "screens_homescreen_homescreen",
+      "community": 1,
+      "norm_label": "homescreen()"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "screens/HomeScreen.js",
+      "source_location": "L76",
+      "id": "screens_homescreen_styles",
+      "community": 1,
+      "norm_label": "styles"
+    },
+    {
+      "label": "LoginScreen.js",
+      "file_type": "code",
+      "source_file": "screens/LoginScreen.js",
+      "source_location": "L1",
+      "id": "screens_loginscreen_js",
+      "community": 5,
+      "norm_label": "loginscreen.js"
+    },
+    {
+      "label": "validationSchema",
+      "file_type": "code",
+      "source_file": "screens/LoginScreen.js",
+      "source_location": "L8",
+      "id": "screens_loginscreen_validationschema",
+      "community": 5,
+      "norm_label": "validationschema"
+    },
+    {
+      "label": "LoginScreen()",
+      "file_type": "code",
+      "source_file": "screens/LoginScreen.js",
+      "source_location": "L13",
+      "id": "screens_loginscreen_loginscreen",
+      "community": 5,
+      "norm_label": "loginscreen()"
+    },
+    {
+      "label": "ModulesScreen.js",
+      "file_type": "code",
+      "source_file": "screens/ModulesScreen.js",
+      "source_location": "L1",
+      "id": "screens_modulesscreen_js",
+      "community": 1,
+      "norm_label": "modulesscreen.js"
+    },
+    {
+      "label": "modules",
+      "file_type": "code",
+      "source_file": "screens/ModulesScreen.js",
+      "source_location": "L4",
+      "id": "screens_modulesscreen_modules",
+      "community": 1,
+      "norm_label": "modules"
+    },
+    {
+      "label": "ModulesScreen()",
+      "file_type": "code",
+      "source_file": "screens/ModulesScreen.js",
+      "source_location": "L19",
+      "id": "screens_modulesscreen_modulesscreen",
+      "community": 1,
+      "norm_label": "modulesscreen()"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "screens/ModulesScreen.js",
+      "source_location": "L37",
+      "id": "screens_modulesscreen_styles",
+      "community": 1,
+      "norm_label": "styles"
+    },
+    {
+      "label": "PrivacyPolicyScreen.js",
+      "file_type": "code",
+      "source_file": "screens/PrivacyPolicyScreen.js",
+      "source_location": "L1",
+      "id": "screens_privacypolicyscreen_js",
+      "community": 1,
+      "norm_label": "privacypolicyscreen.js"
+    },
+    {
+      "label": "PrivacyPolicyScreen()",
+      "file_type": "code",
+      "source_file": "screens/PrivacyPolicyScreen.js",
+      "source_location": "L4",
+      "id": "screens_privacypolicyscreen_privacypolicyscreen",
+      "community": 1,
+      "norm_label": "privacypolicyscreen()"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "screens/PrivacyPolicyScreen.js",
+      "source_location": "L12",
+      "id": "screens_privacypolicyscreen_styles",
+      "community": 1,
+      "norm_label": "styles"
+    },
+    {
+      "label": "ProductDetailsScreen.js",
+      "file_type": "code",
+      "source_file": "screens/ProductDetailsScreen.js",
+      "source_location": "L1",
+      "id": "screens_productdetailsscreen_js",
+      "community": 10,
+      "norm_label": "productdetailsscreen.js"
+    },
+    {
+      "label": "ProductDetailsScreen()",
+      "file_type": "code",
+      "source_file": "screens/ProductDetailsScreen.js",
+      "source_location": "L4",
+      "id": "screens_productdetailsscreen_productdetailsscreen",
+      "community": 10,
+      "norm_label": "productdetailsscreen()"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "screens/ProductDetailsScreen.js",
+      "source_location": "L14",
+      "id": "screens_productdetailsscreen_styles",
+      "community": 10,
+      "norm_label": "styles"
+    },
+    {
+      "label": "ProfileScreen.js",
+      "file_type": "code",
+      "source_file": "screens/ProfileScreen.js",
+      "source_location": "L1",
+      "id": "screens_profilescreen_js",
+      "community": 1,
+      "norm_label": "profilescreen.js"
+    },
+    {
+      "label": "ProfileScreen()",
+      "file_type": "code",
+      "source_file": "screens/ProfileScreen.js",
+      "source_location": "L7",
+      "id": "screens_profilescreen_profilescreen",
+      "community": 1,
+      "norm_label": "profilescreen()"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "screens/ProfileScreen.js",
+      "source_location": "L17",
+      "id": "screens_profilescreen_styles",
+      "community": 1,
+      "norm_label": "styles"
+    },
+    {
+      "label": "SearchScreen.js",
+      "file_type": "code",
+      "source_file": "screens/SearchScreen.js",
+      "source_location": "L1",
+      "id": "screens_searchscreen_js",
+      "community": 14,
+      "norm_label": "searchscreen.js"
+    },
+    {
+      "label": "StudentsScreen.js",
+      "file_type": "code",
+      "source_file": "screens/StudentsScreen.js",
+      "source_location": "L1",
+      "id": "screens_studentsscreen_js",
+      "community": 1,
+      "norm_label": "studentsscreen.js"
+    },
+    {
+      "label": "StudentsScreen()",
+      "file_type": "code",
+      "source_file": "screens/StudentsScreen.js",
+      "source_location": "L5",
+      "id": "screens_studentsscreen_studentsscreen",
+      "community": 1,
+      "norm_label": "studentsscreen()"
+    },
+    {
+      "label": "styles",
+      "file_type": "code",
+      "source_file": "screens/StudentsScreen.js",
+      "source_location": "L70",
+      "id": "screens_studentsscreen_styles",
+      "community": 1,
+      "norm_label": "styles"
+    },
+    {
+      "label": "admissionsService.js",
+      "file_type": "code",
+      "source_file": "services/admissionsService.js",
+      "source_location": "L1",
+      "id": "services_admissionsservice_js",
+      "community": 8,
+      "norm_label": "admissionsservice.js"
+    },
+    {
+      "label": "demoLeads",
+      "file_type": "code",
+      "source_file": "services/admissionsService.js",
+      "source_location": "L1",
+      "id": "services_admissionsservice_demoleads",
+      "community": 8,
+      "norm_label": "demoleads"
+    },
+    {
+      "label": "fetchLeads()",
+      "file_type": "code",
+      "source_file": "services/admissionsService.js",
+      "source_location": "L7",
+      "id": "services_admissionsservice_fetchleads",
+      "community": 8,
+      "norm_label": "fetchleads()"
+    },
+    {
+      "label": "api.js",
+      "file_type": "code",
+      "source_file": "services/api.js",
+      "source_location": "L1",
+      "id": "services_api_js",
+      "community": 5,
+      "norm_label": "api.js"
+    },
+    {
+      "label": "getEnv()",
+      "file_type": "code",
+      "source_file": "services/api.js",
+      "source_location": "L1",
+      "id": "services_api_getenv",
+      "community": 5,
+      "norm_label": "getenv()"
+    },
+    {
+      "label": "supabaseConfig",
+      "file_type": "code",
+      "source_file": "services/api.js",
+      "source_location": "L3",
+      "id": "services_api_supabaseconfig",
+      "community": 5,
+      "norm_label": "supabaseconfig"
+    },
+    {
+      "label": "authService.js",
+      "file_type": "code",
+      "source_file": "services/authService.js",
+      "source_location": "L1",
+      "id": "services_authservice_js",
+      "community": 5,
+      "norm_label": "authservice.js"
+    },
+    {
+      "label": "signInWithEmail()",
+      "file_type": "code",
+      "source_file": "services/authService.js",
+      "source_location": "L3",
+      "id": "services_authservice_signinwithemail",
+      "community": 5,
+      "norm_label": "signinwithemail()"
+    },
+    {
+      "label": "signOutUser()",
+      "file_type": "code",
+      "source_file": "services/authService.js",
+      "source_location": "L19",
+      "id": "services_authservice_signoutuser",
+      "community": 5,
+      "norm_label": "signoutuser()"
+    },
+    {
+      "label": "studentsService.js",
+      "file_type": "code",
+      "source_file": "services/studentsService.js",
+      "source_location": "L1",
+      "id": "services_studentsservice_js",
+      "community": 1,
+      "norm_label": "studentsservice.js"
+    },
+    {
+      "label": "demoStudents",
+      "file_type": "code",
+      "source_file": "services/studentsService.js",
+      "source_location": "L1",
+      "id": "services_studentsservice_demostudents",
+      "community": 1,
+      "norm_label": "demostudents"
+    },
+    {
+      "label": "fetchStudents()",
+      "file_type": "code",
+      "source_file": "services/studentsService.js",
+      "source_location": "L7",
+      "id": "services_studentsservice_fetchstudents",
+      "community": 1,
+      "norm_label": "fetchstudents()"
+    },
+    {
+      "label": "colors.js",
+      "file_type": "code",
+      "source_file": "styles/colors.js",
+      "source_location": "L1",
+      "id": "styles_colors_js",
+      "community": 15,
+      "norm_label": "colors.js"
+    },
+    {
+      "label": "fonts.js",
+      "file_type": "code",
+      "source_file": "styles/fonts.js",
+      "source_location": "L1",
+      "id": "styles_fonts_js",
+      "community": 16,
+      "norm_label": "fonts.js"
+    },
+    {
+      "label": "globalStyles.js",
+      "file_type": "code",
+      "source_file": "styles/globalStyles.js",
+      "source_location": "L1",
+      "id": "styles_globalstyles_js",
+      "community": 1,
+      "norm_label": "globalstyles.js"
+    },
+    {
+      "label": "globalStyles",
+      "file_type": "code",
+      "source_file": "styles/globalStyles.js",
+      "source_location": "L3",
+      "id": "styles_globalstyles_globalstyles",
+      "community": 1,
+      "norm_label": "globalstyles"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L1",
+      "id": "webapp_package_json",
+      "community": 6,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L2",
+      "id": "webapp_package_name",
+      "community": 6,
+      "norm_label": "name"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L3",
+      "id": "webapp_package_private",
+      "community": 6,
+      "norm_label": "private"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L4",
+      "id": "webapp_package_version",
+      "community": 6,
+      "norm_label": "version"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L5",
+      "id": "webapp_package_type",
+      "community": 6,
+      "norm_label": "type"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L6",
+      "id": "webapp_package_scripts",
+      "community": 6,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L7",
+      "id": "webapp_package_scripts_dev",
+      "community": 6,
+      "norm_label": "dev"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L8",
+      "id": "webapp_package_scripts_build",
+      "community": 6,
+      "norm_label": "build"
+    },
+    {
+      "label": "preview",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L9",
+      "id": "webapp_package_scripts_preview",
+      "community": 6,
+      "norm_label": "preview"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L11",
+      "id": "webapp_package_dependencies",
+      "community": 6,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "react",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L12",
+      "id": "webapp_package_dependencies_react",
+      "community": 6,
+      "norm_label": "react"
+    },
+    {
+      "label": "react-dom",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L13",
+      "id": "webapp_package_dependencies_react_dom",
+      "community": 6,
+      "norm_label": "react-dom"
+    },
+    {
+      "label": "react-router-dom",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L14",
+      "id": "webapp_package_dependencies_react_router_dom",
+      "community": 6,
+      "norm_label": "react-router-dom"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L16",
+      "id": "webapp_package_devdependencies",
+      "community": 6,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@vitejs/plugin-react",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L17",
+      "id": "webapp_package_devdependencies_vitejs_plugin_react",
+      "community": 6,
+      "norm_label": "@vitejs/plugin-react"
+    },
+    {
+      "label": "vite",
+      "file_type": "code",
+      "source_file": "webapp/package.json",
+      "source_location": "L18",
+      "id": "webapp_package_devdependencies_vite",
+      "community": 6,
+      "norm_label": "vite"
+    },
+    {
+      "label": "vite.config.js",
+      "file_type": "code",
+      "source_file": "webapp/vite.config.js",
+      "source_location": "L1",
+      "id": "webapp_vite_config_js",
+      "community": 17,
+      "norm_label": "vite.config.js"
+    },
+    {
+      "label": "App.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_app_jsx",
+      "community": 0,
+      "norm_label": "app.jsx"
+    },
+    {
+      "label": "primaryNav",
+      "file_type": "code",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L24",
+      "id": "src_app_primarynav",
+      "community": 0,
+      "norm_label": "primarynav"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L31",
+      "id": "src_app_app",
+      "community": 0,
+      "norm_label": "app()"
+    },
+    {
+      "label": "main.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/main.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_main_jsx",
+      "community": 2,
+      "norm_label": "main.jsx"
+    },
+    {
+      "label": "PageHeader.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/components/PageHeader.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_components_pageheader_jsx",
+      "community": 0,
+      "norm_label": "pageheader.jsx"
+    },
+    {
+      "label": "PageHeader()",
+      "file_type": "code",
+      "source_file": "webapp/src/components/PageHeader.jsx",
+      "source_location": "L1",
+      "id": "components_pageheader_pageheader",
+      "community": 0,
+      "norm_label": "pageheader()"
+    },
+    {
+      "label": "AppDataContext.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_context_appdatacontext_jsx",
+      "community": 2,
+      "norm_label": "appdatacontext.jsx"
+    },
+    {
+      "label": "AppDataContext",
+      "file_type": "code",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L22",
+      "id": "context_appdatacontext_appdatacontext",
+      "community": 2,
+      "norm_label": "appdatacontext"
+    },
+    {
+      "label": "defaultState",
+      "file_type": "code",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L24",
+      "id": "context_appdatacontext_defaultstate",
+      "community": 2,
+      "norm_label": "defaultstate"
+    },
+    {
+      "label": "loadState()",
+      "file_type": "code",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L43",
+      "id": "context_appdatacontext_loadstate",
+      "community": 2,
+      "norm_label": "loadstate()"
+    },
+    {
+      "label": "AppDataProvider()",
+      "file_type": "code",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L52",
+      "id": "context_appdatacontext_appdataprovider",
+      "community": 2,
+      "norm_label": "appdataprovider()"
+    },
+    {
+      "label": "useAppData()",
+      "file_type": "code",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L97",
+      "id": "context_appdatacontext_useappdata",
+      "community": 0,
+      "norm_label": "useappdata()"
+    },
+    {
+      "label": "config.js",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/config.js",
+      "source_location": "L1",
+      "id": "webapp_src_lib_config_js",
+      "community": 9,
+      "norm_label": "config.js"
+    },
+    {
+      "label": "config",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/config.js",
+      "source_location": "L1",
+      "id": "lib_config_config",
+      "community": 9,
+      "norm_label": "config"
+    },
+    {
+      "label": "hasSupabaseConfig",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/config.js",
+      "source_location": "L8",
+      "id": "lib_config_hassupabaseconfig",
+      "community": 9,
+      "norm_label": "hassupabaseconfig"
+    },
+    {
+      "label": "hasOpenRouterConfig",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/config.js",
+      "source_location": "L9",
+      "id": "lib_config_hasopenrouterconfig",
+      "community": 9,
+      "norm_label": "hasopenrouterconfig"
+    },
+    {
+      "label": "mockData.js",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L1",
+      "id": "webapp_src_lib_mockdata_js",
+      "community": 2,
+      "norm_label": "mockdata.js"
+    },
+    {
+      "label": "initialLeads",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L1",
+      "id": "lib_mockdata_initialleads",
+      "community": 2,
+      "norm_label": "initialleads"
+    },
+    {
+      "label": "initialStudents",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L6",
+      "id": "lib_mockdata_initialstudents",
+      "community": 2,
+      "norm_label": "initialstudents"
+    },
+    {
+      "label": "initialAttendance",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L12",
+      "id": "lib_mockdata_initialattendance",
+      "community": 2,
+      "norm_label": "initialattendance"
+    },
+    {
+      "label": "initialInvoices",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L17",
+      "id": "lib_mockdata_initialinvoices",
+      "community": 2,
+      "norm_label": "initialinvoices"
+    },
+    {
+      "label": "initialMessages",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L22",
+      "id": "lib_mockdata_initialmessages",
+      "community": 2,
+      "norm_label": "initialmessages"
+    },
+    {
+      "label": "initialSubjects",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L28",
+      "id": "lib_mockdata_initialsubjects",
+      "community": 2,
+      "norm_label": "initialsubjects"
+    },
+    {
+      "label": "initialTimetable",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L33",
+      "id": "lib_mockdata_initialtimetable",
+      "community": 2,
+      "norm_label": "initialtimetable"
+    },
+    {
+      "label": "initialExams",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L38",
+      "id": "lib_mockdata_initialexams",
+      "community": 2,
+      "norm_label": "initialexams"
+    },
+    {
+      "label": "initialTransport",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L44",
+      "id": "lib_mockdata_initialtransport",
+      "community": 2,
+      "norm_label": "initialtransport"
+    },
+    {
+      "label": "initialHostel",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L49",
+      "id": "lib_mockdata_initialhostel",
+      "community": 2,
+      "norm_label": "initialhostel"
+    },
+    {
+      "label": "initialLibrary",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L54",
+      "id": "lib_mockdata_initiallibrary",
+      "community": 2,
+      "norm_label": "initiallibrary"
+    },
+    {
+      "label": "initialPayroll",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L59",
+      "id": "lib_mockdata_initialpayroll",
+      "community": 2,
+      "norm_label": "initialpayroll"
+    },
+    {
+      "label": "initialInventory",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L64",
+      "id": "lib_mockdata_initialinventory",
+      "community": 2,
+      "norm_label": "initialinventory"
+    },
+    {
+      "label": "initialAiInsights",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L70",
+      "id": "lib_mockdata_initialaiinsights",
+      "community": 2,
+      "norm_label": "initialaiinsights"
+    },
+    {
+      "label": "initialAutomation",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L75",
+      "id": "lib_mockdata_initialautomation",
+      "community": 2,
+      "norm_label": "initialautomation"
+    },
+    {
+      "label": "initialPredictiveFlags",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L80",
+      "id": "lib_mockdata_initialpredictiveflags",
+      "community": 2,
+      "norm_label": "initialpredictiveflags"
+    },
+    {
+      "label": "modules.js",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/modules.js",
+      "source_location": "L1",
+      "id": "webapp_src_lib_modules_js",
+      "community": 0,
+      "norm_label": "modules.js"
+    },
+    {
+      "label": "moduleCatalog",
+      "file_type": "code",
+      "source_file": "webapp/src/lib/modules.js",
+      "source_location": "L1",
+      "id": "lib_modules_modulecatalog",
+      "community": 0,
+      "norm_label": "modulecatalog"
+    },
+    {
+      "label": "AcademicsPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/AcademicsPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_academicspage_jsx",
+      "community": 0,
+      "norm_label": "academicspage.jsx"
+    },
+    {
+      "label": "AcademicsPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/AcademicsPage.jsx",
+      "source_location": "L5",
+      "id": "pages_academicspage_academicspage",
+      "community": 0,
+      "norm_label": "academicspage()"
+    },
+    {
+      "label": "AdmissionsPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/AdmissionsPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_admissionspage_jsx",
+      "community": 0,
+      "norm_label": "admissionspage.jsx"
+    },
+    {
+      "label": "AdmissionsPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/AdmissionsPage.jsx",
+      "source_location": "L5",
+      "id": "pages_admissionspage_admissionspage",
+      "community": 0,
+      "norm_label": "admissionspage()"
+    },
+    {
+      "label": "AttendancePage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/AttendancePage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_attendancepage_jsx",
+      "community": 0,
+      "norm_label": "attendancepage.jsx"
+    },
+    {
+      "label": "AttendancePage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/AttendancePage.jsx",
+      "source_location": "L5",
+      "id": "pages_attendancepage_attendancepage",
+      "community": 0,
+      "norm_label": "attendancepage()"
+    },
+    {
+      "label": "AutomationPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/AutomationPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_automationpage_jsx",
+      "community": 0,
+      "norm_label": "automationpage.jsx"
+    },
+    {
+      "label": "AutomationPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/AutomationPage.jsx",
+      "source_location": "L5",
+      "id": "pages_automationpage_automationpage",
+      "community": 0,
+      "norm_label": "automationpage()"
+    },
+    {
+      "label": "CommunicationPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/CommunicationPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_communicationpage_jsx",
+      "community": 0,
+      "norm_label": "communicationpage.jsx"
+    },
+    {
+      "label": "CommunicationPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/CommunicationPage.jsx",
+      "source_location": "L5",
+      "id": "pages_communicationpage_communicationpage",
+      "community": 0,
+      "norm_label": "communicationpage()"
+    },
+    {
+      "label": "DashboardPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/DashboardPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_dashboardpage_jsx",
+      "community": 0,
+      "norm_label": "dashboardpage.jsx"
+    },
+    {
+      "label": "cards",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/DashboardPage.jsx",
+      "source_location": "L3",
+      "id": "pages_dashboardpage_cards",
+      "community": 0,
+      "norm_label": "cards"
+    },
+    {
+      "label": "DashboardPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/DashboardPage.jsx",
+      "source_location": "L12",
+      "id": "pages_dashboardpage_dashboardpage",
+      "community": 0,
+      "norm_label": "dashboardpage()"
+    },
+    {
+      "label": "ExamsPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/ExamsPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_examspage_jsx",
+      "community": 0,
+      "norm_label": "examspage.jsx"
+    },
+    {
+      "label": "ExamsPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/ExamsPage.jsx",
+      "source_location": "L5",
+      "id": "pages_examspage_examspage",
+      "community": 0,
+      "norm_label": "examspage()"
+    },
+    {
+      "label": "FeesPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/FeesPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_feespage_jsx",
+      "community": 0,
+      "norm_label": "feespage.jsx"
+    },
+    {
+      "label": "FeesPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/FeesPage.jsx",
+      "source_location": "L5",
+      "id": "pages_feespage_feespage",
+      "community": 0,
+      "norm_label": "feespage()"
+    },
+    {
+      "label": "HostelPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/HostelPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_hostelpage_jsx",
+      "community": 0,
+      "norm_label": "hostelpage.jsx"
+    },
+    {
+      "label": "HostelPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/HostelPage.jsx",
+      "source_location": "L5",
+      "id": "pages_hostelpage_hostelpage",
+      "community": 0,
+      "norm_label": "hostelpage()"
+    },
+    {
+      "label": "IntelligencePage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/IntelligencePage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_intelligencepage_jsx",
+      "community": 0,
+      "norm_label": "intelligencepage.jsx"
+    },
+    {
+      "label": "IntelligencePage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/IntelligencePage.jsx",
+      "source_location": "L5",
+      "id": "pages_intelligencepage_intelligencepage",
+      "community": 0,
+      "norm_label": "intelligencepage()"
+    },
+    {
+      "label": "InventoryPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/InventoryPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_inventorypage_jsx",
+      "community": 0,
+      "norm_label": "inventorypage.jsx"
+    },
+    {
+      "label": "InventoryPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/InventoryPage.jsx",
+      "source_location": "L5",
+      "id": "pages_inventorypage_inventorypage",
+      "community": 0,
+      "norm_label": "inventorypage()"
+    },
+    {
+      "label": "LibraryPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/LibraryPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_librarypage_jsx",
+      "community": 0,
+      "norm_label": "librarypage.jsx"
+    },
+    {
+      "label": "LibraryPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/LibraryPage.jsx",
+      "source_location": "L5",
+      "id": "pages_librarypage_librarypage",
+      "community": 0,
+      "norm_label": "librarypage()"
+    },
+    {
+      "label": "ModuleLandingPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/ModuleLandingPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_modulelandingpage_jsx",
+      "community": 0,
+      "norm_label": "modulelandingpage.jsx"
+    },
+    {
+      "label": "ModuleLandingPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/ModuleLandingPage.jsx",
+      "source_location": "L5",
+      "id": "pages_modulelandingpage_modulelandingpage",
+      "community": 0,
+      "norm_label": "modulelandingpage()"
+    },
+    {
+      "label": "ModulesPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/ModulesPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_modulespage_jsx",
+      "community": 0,
+      "norm_label": "modulespage.jsx"
+    },
+    {
+      "label": "ModulesPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/ModulesPage.jsx",
+      "source_location": "L4",
+      "id": "pages_modulespage_modulespage",
+      "community": 0,
+      "norm_label": "modulespage()"
+    },
+    {
+      "label": "PayrollPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/PayrollPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_payrollpage_jsx",
+      "community": 0,
+      "norm_label": "payrollpage.jsx"
+    },
+    {
+      "label": "PayrollPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/PayrollPage.jsx",
+      "source_location": "L5",
+      "id": "pages_payrollpage_payrollpage",
+      "community": 0,
+      "norm_label": "payrollpage()"
+    },
+    {
+      "label": "PredictivePage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/PredictivePage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_predictivepage_jsx",
+      "community": 0,
+      "norm_label": "predictivepage.jsx"
+    },
+    {
+      "label": "PredictivePage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/PredictivePage.jsx",
+      "source_location": "L5",
+      "id": "pages_predictivepage_predictivepage",
+      "community": 0,
+      "norm_label": "predictivepage()"
+    },
+    {
+      "label": "StudentsPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/StudentsPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_studentspage_jsx",
+      "community": 0,
+      "norm_label": "studentspage.jsx"
+    },
+    {
+      "label": "StudentsPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/StudentsPage.jsx",
+      "source_location": "L5",
+      "id": "pages_studentspage_studentspage",
+      "community": 0,
+      "norm_label": "studentspage()"
+    },
+    {
+      "label": "TimetablePage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/TimetablePage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_timetablepage_jsx",
+      "community": 0,
+      "norm_label": "timetablepage.jsx"
+    },
+    {
+      "label": "TimetablePage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/TimetablePage.jsx",
+      "source_location": "L5",
+      "id": "pages_timetablepage_timetablepage",
+      "community": 0,
+      "norm_label": "timetablepage()"
+    },
+    {
+      "label": "TransportPage.jsx",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/TransportPage.jsx",
+      "source_location": "L1",
+      "id": "webapp_src_pages_transportpage_jsx",
+      "community": 0,
+      "norm_label": "transportpage.jsx"
+    },
+    {
+      "label": "TransportPage()",
+      "file_type": "code",
+      "source_file": "webapp/src/pages/TransportPage.jsx",
+      "source_location": "L5",
+      "id": "pages_transportpage_transportpage",
+      "community": 0,
+      "norm_label": "transportpage()"
+    }
+  ],
+  "links": [
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_js",
+      "target": "navigation_appnavigator_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_js",
+      "target": "contexts_authcontext_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_js",
+      "target": "contexts_authcontext_authprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_js",
+      "target": "owais_bhat_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_json",
+      "target": "owais_bhat_app_expo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo",
+      "target": "owais_bhat_app_expo_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo",
+      "target": "owais_bhat_app_expo_slug",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo",
+      "target": "owais_bhat_app_expo_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo",
+      "target": "owais_bhat_app_expo_orientation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo",
+      "target": "owais_bhat_app_expo_icon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo",
+      "target": "owais_bhat_app_expo_userinterfacestyle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo",
+      "target": "owais_bhat_app_expo_splash",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo",
+      "target": "owais_bhat_app_expo_ios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo",
+      "target": "owais_bhat_app_expo_android",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo",
+      "target": "owais_bhat_app_expo_web",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo_splash",
+      "target": "owais_bhat_app_splash_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo_splash",
+      "target": "owais_bhat_app_splash_resizemode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo_splash",
+      "target": "owais_bhat_app_splash_backgroundcolor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo_ios",
+      "target": "owais_bhat_app_ios_supportstablet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo_android",
+      "target": "owais_bhat_app_android_adaptiveicon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "owais_bhat_app_android_adaptiveicon",
+      "target": "owais_bhat_app_adaptiveicon_foregroundimage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "owais_bhat_app_android_adaptiveicon",
+      "target": "owais_bhat_app_adaptiveicon_backgroundcolor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "owais_bhat_app_expo_web",
+      "target": "owais_bhat_app_web_favicon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "owais_bhat_package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "owais_bhat_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "owais_bhat_package_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "owais_bhat_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "owais_bhat_package_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "owais_bhat_package_devdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "owais_bhat_package_private",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "owais_bhat_package_scripts",
+      "target": "owais_bhat_package_scripts_start",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "owais_bhat_package_scripts",
+      "target": "owais_bhat_package_scripts_android",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "owais_bhat_package_scripts",
+      "target": "owais_bhat_package_scripts_ios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "owais_bhat_package_scripts",
+      "target": "owais_bhat_package_scripts_web",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_expo_metro_runtime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react_native_community_masked_view",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react_navigation_bottom_tabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react_navigation_drawer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react_navigation_native",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react_navigation_stack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_expo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_expo_status_bar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_formik",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_install",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_npm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react_native",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react_native_gesture_handler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react_native_reanimated",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react_native_safe_area_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react_native_screens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react_native_vector_icons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_react_native_web",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "owais_bhat_package_dependencies",
+      "target": "owais_bhat_package_dependencies_yup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "owais_bhat_package_devdependencies",
+      "target": "owais_bhat_package_devdependencies_babel_core",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/ProfileScreen.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "screens_profilescreen_js",
+      "target": "components_footer_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Footer.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_footer_js",
+      "target": "screens_homescreen_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Footer.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_footer_js",
+      "target": "screens_cartscreen_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Footer.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_footer_js",
+      "target": "navigation_tabnavigator_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Footer.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_footer_js",
+      "target": "components_footer_footer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Footer.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "components_footer_js",
+      "target": "components_footer_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Layout.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_layout_js",
+      "target": "components_footer_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/AboutScreen.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "screens_aboutscreen_js",
+      "target": "components_footer_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Header.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_header_js",
+      "target": "styles_globalstyles_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Header.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_header_js",
+      "target": "components_header_header",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Layout.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_layout_js",
+      "target": "components_header_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/AboutScreen.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "screens_aboutscreen_js",
+      "target": "components_header_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/ProfileScreen.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "screens_profilescreen_js",
+      "target": "components_header_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Layout.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_layout_js",
+      "target": "navigation_tabnavigator_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Layout.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_layout_js",
+      "target": "components_layout_layout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Layout.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "components_layout_js",
+      "target": "components_layout_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "contexts/AuthContext.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "contexts_authcontext_js",
+      "target": "services_authservice_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "contexts/AuthContext.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "contexts_authcontext_js",
+      "target": "services_authservice_signinwithemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "contexts/AuthContext.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "contexts_authcontext_js",
+      "target": "services_authservice_signoutuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "contexts/AuthContext.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "contexts_authcontext_js",
+      "target": "contexts_authcontext_authcontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "contexts/AuthContext.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "contexts_authcontext_js",
+      "target": "contexts_authcontext_authprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "contexts/AuthContext.js",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "contexts_authcontext_js",
+      "target": "contexts_authcontext_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/AppNavigator.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "navigation_appnavigator_js",
+      "target": "contexts_authcontext_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/LoginScreen.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screens_loginscreen_js",
+      "target": "contexts_authcontext_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/AppNavigator.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "navigation_appnavigator_js",
+      "target": "contexts_authcontext_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/LoginScreen.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "screens_loginscreen_js",
+      "target": "contexts_authcontext_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "navigation/AppNavigator.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "navigation_appnavigator_appnavigator",
+      "target": "contexts_authcontext_useauth"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "screens/LoginScreen.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "screens_loginscreen_loginscreen",
+      "target": "contexts_authcontext_useauth"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/AppNavigator.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "navigation_appnavigator_js",
+      "target": "screens_loginscreen_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/AppNavigator.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "navigation_appnavigator_js",
+      "target": "navigation_drawernavigator_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/AppNavigator.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "navigation_appnavigator_js",
+      "target": "navigation_appnavigator_stack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/AppNavigator.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "navigation_appnavigator_js",
+      "target": "navigation_appnavigator_appnavigator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/DrawerNavigator.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "navigation_drawernavigator_js",
+      "target": "screens_aboutscreen_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/DrawerNavigator.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "navigation_drawernavigator_js",
+      "target": "screens_contactusscreen_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/DrawerNavigator.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "navigation_drawernavigator_js",
+      "target": "screens_privacypolicyscreen_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/DrawerNavigator.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "navigation_drawernavigator_js",
+      "target": "navigation_tabnavigator_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/DrawerNavigator.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "navigation_drawernavigator_js",
+      "target": "navigation_drawernavigator_drawer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/DrawerNavigator.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "navigation_drawernavigator_js",
+      "target": "navigation_drawernavigator_drawernavigator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/TabNavigator.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "navigation_tabnavigator_js",
+      "target": "screens_homescreen_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/TabNavigator.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "navigation_tabnavigator_js",
+      "target": "screens_profilescreen_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/TabNavigator.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "navigation_tabnavigator_js",
+      "target": "screens_modulesscreen_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/TabNavigator.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "navigation_tabnavigator_js",
+      "target": "screens_admissionsscreen_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/TabNavigator.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "navigation_tabnavigator_js",
+      "target": "screens_studentsscreen_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/TabNavigator.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "navigation_tabnavigator_js",
+      "target": "navigation_tabnavigator_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "navigation/TabNavigator.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "navigation_tabnavigator_js",
+      "target": "navigation_tabnavigator_tabnavigator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/AboutScreen.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "screens_aboutscreen_js",
+      "target": "navigation_tabnavigator_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/AboutScreen.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screens_aboutscreen_js",
+      "target": "screens_aboutscreen_aboutscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/AboutScreen.js",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "screens_aboutscreen_js",
+      "target": "screens_aboutscreen_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/AdmissionsScreen.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "screens_admissionsscreen_js",
+      "target": "services_admissionsservice_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/AdmissionsScreen.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "screens_admissionsscreen_js",
+      "target": "services_admissionsservice_fetchleads",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/AdmissionsScreen.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "screens_admissionsscreen_js",
+      "target": "screens_admissionsscreen_admissionsscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/AdmissionsScreen.js",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "screens_admissionsscreen_js",
+      "target": "screens_admissionsscreen_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/CartScreen.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "screens_cartscreen_js",
+      "target": "screens_cartscreen_cartscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/CartScreen.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "screens_cartscreen_js",
+      "target": "screens_cartscreen_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/ContactUsScreen.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "screens_contactusscreen_js",
+      "target": "screens_contactusscreen_contactusscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/ContactUsScreen.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "screens_contactusscreen_js",
+      "target": "screens_contactusscreen_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/HomeScreen.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "screens_homescreen_js",
+      "target": "screens_homescreen_metrics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/HomeScreen.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "screens_homescreen_js",
+      "target": "screens_homescreen_modules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/HomeScreen.js",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "screens_homescreen_js",
+      "target": "screens_homescreen_homescreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/HomeScreen.js",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "screens_homescreen_js",
+      "target": "screens_homescreen_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/LoginScreen.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "screens_loginscreen_js",
+      "target": "styles_globalstyles_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/LoginScreen.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "screens_loginscreen_js",
+      "target": "screens_loginscreen_validationschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/LoginScreen.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "screens_loginscreen_js",
+      "target": "screens_loginscreen_loginscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/ModulesScreen.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "screens_modulesscreen_js",
+      "target": "screens_modulesscreen_modules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/ModulesScreen.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "screens_modulesscreen_js",
+      "target": "screens_modulesscreen_modulesscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/ModulesScreen.js",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "screens_modulesscreen_js",
+      "target": "screens_modulesscreen_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/PrivacyPolicyScreen.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "screens_privacypolicyscreen_js",
+      "target": "screens_privacypolicyscreen_privacypolicyscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/PrivacyPolicyScreen.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "screens_privacypolicyscreen_js",
+      "target": "screens_privacypolicyscreen_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/ProductDetailsScreen.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "screens_productdetailsscreen_js",
+      "target": "screens_productdetailsscreen_productdetailsscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/ProductDetailsScreen.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "screens_productdetailsscreen_js",
+      "target": "screens_productdetailsscreen_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/ProfileScreen.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "screens_profilescreen_js",
+      "target": "styles_globalstyles_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/ProfileScreen.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "screens_profilescreen_js",
+      "target": "screens_profilescreen_profilescreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/ProfileScreen.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "screens_profilescreen_js",
+      "target": "screens_profilescreen_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/StudentsScreen.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "screens_studentsscreen_js",
+      "target": "services_studentsservice_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/StudentsScreen.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "screens_studentsscreen_js",
+      "target": "services_studentsservice_fetchstudents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/StudentsScreen.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "screens_studentsscreen_js",
+      "target": "screens_studentsscreen_studentsscreen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "screens/StudentsScreen.js",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "screens_studentsscreen_js",
+      "target": "screens_studentsscreen_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "services/admissionsService.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "services_admissionsservice_js",
+      "target": "services_admissionsservice_demoleads",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "services/admissionsService.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "services_admissionsservice_js",
+      "target": "services_admissionsservice_fetchleads",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "services/api.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "services_api_js",
+      "target": "services_api_getenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "services/api.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "services_api_js",
+      "target": "services_api_supabaseconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "services/authService.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "services_authservice_js",
+      "target": "services_api_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "services/authService.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "services_authservice_js",
+      "target": "services_api_supabaseconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "services/authService.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "services_authservice_js",
+      "target": "services_authservice_signinwithemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "services/authService.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "services_authservice_js",
+      "target": "services_authservice_signoutuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "services/studentsService.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "services_studentsservice_js",
+      "target": "services_studentsservice_demostudents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "services/studentsService.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "services_studentsservice_js",
+      "target": "services_studentsservice_fetchstudents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "styles/globalStyles.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "styles_globalstyles_js",
+      "target": "styles_globalstyles_globalstyles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_package_json",
+      "target": "webapp_package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_package_json",
+      "target": "webapp_package_private",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "webapp_package_json",
+      "target": "webapp_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_package_json",
+      "target": "webapp_package_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "webapp_package_json",
+      "target": "webapp_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "webapp_package_json",
+      "target": "webapp_package_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "webapp_package_json",
+      "target": "webapp_package_devdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "webapp_package_scripts",
+      "target": "webapp_package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "webapp_package_scripts",
+      "target": "webapp_package_scripts_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "webapp_package_scripts",
+      "target": "webapp_package_scripts_preview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "webapp_package_dependencies",
+      "target": "webapp_package_dependencies_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "webapp_package_dependencies",
+      "target": "webapp_package_dependencies_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "webapp_package_dependencies",
+      "target": "webapp_package_dependencies_react_router_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "webapp_package_devdependencies",
+      "target": "webapp_package_devdependencies_vitejs_plugin_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "webapp_package_devdependencies",
+      "target": "webapp_package_devdependencies_vite",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_dashboardpage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_admissionspage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_studentspage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_modulespage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_attendancepage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_feespage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_communicationpage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_academicspage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_timetablepage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_examspage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_transportpage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_hostelpage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_librarypage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_payrollpage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_inventorypage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_intelligencepage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_automationpage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_predictivepage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_pages_modulelandingpage_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "webapp_src_lib_modules_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "lib_modules_modulecatalog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "src_app_primarynav",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/App.jsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "webapp_src_app_jsx",
+      "target": "src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/main.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "webapp_src_main_jsx",
+      "target": "webapp_src_app_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/main.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_main_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/main.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_main_jsx",
+      "target": "context_appdatacontext_appdataprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/components/PageHeader.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "webapp_src_components_pageheader_jsx",
+      "target": "components_pageheader_pageheader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AcademicsPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_academicspage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AdmissionsPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_admissionspage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AttendancePage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_attendancepage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AutomationPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_automationpage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/CommunicationPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_communicationpage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/ExamsPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_examspage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/FeesPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_feespage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/HostelPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_hostelpage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/IntelligencePage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_intelligencepage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/InventoryPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_inventorypage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/LibraryPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_librarypage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/ModuleLandingPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_modulelandingpage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/ModulesPage.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "webapp_src_pages_modulespage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/PayrollPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_payrollpage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/PredictivePage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_predictivepage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/StudentsPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_studentspage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/TimetablePage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_timetablepage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/TransportPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_transportpage_jsx",
+      "target": "webapp_src_components_pageheader_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "webapp_src_lib_mockdata_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialaiinsights",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialattendance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialautomation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialexams",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialhostel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialinventory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialinvoices",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialleads",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initiallibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialmessages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialpayroll",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialpredictiveflags",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialstudents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialsubjects",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialtimetable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "lib_mockdata_initialtransport",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "context_appdatacontext_appdatacontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "context_appdatacontext_defaultstate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "context_appdatacontext_loadstate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "context_appdatacontext_appdataprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/context/AppDataContext.jsx",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "webapp_src_context_appdatacontext_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AcademicsPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_academicspage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AdmissionsPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_admissionspage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AttendancePage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_attendancepage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AutomationPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_automationpage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/CommunicationPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_communicationpage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/DashboardPage.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "webapp_src_pages_dashboardpage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/ExamsPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_examspage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/FeesPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_feespage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/HostelPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_hostelpage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/IntelligencePage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_intelligencepage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/InventoryPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_inventorypage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/LibraryPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_librarypage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/PayrollPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_payrollpage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/PredictivePage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_predictivepage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/StudentsPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_studentspage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/TimetablePage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_timetablepage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/TransportPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_transportpage_jsx",
+      "target": "webapp_src_context_appdatacontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AcademicsPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_academicspage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AdmissionsPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_admissionspage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AttendancePage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_attendancepage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AutomationPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_automationpage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/CommunicationPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_communicationpage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/DashboardPage.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "webapp_src_pages_dashboardpage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/ExamsPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_examspage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/FeesPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_feespage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/HostelPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_hostelpage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/IntelligencePage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_intelligencepage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/InventoryPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_inventorypage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/LibraryPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_librarypage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/PayrollPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_payrollpage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/PredictivePage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_predictivepage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/StudentsPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_studentspage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/TimetablePage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_timetablepage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/TransportPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_transportpage_jsx",
+      "target": "context_appdatacontext_useappdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/AcademicsPage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_academicspage_academicspage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/AdmissionsPage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_admissionspage_admissionspage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/AttendancePage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_attendancepage_attendancepage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/AutomationPage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_automationpage_automationpage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/CommunicationPage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_communicationpage_communicationpage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/DashboardPage.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "pages_dashboardpage_dashboardpage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/ExamsPage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_examspage_examspage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/FeesPage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_feespage_feespage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/HostelPage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_hostelpage_hostelpage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/IntelligencePage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_intelligencepage_intelligencepage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/InventoryPage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_inventorypage_inventorypage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/LibraryPage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_librarypage_librarypage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/PayrollPage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_payrollpage_payrollpage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/PredictivePage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_predictivepage_predictivepage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/StudentsPage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_studentspage_studentspage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/TimetablePage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_timetablepage_timetablepage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "webapp/src/pages/TransportPage.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_transportpage_transportpage",
+      "target": "context_appdatacontext_useappdata"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/config.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "webapp_src_lib_config_js",
+      "target": "lib_config_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/config.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "webapp_src_lib_config_js",
+      "target": "lib_config_hassupabaseconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/config.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "webapp_src_lib_config_js",
+      "target": "lib_config_hasopenrouterconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialleads",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialstudents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialattendance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialinvoices",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialmessages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialsubjects",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialtimetable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialexams",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialtransport",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialhostel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initiallibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialpayroll",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialinventory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialaiinsights",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialautomation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/mockData.js",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "webapp_src_lib_mockdata_js",
+      "target": "lib_mockdata_initialpredictiveflags",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/lib/modules.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "webapp_src_lib_modules_js",
+      "target": "lib_modules_modulecatalog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/DashboardPage.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "webapp_src_pages_dashboardpage_jsx",
+      "target": "webapp_src_lib_modules_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/ModuleLandingPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_modulelandingpage_jsx",
+      "target": "webapp_src_lib_modules_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/ModulesPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_modulespage_jsx",
+      "target": "webapp_src_lib_modules_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/DashboardPage.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "webapp_src_pages_dashboardpage_jsx",
+      "target": "lib_modules_modulecatalog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/ModuleLandingPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_modulelandingpage_jsx",
+      "target": "lib_modules_modulecatalog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/ModulesPage.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "webapp_src_pages_modulespage_jsx",
+      "target": "lib_modules_modulecatalog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AcademicsPage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_academicspage_jsx",
+      "target": "pages_academicspage_academicspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AdmissionsPage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_admissionspage_jsx",
+      "target": "pages_admissionspage_admissionspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AttendancePage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_attendancepage_jsx",
+      "target": "pages_attendancepage_attendancepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/AutomationPage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_automationpage_jsx",
+      "target": "pages_automationpage_automationpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/CommunicationPage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_communicationpage_jsx",
+      "target": "pages_communicationpage_communicationpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/DashboardPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "webapp_src_pages_dashboardpage_jsx",
+      "target": "pages_dashboardpage_cards",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/DashboardPage.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "webapp_src_pages_dashboardpage_jsx",
+      "target": "pages_dashboardpage_dashboardpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/ExamsPage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_examspage_jsx",
+      "target": "pages_examspage_examspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/FeesPage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_feespage_jsx",
+      "target": "pages_feespage_feespage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/HostelPage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_hostelpage_jsx",
+      "target": "pages_hostelpage_hostelpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/IntelligencePage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_intelligencepage_jsx",
+      "target": "pages_intelligencepage_intelligencepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/InventoryPage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_inventorypage_jsx",
+      "target": "pages_inventorypage_inventorypage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/LibraryPage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_librarypage_jsx",
+      "target": "pages_librarypage_librarypage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/ModuleLandingPage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_modulelandingpage_jsx",
+      "target": "pages_modulelandingpage_modulelandingpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/ModulesPage.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "webapp_src_pages_modulespage_jsx",
+      "target": "pages_modulespage_modulespage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/PayrollPage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_payrollpage_jsx",
+      "target": "pages_payrollpage_payrollpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/PredictivePage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_predictivepage_jsx",
+      "target": "pages_predictivepage_predictivepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/StudentsPage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_studentspage_jsx",
+      "target": "pages_studentspage_studentspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/TimetablePage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_timetablepage_jsx",
+      "target": "pages_timetablepage_timetablepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webapp/src/pages/TransportPage.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "webapp_src_pages_transportpage_jsx",
+      "target": "pages_transportpage_transportpage",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "89d06b37700bbd78c9a09172b849a502257def75"
+}

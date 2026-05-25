@@ -1,79 +1,166 @@
-import { NavLink, Route, Routes } from "react-router-dom";
-import DashboardPage from "./pages/DashboardPage";
-import AdmissionsPage from "./pages/AdmissionsPage";
-import StudentsPage from "./pages/StudentsPage";
-import ModulesPage from "./pages/ModulesPage";
-import AttendancePage from "./pages/AttendancePage";
-import FeesPage from "./pages/FeesPage";
-import CommunicationPage from "./pages/CommunicationPage";
-import AcademicsPage from "./pages/AcademicsPage";
-import TimetablePage from "./pages/TimetablePage";
-import ExamsPage from "./pages/ExamsPage";
-import TransportPage from "./pages/TransportPage";
-import HostelPage from "./pages/HostelPage";
-import LibraryPage from "./pages/LibraryPage";
-import PayrollPage from "./pages/PayrollPage";
-import InventoryPage from "./pages/InventoryPage";
-import IntelligencePage from "./pages/IntelligencePage";
-import AutomationPage from "./pages/AutomationPage";
-import PredictivePage from "./pages/PredictivePage";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { AppDataProvider } from './context/AppDataContext';
+import { NotificationProvider } from './context/NotificationContext';
+import NotificationCenter from './components/Common/NotificationCenter';
+import ProtectedRoute from './components/Common/ProtectedRoute';
 
-import ModuleLandingPage from "./pages/ModuleLandingPage";
-import { moduleCatalog } from "./lib/modules";
+// Auth Pages
+import LoginPage from './pages/Auth/LoginPage';
+import RegisterPage from './pages/Auth/RegisterPage';
 
-const primaryNav = [
-  { label: "Dashboard", to: "/" },
-  { label: "Admissions", to: "/admissions" },
-  { label: "Students", to: "/students" },
-  { label: "Modules", to: "/modules" },
-];
+// Dashboard
+import DashboardPage from './pages/Dashboard/DashboardPage';
 
-export default function App() {
+// Module Pages
+import StudentsPage from './pages/Modules/StudentsPage';
+import FeesPage from './pages/Modules/FeesPage';
+import AttendancePage from './pages/Modules/AttendancePage';
+import ExamsPage from './pages/Modules/ExamsPage';
+import LmsPage from './pages/Modules/LmsPage';
+import CommunicationPage from './pages/Modules/CommunicationPage';
+import TransportPage from './pages/Modules/TransportPage';
+import AdmissionsPage from './pages/Modules/AdmissionsPage';
+
+// AI Pages
+import AiTutorPage from './pages/AI/AiTutorPage';
+import CareerPathPage from './pages/AI/CareerPathPage';
+import PerformanceAnalysisPage from './pages/AI/PerformanceAnalysisPage';
+import FeeRecoveryPage from './pages/AI/FeeRecoveryPage';
+
+function App() {
   return (
-    <div className="layout">
-      <aside className="sidebar">
-        <h1>ERP Suite</h1>
-        <p>School / College / University</p>
-        <nav>
-          {primaryNav.map((item) => (
-            <NavLink key={item.label} to={item.to} className={({ isActive }) => `nav-item ${isActive ? "active" : ""}`} end={item.to === "/"}>
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
-        <div className="module-links">
-          {moduleCatalog.slice(3).map((item) => (
-            <NavLink key={item.slug} to={`/module/${item.slug}`} className={({ isActive }) => `module-link ${isActive ? "active" : ""}`}>
-              {item.name}
-            </NavLink>
-          ))}
-        </div>
-      </aside>
+    <BrowserRouter>
+      <AuthProvider>
+        <AppDataProvider>
+          <NotificationProvider>
+            <NotificationCenter />
+            <Routes>
+              {/* Public routes */}
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
 
-      <main className="content">
-        <Routes>
-          <Route path="/" element={<DashboardPage />} />
-          <Route path="/admissions" element={<AdmissionsPage />} />
-          <Route path="/students" element={<StudentsPage />} />
-          <Route path="/modules" element={<ModulesPage />} />
-          <Route path="/attendance" element={<AttendancePage />} />
-          <Route path="/fees" element={<FeesPage />} />
-          <Route path="/communication" element={<CommunicationPage />} />
-          <Route path="/academics" element={<AcademicsPage />} />
-          <Route path="/timetable" element={<TimetablePage />} />
-          <Route path="/exams" element={<ExamsPage />} />
-          <Route path="/transport" element={<TransportPage />} />
-          <Route path="/hostel" element={<HostelPage />} />
-          <Route path="/library" element={<LibraryPage />} />
-          <Route path="/payroll" element={<PayrollPage />} />
-          <Route path="/inventory" element={<InventoryPage />} />
-          <Route path="/intelligence" element={<IntelligencePage />} />
-          <Route path="/automation" element={<AutomationPage />} />
-          <Route path="/predictive" element={<PredictivePage />} />
+              {/* Protected routes */}
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <DashboardPage />
+                  </ProtectedRoute>
+                }
+              />
 
-          <Route path="/module/:slug" element={<ModuleLandingPage />} />
-        </Routes>
-      </main>
-    </div>
+              {/* Module Routes */}
+              <Route
+                path="/students"
+                element={
+                  <ProtectedRoute>
+                    <StudentsPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/fees"
+                element={
+                  <ProtectedRoute>
+                    <FeesPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/attendance"
+                element={
+                  <ProtectedRoute>
+                    <AttendancePage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/exams"
+                element={
+                  <ProtectedRoute>
+                    <ExamsPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/lms"
+                element={
+                  <ProtectedRoute>
+                    <LmsPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/communication"
+                element={
+                  <ProtectedRoute>
+                    <CommunicationPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/transport"
+                element={
+                  <ProtectedRoute>
+                    <TransportPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admissions"
+                element={
+                  <ProtectedRoute>
+                    <AdmissionsPage />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* AI Routes */}
+              <Route
+                path="/ai-tutor"
+                element={
+                  <ProtectedRoute>
+                    <AiTutorPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/career-path"
+                element={
+                  <ProtectedRoute>
+                    <CareerPathPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/performance-analysis"
+                element={
+                  <ProtectedRoute>
+                    <PerformanceAnalysisPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/fee-recovery"
+                element={
+                  <ProtectedRoute>
+                    <FeeRecoveryPage />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Redirect root to dashboard */}
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
+              {/* Catch all - redirect to login */}
+              <Route path="*" element={<Navigate to="/login" replace />} />
+            </Routes>
+          </NotificationProvider>
+        </AppDataProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
+
+export default App;

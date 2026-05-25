@@ -1,0 +1,167 @@
+// API Configuration
+export const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://niczzyobretbnnammypk.supabase.co';
+export const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_u9yzl0QAovW6xlldCFVMEQ_gTv0dvci';
+export const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY || '';
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+export const WS_URL = import.meta.env.VITE_WS_URL || 'http://localhost:5000';
+
+// Feature Flags
+export const FEATURES = {
+  AI_ENABLED: true,
+  LMS_ENABLED: true,
+  TRANSPORT_TRACKING: true,
+  REAL_TIME_NOTIFICATIONS: true,
+};
+
+// Institution Types
+export const INSTITUTION_TYPES = [
+  { id: 'school', label: 'School', icon: 'school' },
+  { id: 'college', label: 'College', icon: 'university' },
+  { id: 'university', label: 'University', icon: 'graduation-cap' },
+  { id: 'coaching', label: 'Coaching Center', icon: 'book' },
+];
+
+// User Roles
+export const ROLES = {
+  SUPER_ADMIN: 'super_admin',
+  INSTITUTION_ADMIN: 'institution_admin',
+  PRINCIPAL: 'principal',
+  TEACHER: 'teacher',
+  STUDENT: 'student',
+  PARENT: 'parent',
+  STAFF: 'staff',
+  ADMIN: 'admin',
+};
+
+// Color Palette - Glassmorphism + Light Blue Gradient
+export const COLORS = {
+  primary: '#0066FF',
+  light_blue: '#E0F2FE',
+  sky_blue: '#87CEEB',
+  deep_navy: '#0F172A',
+  neon_cyan: '#00F0FF',
+  violet: '#7C3AED',
+  emerald: '#10B981',
+  amber: '#F59E0B',
+  red: '#EF4444',
+  dark_bg: 'rgba(15, 23, 42, 0.9)',
+  glass_light: 'rgba(224, 242, 254, 0.6)',
+  glass_dark: 'rgba(255, 255, 255, 0.08)',
+};
+
+// Pagination
+export const PAGINATION = {
+  PAGE_SIZE: 20,
+  MAX_RESULTS: 1000,
+};
+
+// Date Formats
+export const DATE_FORMATS = {
+  DISPLAY: 'MMM d, yyyy',
+  INPUT: 'yyyy-MM-dd',
+  FULL: 'EEEE, MMMM d, yyyy',
+  TIME: 'HH:mm',
+  DATETIME: 'MMM d, yyyy HH:mm',
+};
+
+// Status Badges
+export const STATUS_COLORS = {
+  active: 'emerald',
+  pending: 'amber',
+  inactive: 'gray',
+  failed: 'red',
+  success: 'emerald',
+  warning: 'amber',
+  error: 'red',
+  info: 'blue',
+};
+
+// Menu Items for different roles (icon names mapped in Sidebar component)
+export const MENU_ITEMS = {
+  super_admin: [
+    { key: 'dashboard', iconName: 'MdDashboard', label: 'Dashboard', path: '/dashboard' },
+    { key: 'institutions', iconName: 'MdBusiness', label: 'Institutions', path: '/institutions' },
+    { key: 'subscriptions', iconName: 'MdCreditCard', label: 'Subscriptions', path: '/subscriptions' },
+    { key: 'analytics', iconName: 'MdTrendingUp', label: 'Analytics', path: '/analytics' },
+    { key: 'settings', iconName: 'MdSettings', label: 'Settings', path: '/settings' },
+  ],
+  institution_admin: [
+    { key: 'dashboard', iconName: 'MdDashboard', label: 'Dashboard', path: '/dashboard' },
+    {
+      key: 'academics',
+      iconName: 'MdBook',
+      label: 'Academics',
+      subItems: [
+        { key: 'students', label: 'Students', path: '/students' },
+        { key: 'attendance', label: 'Attendance', path: '/attendance' },
+        { key: 'exams', label: 'Exams', path: '/exams' },
+        { key: 'lms', label: 'Learning', path: '/lms' },
+      ]
+    },
+    {
+      key: 'operations',
+      iconName: 'MdBusiness',
+      label: 'Operations',
+      subItems: [
+        { key: 'admissions', label: 'Admissions', path: '/admissions' },
+        { key: 'transport', label: 'Transport', path: '/transport' },
+        { key: 'communication', label: 'Communication', path: '/communication' },
+      ]
+    },
+    { key: 'fees', iconName: 'MdAccountBalance', label: 'Fees', path: '/fees' },
+    {
+      key: 'ai',
+      iconName: 'MdLightbulb',
+      label: 'AI Tools',
+      subItems: [
+        { key: 'career-path', label: 'Career Path', path: '/career-path' },
+        { key: 'performance', label: 'Performance', path: '/performance-analysis' },
+        { key: 'fee-recovery', label: 'Fee Recovery', path: '/fee-recovery' },
+      ]
+    },
+    { key: 'settings', iconName: 'MdSettings', label: 'Settings', path: '/settings' },
+  ],
+  teacher: [
+    { key: 'dashboard', iconName: 'MdDashboard', label: 'Dashboard', path: '/dashboard' },
+    { key: 'my-classes', iconName: 'MdPeople', label: 'My Classes', path: '/my-classes' },
+    { key: 'attendance', iconName: 'MdAccessTime', label: 'Attendance', path: '/attendance' },
+    { key: 'lessons', iconName: 'MdBook', label: 'Lessons', path: '/lessons' },
+    { key: 'exams', iconName: 'MdBook', label: 'Exams', path: '/exams' },
+    { key: 'ai-tutor', iconName: 'MdLightbulb', label: 'AI Tutor', path: '/ai-tutor' },
+    { key: 'communication', iconName: 'MdChat', label: 'Communication', path: '/communication' },
+  ],
+  student: [
+    { key: 'dashboard', iconName: 'MdDashboard', label: 'Dashboard', path: '/dashboard' },
+    { key: 'lms', iconName: 'MdBook', label: 'Courses', path: '/lms' },
+    { key: 'attendance', iconName: 'MdAccessTime', label: 'Attendance', path: '/attendance' },
+    { key: 'exams', iconName: 'MdBook', label: 'Exams', path: '/exams' },
+    { key: 'ai-tutor', iconName: 'MdLightbulb', label: 'AI Tutor', path: '/ai-tutor' },
+    { key: 'career-path', iconName: 'MdTrendingUp', label: 'Career Path', path: '/career-path' },
+    { key: 'communication', iconName: 'MdChat', label: 'Messages', path: '/communication' },
+  ],
+  parent: [
+    { key: 'dashboard', iconName: 'MdDashboard', label: 'Dashboard', path: '/dashboard' },
+    { key: 'child', iconName: 'MdPerson', label: 'Child Profile', path: '/child' },
+    { key: 'attendance', iconName: 'MdAccessTime', label: 'Attendance', path: '/attendance' },
+    { key: 'exams', iconName: 'MdBook', label: 'Exams', path: '/exams' },
+    { key: 'performance-analysis', iconName: 'MdBarChart', label: 'Performance', path: '/performance-analysis' },
+    { key: 'fees', iconName: 'MdAccountBalance', label: 'Fees', path: '/fees' },
+    { key: 'communication', iconName: 'MdChat', label: 'Messages', path: '/communication' },
+  ],
+};
+
+export default {
+  API_BASE_URL,
+  WS_URL,
+  SUPABASE_URL,
+  SUPABASE_KEY,
+  OPENROUTER_API_KEY,
+  FEATURES,
+  INSTITUTION_TYPES,
+  ROLES,
+  COLORS,
+  PAGINATION,
+  DATE_FORMATS,
+  STATUS_COLORS,
+  MENU_ITEMS,
+};
