@@ -11,6 +11,7 @@ import RegisterPage from './pages/Auth/RegisterPage';
 
 // Dashboard
 import DashboardPage from './pages/Dashboard/DashboardPage';
+import AdminConsolePage from './pages/Admin/AdminConsolePage';
 
 // Module Pages
 import StudentsPage from './pages/Modules/StudentsPage';
@@ -27,6 +28,10 @@ import AiTutorPage from './pages/AI/AiTutorPage';
 import CareerPathPage from './pages/AI/CareerPathPage';
 import PerformanceAnalysisPage from './pages/AI/PerformanceAnalysisPage';
 import FeeRecoveryPage from './pages/AI/FeeRecoveryPage';
+
+// Settings & Profile
+import SettingsPage from './pages/Settings/SettingsPage';
+import ProfilePage from './pages/Profile/ProfilePage';
 
 function App() {
   return (
@@ -46,6 +51,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <DashboardPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute>
+                    <AdminConsolePage />
                   </ProtectedRoute>
                 }
               />
@@ -146,6 +159,24 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <FeeRecoveryPage />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Settings & Profile */}
+              <Route
+                path="/settings"
+                element={
+                  <ProtectedRoute>
+                    <SettingsPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <ProfilePage />
                   </ProtectedRoute>
                 }
               />

@@ -2,157 +2,485 @@ import { useState } from 'react';
 import MainLayout from '../../components/Layout/MainLayout';
 import GlassCard from '../../components/Common/GlassCard';
 import Button from '../../components/Common/Button';
-import Badge from '../../components/Common/Badge';
+import Input from '../../components/Common/Input';
+import { useAuth } from '../../hooks/useAuth';
 import { useNotification } from '../../hooks/useNotification';
-import { MdAutoAwesome, MdAttachMoney } from 'react-icons/md';
+import supabase from '../../lib/supabase';
+import { feeRecoveryAssistant } from '../../lib/openrouter';
+import {
+  MdAutoAwesome, MdAttachMoney, MdSearch, MdClose,
+  MdContentCopy, MdCheck, MdPerson, MdWarning,
+} from 'react-icons/md';
+
+const PAYMENT_HISTORY_OPTIONS = [
+  { value: 'always_on_time', label: 'Always On Time' },
+  { value: 'occasional_delays', label: 'Occasional Delays' },
+  { value: 'frequently_late', label: 'Frequently Late' },
+  { value: 'first_default', label: 'First Default' },
+];
+
+const INCOME_OPTIONS = [
+  { value: '<2L', label: 'Below ₹2 Lakh' },
+  { value: '2-5L', label: '₹2–5 Lakh' },
+  { value: '5-10L', label: '₹5–10 Lakh' },
+  { value: '>10L', label: 'Above ₹10 Lakh' },
+];
+
+const DELAY_REASON_OPTIONS = [
+  { value: 'financial_difficulty', label: 'Financial Difficulty' },
+  { value: 'forgot', label: 'Forgot' },
+  { value: 'dispute', label: 'Dispute' },
+  { value: 'other', label: 'Other' },
+];
+
+const RISK_STYLES = {
+  High: 'bg-red-500/20 text-red-300 border border-red-500/40',
+  Medium: 'bg-amber-500/20 text-amber-300 border border-amber-500/40',
+  Low: 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40',
+};
 
 export default function FeeRecoveryPage() {
+  const { profile } = useAuth();
   const notification = useNotification();
-  const [strategies, setStrategies] = useState(null);
+
+  // Mode
+  const [mode, setMode] = useState('manual'); // 'student' | 'manual'
+
+  // Student search
+  const [studentSearch, setStudentSearch] = useState('');
+  const [studentResults, setStudentResults] = useState([]);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+
+  // Form
+  const [form, setForm] = useState({
+    parentName: '',
+    paymentHistory: 'always_on_time',
+    income: '2-5L',
+    delayReason: 'financial_difficulty',
+    outstandingAmount: '',
+  });
+
+  // Result
   const [loading, setLoading] = useState(false);
-  const [selectedStudent, setSelectedStudent] = useState('rahul');
+  const [result, setResult] = useState(null);
+  const [rawResult, setRawResult] = useState('');
+  const [error, setError] = useState('');
+  const [copied, setCopied] = useState(false);
 
-  const defaulters = [
-    { id: 'rahul', name: 'Rahul Kumar', pending: 15000, daysOverdue: 30, lastPayment: '2024-05-15' },
-    { id: 'amit', name: 'Amit Patel', pending: 50000, daysOverdue: 60, lastPayment: '2024-05-01' },
-  ];
-
-  const handleGenerateStrategy = async () => {
-    setLoading(true);
-    setTimeout(() => {
-      setStrategies({
-        studentName: defaulters.find(d => d.id === selectedStudent)?.name,
-        pending: defaulters.find(d => d.id === selectedStudent)?.pending,
-        strategies: [
-          {
-            id: 1,
-            name: 'Payment Plan',
-            description: 'Break down payment into 3 EMIs',
-            effectiveness: 85,
-            timeline: '3 months'
-          },
-          {
-            id: 2,
-            name: 'Discount Incentive',
-            description: 'Offer 5% discount for full payment',
-            effectiveness: 90,
-            timeline: 'Immediate'
-          },
-          {
-            id: 3,
-            name: 'Parent Communication',
-            description: 'Personalized email and call campaign',
-            effectiveness: 75,
-            timeline: '2 weeks'
-          },
-        ],
-        recommended: 'Discount Incentive + Payment Plan combination',
-        estimatedRecovery: '₹12,750 (85% recovery)'
-      });
-      setLoading(false);
-      notification.success('Fee recovery strategy generated!');
-    }, 1500);
+  // ─── Student search ────────────────────────────────────────────────
+  const handleStudentSearch = async (val) => {
+    setStudentSearch(val);
+    if (!val.trim() || val.length < 2) { setStudentResults([]); return; }
+    const { data } = await supabase
+      .from('students')
+      .select('id, first_name, last_name, admission_no, class_name, parent_name, parent_phone')
+      .eq('institution_id', profile?.institution_id)
+      .or(`first_name.ilike.%${val}%,last_name.ilike.%${val}%,admission_no.ilike.%${val}%`)
+      .limit(8);
+    setStudentResults(data || []);
   };
+
+  const handleSelectStudent = async (student) => {
+    setSelectedStudent(student);
+    setStudentResults([]);
+
+    // Auto-fill parent name from student record
+    if (student.parent_name) {
+      setForm(f => ({ ...f, parentName: student.parent_name }));
+    }
+
+    // Attempt to load outstanding fees
+    const { data: feesData } = await supabase
+      .from('fees')
+      .select('outstanding_amount, amount')
+      .eq('student_id', student.id)
+      .eq('status', 'pending')
+      .limit(1)
+      .single();
+
+    if (feesData) {
+      setForm(f => ({
+        ...f,
+        outstandingAmount: String(feesData.outstanding_amount || feesData.amount || ''),
+      }));
+      notification.success('Outstanding fee loaded from records');
+    }
+  };
+
+  // ─── Generate strategy ─────────────────────────────────────────────
+  const handleGenerateStrategy = async () => {
+    if (!form.parentName.trim()) { notification.error('Parent name is required'); return; }
+    if (!form.outstandingAmount || parseFloat(form.outstandingAmount) <= 0) {
+      notification.error('Please enter the outstanding amount');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+    setResult(null);
+
+    const parentData = {
+      name: form.parentName.trim(),
+      paymentHistory: PAYMENT_HISTORY_OPTIONS.find(o => o.value === form.paymentHistory)?.label || form.paymentHistory,
+      income: INCOME_OPTIONS.find(o => o.value === form.income)?.label || form.income,
+      delayReason: DELAY_REASON_OPTIONS.find(o => o.value === form.delayReason)?.label || form.delayReason,
+    };
+
+    const fees = { outstanding: parseFloat(form.outstandingAmount) };
+
+    const response = await feeRecoveryAssistant(parentData, fees);
+
+    if (response.success === false) {
+      setError(response.error || 'Strategy generation failed');
+      notification.error('AI request failed');
+    } else {
+      setRawResult(response.data);
+      try {
+        const jsonMatch = response.data.match(/```json\s*([\s\S]*?)```/) ||
+                          response.data.match(/```\s*([\s\S]*?)```/) ||
+                          [null, response.data];
+        const parsed = JSON.parse(jsonMatch[1].trim());
+        setResult(parsed);
+      } catch {
+        setResult(null);
+      }
+      notification.success('Recovery strategy generated!');
+    }
+    setLoading(false);
+  };
+
+  // ─── Copy script ───────────────────────────────────────────────────
+  const handleCopyScript = () => {
+    const script = result?.suggestedMessage || result?.suggested_message ||
+                   result?.script || result?.communicationScript ||
+                   result?.communication_script || rawResult;
+    if (!script) { notification.error('No script to copy'); return; }
+    navigator.clipboard.writeText(script).then(() => {
+      setCopied(true);
+      notification.success('Script copied to clipboard!');
+      setTimeout(() => setCopied(false), 2500);
+    }).catch(() => {
+      notification.error('Failed to copy to clipboard');
+    });
+  };
+
+  // ─── Risk level ────────────────────────────────────────────────────
+  const getRiskLevel = () => {
+    const raw = result?.riskAssessment || result?.risk_assessment || result?.riskLevel || result?.risk_level || '';
+    if (!raw) return null;
+    const text = typeof raw === 'object' ? (raw.level || raw.rating || '') : String(raw);
+    if (/high/i.test(text)) return 'High';
+    if (/medium|moderate/i.test(text)) return 'Medium';
+    if (/low/i.test(text)) return 'Low';
+    return text;
+  };
+
+  const riskLevel = getRiskLevel();
 
   return (
     <MainLayout>
       <div className="p-6 space-y-6">
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex items-center gap-3">
           <MdAttachMoney className="w-8 h-8 text-neon-cyan" />
           <h1 className="text-3xl font-bold text-white">AI Fee Recovery Assistant</h1>
         </div>
 
-        {/* Fee Defaulters */}
-        <GlassCard className="p-6">
-          <h2 className="text-xl font-bold text-white mb-4">Fee Defaulters</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-white/10">
-                  <th className="text-left py-3 px-4 text-white/60">Student Name</th>
-                  <th className="text-right py-3 px-4 text-white/60">Pending Amount</th>
-                  <th className="text-right py-3 px-4 text-white/60">Days Overdue</th>
-                  <th className="text-left py-3 px-4 text-white/60">Last Payment</th>
-                </tr>
-              </thead>
-              <tbody>
-                {defaulters.map(def => (
-                  <tr key={def.id} className="border-b border-white/5 hover:bg-white/5 transition cursor-pointer"
-                    onClick={() => setSelectedStudent(def.id)}>
-                    <td className="py-3 px-4 text-white">{def.name}</td>
-                    <td className="py-3 px-4 text-right text-orange-400 font-medium">₹{def.pending.toLocaleString()}</td>
-                    <td className="py-3 px-4 text-right text-red-400">{def.daysOverdue} days</td>
-                    <td className="py-3 px-4 text-white/80">{new Date(def.lastPayment).toLocaleDateString()}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </GlassCard>
-
-        <div className="flex justify-center">
-          <Button
-            variant="primary"
-            loading={loading}
-            onClick={handleGenerateStrategy}
-            className="flex items-center gap-2"
+        {/* Mode toggle */}
+        <div className="flex gap-2">
+          <button
+            onClick={() => { setMode('student'); setSelectedStudent(null); setStudentSearch(''); }}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+              mode === 'student' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white/80'
+            }`}
           >
-            <MdAutoAwesome /> Generate Recovery Strategy
-          </Button>
+            From Student Record
+          </button>
+          <button
+            onClick={() => setMode('manual')}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+              mode === 'manual' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white/80'
+            }`}
+          >
+            Manual Entry
+          </button>
         </div>
 
-        {strategies && (
-          <>
-            <GlassCard className="p-6">
-              <h2 className="text-xl font-bold text-white mb-4">Recovery Strategy for {strategies.studentName}</h2>
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="p-4 bg-white/5 rounded-lg">
-                  <p className="text-white/60 text-sm">Pending Amount</p>
-                  <p className="text-2xl font-bold text-orange-400">₹{strategies.pending.toLocaleString()}</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Left: Form */}
+          <div className="space-y-4">
+            {/* Student search */}
+            {mode === 'student' && (
+              <GlassCard className="p-5">
+                <h3 className="text-white font-bold mb-3 flex items-center gap-2">
+                  <MdPerson className="text-neon-cyan" /> Search Student
+                </h3>
+                {selectedStudent ? (
+                  <div className="flex items-center gap-3 p-3 bg-white/5 rounded-lg">
+                    <div className="flex-1">
+                      <p className="text-white font-medium">
+                        {selectedStudent.first_name} {selectedStudent.last_name}
+                      </p>
+                      <p className="text-white/50 text-sm">
+                        {selectedStudent.admission_no} &middot; {selectedStudent.class_name}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => { setSelectedStudent(null); setStudentSearch(''); setForm(f => ({ ...f, parentName: '', outstandingAmount: '' })); }}
+                      className="text-white/40 hover:text-white/70"
+                    >
+                      <MdClose className="w-4 h-4" />
+                    </button>
+                  </div>
+                ) : (
+                  <div className="relative">
+                    <MdSearch className="absolute left-3 top-3 w-4 h-4 text-white/40" />
+                    <input
+                      className="input-glass w-full pl-9"
+                      placeholder="Search by name or admission no..."
+                      value={studentSearch}
+                      onChange={e => handleStudentSearch(e.target.value)}
+                    />
+                    {studentResults.length > 0 && (
+                      <div className="absolute z-10 w-full mt-1 bg-gray-900/95 border border-white/10 rounded-lg overflow-hidden shadow-xl">
+                        {studentResults.map(s => (
+                          <button
+                            key={s.id}
+                            className="w-full text-left px-4 py-2.5 hover:bg-white/10 text-sm text-white/80 transition"
+                            onClick={() => handleSelectStudent(s)}
+                          >
+                            {s.first_name} {s.last_name}
+                            <span className="text-white/40 ml-2 text-xs">{s.admission_no} &middot; {s.class_name}</span>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </GlassCard>
+            )}
+
+            <GlassCard className="p-5">
+              <h3 className="text-white font-bold mb-4">Parent & Fee Details</h3>
+              <div className="space-y-0">
+                <Input
+                  label="Parent / Guardian Name" required
+                  value={form.parentName}
+                  onChange={e => setForm(f => ({ ...f, parentName: e.target.value }))}
+                  placeholder="Parent full name"
+                />
+
+                <div className="mb-4">
+                  <label className="block text-sm font-medium mb-2">Payment History</label>
+                  <select
+                    className="input-glass w-full"
+                    value={form.paymentHistory}
+                    onChange={e => setForm(f => ({ ...f, paymentHistory: e.target.value }))}
+                  >
+                    {PAYMENT_HISTORY_OPTIONS.map(o => (
+                      <option key={o.value} value={o.value}>{o.label}</option>
+                    ))}
+                  </select>
                 </div>
-                <div className="p-4 bg-white/5 rounded-lg">
-                  <p className="text-white/60 text-sm">Estimated Recovery</p>
-                  <p className="text-2xl font-bold text-emerald-400">{strategies.estimatedRecovery}</p>
+
+                <div className="mb-4">
+                  <label className="block text-sm font-medium mb-2">Estimated Annual Income</label>
+                  <select
+                    className="input-glass w-full"
+                    value={form.income}
+                    onChange={e => setForm(f => ({ ...f, income: e.target.value }))}
+                  >
+                    {INCOME_OPTIONS.map(o => (
+                      <option key={o.value} value={o.value}>{o.label}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-sm font-medium mb-2">Reason for Delay</label>
+                  <select
+                    className="input-glass w-full"
+                    value={form.delayReason}
+                    onChange={e => setForm(f => ({ ...f, delayReason: e.target.value }))}
+                  >
+                    {DELAY_REASON_OPTIONS.map(o => (
+                      <option key={o.value} value={o.value}>{o.label}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-sm font-medium mb-2">
+                    Outstanding Amount (₹) <span className="text-red-400 ml-1">*</span>
+                  </label>
+                  <div className="relative">
+                    <span className="absolute left-3 top-2.5 text-white/40 text-sm">₹</span>
+                    <input
+                      type="number"
+                      min="0"
+                      className="input-glass w-full pl-7"
+                      placeholder="0"
+                      value={form.outstandingAmount}
+                      onChange={e => setForm(f => ({ ...f, outstandingAmount: e.target.value }))}
+                    />
+                  </div>
                 </div>
               </div>
-            </GlassCard>
 
-            <GlassCard className="p-6">
-              <h2 className="text-xl font-bold text-white mb-4">Recovery Strategies</h2>
-              <div className="space-y-4">
-                {strategies.strategies.map((strat) => (
-                  <div key={strat.id} className="p-4 bg-white/5 rounded-lg border border-white/10">
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-white font-bold">{strat.name}</h3>
-                      <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-                        strat.effectiveness >= 85
-                          ? 'bg-emerald-500/20 text-emerald-300'
-                          : strat.effectiveness >= 75
-                          ? 'bg-blue-500/20 text-blue-300'
-                          : 'bg-amber-500/20 text-amber-300'
-                      }`}>
-                        {strat.effectiveness}% effective
+              <Button
+                variant="primary"
+                loading={loading}
+                onClick={handleGenerateStrategy}
+                className="w-full flex items-center justify-center gap-2"
+              >
+                <MdAutoAwesome /> Generate Recovery Strategy
+              </Button>
+            </GlassCard>
+          </div>
+
+          {/* Right: Results */}
+          <div className="space-y-4">
+            {!result && !rawResult && !error && (
+              <GlassCard className="p-10 flex flex-col items-center justify-center text-center text-white/25 h-full">
+                <MdAttachMoney className="w-14 h-14 mb-3 opacity-20" />
+                <p>Fill in the details and click Generate to get an AI-powered fee recovery strategy.</p>
+              </GlassCard>
+            )}
+
+            {error && (
+              <GlassCard className="p-5 border border-red-500/30">
+                <div className="flex items-center gap-2 text-red-400 mb-2">
+                  <MdWarning />
+                  <span className="font-semibold">Error</span>
+                </div>
+                <p className="text-red-300/80 text-sm">{error}</p>
+              </GlassCard>
+            )}
+
+            {loading && (
+              <GlassCard className="p-10 flex flex-col items-center justify-center text-center">
+                <div className="w-12 h-12 border-4 border-neon-cyan/30 border-t-neon-cyan rounded-full animate-spin mb-4" />
+                <p className="text-white/70">Generating strategy...</p>
+              </GlassCard>
+            )}
+
+            {result && !loading && (
+              <>
+                {/* Risk Assessment */}
+                {riskLevel && (
+                  <GlassCard className="p-5">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-white font-bold">Risk Assessment</h3>
+                      <span className={`px-4 py-1.5 rounded-full text-sm font-bold ${RISK_STYLES[riskLevel] || RISK_STYLES.Medium}`}>
+                        {riskLevel} Risk
                       </span>
                     </div>
-                    <p className="text-white/60 text-sm mb-2">{strat.description}</p>
-                    <p className="text-white/40 text-xs">Timeline: {strat.timeline}</p>
-                  </div>
-                ))}
-              </div>
-            </GlassCard>
+                    {typeof result.riskAssessment === 'object' && result.riskAssessment?.reason && (
+                      <p className="text-white/60 text-sm mt-2">{result.riskAssessment.reason}</p>
+                    )}
+                  </GlassCard>
+                )}
 
-            <GlassCard className="p-6">
-              <h2 className="text-xl font-bold text-white mb-4">Recommended Approach</h2>
-              <p className="text-white/80 text-lg mb-4">{strategies.recommended}</p>
-              <div className="flex gap-3">
-                <Button variant="primary" onClick={() => notification.success('Strategy activated!')}>
-                  Activate Strategy
-                </Button>
-                <Button variant="secondary">Send Communication</Button>
-              </div>
-            </GlassCard>
-          </>
-        )}
+                {/* Recommended Approach */}
+                {(result.recommendedApproach || result.recommended_approach || result.approach) && (
+                  <GlassCard className="p-5">
+                    <h3 className="text-white font-bold mb-2">Recommended Approach</h3>
+                    <p className="text-white/75 text-sm leading-relaxed">
+                      {typeof (result.recommendedApproach || result.recommended_approach || result.approach) === 'object'
+                        ? JSON.stringify(result.recommendedApproach || result.recommended_approach || result.approach)
+                        : (result.recommendedApproach || result.recommended_approach || result.approach)}
+                    </p>
+                    {(result.bestContactTime || result.best_contact_time) && (
+                      <p className="text-white/40 text-xs mt-2">
+                        Best Contact Time: {result.bestContactTime || result.best_contact_time}
+                      </p>
+                    )}
+                  </GlassCard>
+                )}
+
+                {/* Payment Plan */}
+                {(result.paymentPlan || result.payment_plan || result.suggestedPaymentPlan) && (
+                  <GlassCard className="p-5">
+                    <h3 className="text-white font-bold mb-3">Payment Plan Suggestion</h3>
+                    {Array.isArray(result.paymentPlan || result.payment_plan || result.suggestedPaymentPlan) ? (
+                      <ul className="space-y-2">
+                        {(result.paymentPlan || result.payment_plan || result.suggestedPaymentPlan).map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-white/75">
+                            <span className="text-neon-cyan mt-0.5 shrink-0">→</span>
+                            {typeof item === 'object' ? item.installment || item.step || JSON.stringify(item) : item}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-white/75 text-sm leading-relaxed">
+                        {String(result.paymentPlan || result.payment_plan || result.suggestedPaymentPlan)}
+                      </p>
+                    )}
+                  </GlassCard>
+                )}
+
+                {/* Communication Script */}
+                {(result.suggestedMessage || result.suggested_message || result.script || result.communicationScript || result.communication_script) && (
+                  <GlassCard className="p-5">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-white font-bold">Suggested Message / Script</h3>
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        onClick={handleCopyScript}
+                        className="flex items-center gap-1.5"
+                      >
+                        {copied ? <MdCheck className="text-emerald-400" /> : <MdContentCopy />}
+                        {copied ? 'Copied!' : 'Copy'}
+                      </Button>
+                    </div>
+                    <div className="p-4 bg-white/5 rounded-lg border border-white/10 text-sm text-white/80 leading-relaxed whitespace-pre-wrap">
+                      {result.suggestedMessage || result.suggested_message || result.script ||
+                       result.communicationScript || result.communication_script}
+                    </div>
+                  </GlassCard>
+                )}
+
+                {/* Escalation Timeline */}
+                {(result.escalationTimeline || result.escalation_timeline) && (
+                  <GlassCard className="p-5">
+                    <h3 className="text-white font-bold mb-3">Escalation Timeline</h3>
+                    {Array.isArray(result.escalationTimeline || result.escalation_timeline) ? (
+                      <div className="space-y-2">
+                        {(result.escalationTimeline || result.escalation_timeline).map((step, i) => (
+                          <div key={i} className="flex items-start gap-3 p-3 bg-white/5 rounded-lg">
+                            <span className="w-6 h-6 rounded-full bg-orange-500/20 text-orange-300 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">
+                              {i + 1}
+                            </span>
+                            <span className="text-sm text-white/75">
+                              {typeof step === 'object' ? step.action || step.step || step.description || JSON.stringify(step) : step}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-white/75 text-sm">
+                        {String(result.escalationTimeline || result.escalation_timeline)}
+                      </p>
+                    )}
+                  </GlassCard>
+                )}
+              </>
+            )}
+
+            {/* Fallback raw text */}
+            {!result && rawResult && !loading && (
+              <GlassCard className="p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-white font-bold">AI Strategy</h3>
+                  <Button variant="secondary" size="sm" onClick={handleCopyScript}>
+                    {copied ? <MdCheck className="text-emerald-400" /> : <MdContentCopy />}
+                  </Button>
+                </div>
+                <pre className="text-white/75 text-sm leading-relaxed whitespace-pre-wrap font-sans">{rawResult}</pre>
+              </GlassCard>
+            )}
+          </div>
+        </div>
       </div>
     </MainLayout>
   );

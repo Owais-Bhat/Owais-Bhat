@@ -1,169 +1,150 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { MENU_ITEMS } from '../../config';
-import { MdClose, MdChevronRight, MdDashboard, MdBusiness, MdCreditCard, MdTrendingUp, MdSettings, MdPeople, MdPerson, MdAttachFile, MdAccountBalance, MdAccessTime, MdBook, MdVideoLibrary, MdDirectionsBus, MdChat, MdBarChart, MdLightbulb } from 'react-icons/md';
+import Avatar from '../Common/Avatar';
+import {
+  MdClose, MdChevronRight,
+  MdDashboard, MdBusiness, MdCreditCard, MdTrendingUp, MdSettings,
+  MdPeople, MdPerson, MdAccountBalance, MdAccessTime, MdBook,
+  MdDirectionsBus, MdChat, MdBarChart, MdAutoAwesome, MdSchool,
+  MdGrade, MdNotifications, MdLogout, MdLightbulb, MdAdminPanelSettings,
+} from 'react-icons/md';
 
 const ICON_MAP = {
-  MdDashboard,
-  MdBusiness,
-  MdCreditCard,
-  MdTrendingUp,
-  MdSettings,
-  MdPeople,
-  MdPerson,
-  MdAttachFile,
-  MdAccountBalance,
-  MdAccessTime,
-  MdBook,
-  MdVideoLibrary,
-  MdDirectionsBus,
-  MdChat,
-  MdBarChart,
-  MdLightbulb,
+  MdDashboard, MdBusiness, MdCreditCard, MdTrendingUp, MdSettings,
+  MdPeople, MdPerson, MdAccountBalance, MdAccessTime, MdBook,
+  MdDirectionsBus, MdChat, MdBarChart, MdAutoAwesome, MdSchool,
+  MdGrade, MdNotifications, MdLogout, MdLightbulb, MdAdminPanelSettings,
+};
+
+const ACTIVE_NAV_STYLE = {
+  background: '#F4B860',
+  color: '#101827',
+  borderColor: '#F4B860',
+  boxShadow: '0 12px 24px rgba(0, 0, 0, 0.28)',
+};
+
+const ACTIVE_SUBNAV_STYLE = {
+  background: '#FFFFFF',
+  color: '#101827',
+  boxShadow: '0 8px 16px rgba(0, 0, 0, 0.18)',
 };
 
 export default function Sidebar({ isOpen, onClose }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, profile } = useAuth();
-  const [expandedItems, setExpandedItems] = useState({});
+  const { user, profile, logout } = useAuth();
+  const [expanded, setExpanded] = useState({});
 
-  const userRole = user?.user_metadata?.role || profile?.role || 'student';
-  const menuItems = MENU_ITEMS[userRole] || MENU_ITEMS.student;
+  const role = profile?.role || user?.user_metadata?.role || 'student';
+  const menuItems = MENU_ITEMS[role] || MENU_ITEMS.student;
+  const fullName = [profile?.first_name, profile?.last_name].filter(Boolean).join(' ') || 'User';
 
-  const handleNavigate = (path) => {
-    navigate(path);
-    if (window.innerWidth < 1024) {
-      onClose();
-    }
-  };
-
-  const toggleExpand = (itemKey) => {
-    setExpandedItems(prev => ({
-      ...prev,
-      [itemKey]: !prev[itemKey]
-    }));
-  };
-
+  const go = (path) => { navigate(path); if (window.innerWidth < 1024) onClose(); };
+  const toggle = (key) => setExpanded(p => ({ ...p, [key]: !p[key] }));
   const isActive = (path) => location.pathname === path;
-  const isSubActive = (subItems) => subItems?.some(sub => location.pathname === sub.path);
-
-  const getIcon = (iconName) => {
-    const IconComponent = ICON_MAP[iconName];
-    return IconComponent ? <IconComponent className="w-5 h-5" /> : null;
-  };
+  const hasActive = (subs) => subs?.some(s => location.pathname === s.path);
+  const getIcon = (name) => { const I = ICON_MAP[name]; return I ? <I className="w-4.5 h-4.5" /> : null; };
 
   return (
     <>
-      {/* Backdrop for mobile */}
       {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 lg:hidden z-40"
-          onClick={onClose}
-        ></div>
+        <div className="fixed inset-0 bg-black/60 lg:hidden z-40 backdrop-blur-sm" onClick={onClose} />
       )}
 
-      {/* Sidebar */}
-      <div
-        className={`
-          fixed lg:static left-0 top-0 h-screen w-64 z-50
-          bg-gradient-to-b from-glass-dark/95 to-glass-dark/80 backdrop-blur-lg
-          border-r border-white/10
-          transform transition-transform duration-300 ease-in-out
-          ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-          overflow-y-auto
-        `}
-      >
-        {/* Close button for mobile */}
-        <div className="lg:hidden p-4 flex justify-end">
-          <button
-            onClick={onClose}
-            className="text-white/60 hover:text-white transition-colors"
-          >
-            <MdClose className="w-6 h-6" />
+      <aside className={`
+        fixed lg:static inset-y-0 left-0 z-50 w-64 flex flex-col
+        border-r border-white/10
+        transform transition-transform duration-300 ease-in-out
+        ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+      `} style={{ background: 'linear-gradient(180deg, #111827 0%, #182133 100%)' }}>
+
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 py-5 border-b border-white/10 shrink-0">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 shadow-lg"
+              style={{ background: 'linear-gradient(135deg, #0E7C7B, #E0644A)' }}>
+              <svg viewBox="0 0 24 24" fill="none" className="w-4.5 h-4.5 text-white">
+                <path d="M12 3L2 8l10 5 10-5-10-5z" fill="currentColor" opacity="0.9"/>
+                <path d="M2 16l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                <path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+            </div>
+            <span className="text-lg font-bold font-display text-white tracking-tight">CyberMilo</span>
+          </div>
+          <button onClick={onClose} className="lg:hidden p-1.5 rounded-lg text-white/50 hover:text-white hover:bg-white/10 transition">
+            <MdClose className="w-5 h-5" />
           </button>
         </div>
 
-        {/* User info section */}
-        <div className="p-6 border-b border-white/10">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-blue to-neon-cyan flex items-center justify-center text-sm font-bold text-white">
-              {String(profile?.first_name || 'U').charAt(0)}
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-white truncate">
-                {profile?.first_name || 'User'}
+        {/* User card */}
+        <div className="px-4 py-4 border-b border-white/10 shrink-0">
+          <button
+            onClick={() => go('/profile')}
+            className="w-full flex items-center gap-3 p-2.5 rounded-lg hover:bg-white/10 transition group"
+          >
+            <Avatar name={fullName} src={profile?.avatar_url} size="sm" />
+            <div className="flex-1 min-w-0 text-left">
+              <p className="text-sm font-semibold text-white truncate group-hover:text-[#F4B860] transition-colors">
+                {fullName}
               </p>
-              <p className="text-xs text-white/50 capitalize">{userRole}</p>
+              <p className="text-xs text-white/40 capitalize truncate">{role.replace('_', ' ')}</p>
             </div>
-          </div>
+          </button>
         </div>
 
-        {/* Navigation items */}
-        <nav className="p-4 space-y-2">
+        {/* Nav */}
+        <nav className="flex-1 overflow-y-auto px-3 py-3 space-y-0.5">
           {menuItems.map((item) => (
             <div key={item.key}>
               {item.subItems ? (
-                <div>
+                <>
                   <button
-                    onClick={() => toggleExpand(item.key)}
-                    className={`
-                      w-full flex items-center justify-between px-4 py-3 rounded-lg
-                      transition-all duration-200
-                      ${isSubActive(item.subItems)
-                        ? 'bg-gradient-to-r from-primary-blue/30 to-neon-cyan/20 text-neon-cyan border-l-2 border-neon-cyan'
-                        : 'text-white/70 hover:text-white hover:bg-white/5'
-                      }
-                    `}
+                    onClick={() => toggle(item.key)}
+                    className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition-all group
+                      ${hasActive(item.subItems)
+                        ? 'font-bold border'
+                        : 'text-white/60 hover:text-white hover:bg-white/10'}`}
+                    style={hasActive(item.subItems) ? ACTIVE_NAV_STYLE : undefined}
                   >
-                    <div className="flex items-center gap-3">
-                      {getIcon(item.iconName)}
-                      <span className="text-sm font-medium">{item.label}</span>
-                    </div>
-                    <MdChevronRight
-                      className={`w-5 h-5 transition-transform duration-200 ${
-                        expandedItems[item.key] ? 'rotate-90' : ''
-                      }`}
-                    />
+                    <span className="flex items-center gap-3">
+                      <span className="transition-colors" style={hasActive(item.subItems) ? { color: '#101827' } : undefined}>
+                        {getIcon(item.iconName)}
+                      </span>
+                      <span className="font-medium">{item.label}</span>
+                    </span>
+                    <MdChevronRight className={`w-4 h-4 transition-transform duration-200 ${expanded[item.key] ? 'rotate-90' : ''}`} />
                   </button>
-
-                  {/* Submenu */}
-                  {expandedItems[item.key] && (
-                    <div className="mt-2 ml-4 space-y-2 border-l border-white/10 pl-4">
-                      {item.subItems.map((subItem) => (
-                        <button
-                          key={subItem.key}
-                          onClick={() => handleNavigate(subItem.path)}
-                          className={`
-                            w-full text-left px-4 py-2 rounded-lg text-sm
-                            transition-all duration-200
-                            ${isActive(subItem.path)
-                              ? 'bg-neon-cyan/20 text-neon-cyan font-medium'
-                              : 'text-white/60 hover:text-white hover:bg-white/5'
-                            }
-                          `}
+                  {expanded[item.key] && (
+                    <div className="mt-0.5 ml-4 pl-3 border-l border-white/10 space-y-0.5 pb-1">
+                      {item.subItems.map(sub => (
+                        <button key={sub.key} onClick={() => go(sub.path)}
+                          className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all
+                            ${isActive(sub.path)
+                              ? 'font-bold'
+                              : 'text-white/50 hover:text-white hover:bg-white/10'}`}
+                          style={isActive(sub.path) ? ACTIVE_SUBNAV_STYLE : undefined}
                         >
-                          {subItem.label}
+                          {sub.label}
                         </button>
                       ))}
                     </div>
                   )}
-                </div>
+                </>
               ) : (
-                <button
-                  onClick={() => handleNavigate(item.path)}
-                  className={`
-                    w-full flex items-center gap-3 px-4 py-3 rounded-lg
-                    transition-all duration-200
+                <button onClick={() => go(item.path)}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all group
                     ${isActive(item.path)
-                      ? 'bg-gradient-to-r from-primary-blue/30 to-neon-cyan/20 text-neon-cyan border-l-2 border-neon-cyan'
-                      : 'text-white/70 hover:text-white hover:bg-white/5'
-                    }
-                  `}
+                      ? 'font-bold border'
+                      : 'text-white/60 hover:text-white hover:bg-white/10'}`}
+                  style={isActive(item.path) ? ACTIVE_NAV_STYLE : undefined}
                 >
-                  {getIcon(item.iconName)}
-                  <span className="text-sm font-medium">{item.label}</span>
+                  <span className="transition-colors" style={isActive(item.path) ? { color: '#101827' } : undefined}>
+                    {getIcon(item.iconName)}
+                  </span>
+                  <span className="font-medium">{item.label}</span>
+                  {isActive(item.path) && <div className="ml-auto w-1.5 h-1.5 rounded-full" style={{ background: '#101827' }} />}
                 </button>
               )}
             </div>
@@ -171,10 +152,17 @@ export default function Sidebar({ isOpen, onClose }) {
         </nav>
 
         {/* Footer */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
-          <p className="text-xs text-white/40 text-center">CyberMilo © 2024</p>
+        <div className="px-3 pb-4 shrink-0 border-t border-white/10 pt-3">
+          <button
+            onClick={() => { logout(); navigate('/login'); }}
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-white/50 hover:text-red-300 hover:bg-red-500/10 transition-all group"
+          >
+            <MdLogout className="w-4.5 h-4.5" />
+            <span className="font-medium">Sign out</span>
+          </button>
+          <p className="text-center text-white/25 text-xs mt-3">CyberMilo ERP v1.0</p>
         </div>
-      </div>
+      </aside>
     </>
   );
 }

@@ -1,6 +1,6 @@
 // API Configuration
-export const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://niczzyobretbnnammypk.supabase.co';
-export const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_u9yzl0QAovW6xlldCFVMEQ_gTv0dvci';
+export const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+export const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 export const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY || '';
 export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 export const WS_URL = import.meta.env.VITE_WS_URL || 'http://localhost:5000';
@@ -80,9 +80,10 @@ export const STATUS_COLORS = {
 export const MENU_ITEMS = {
   super_admin: [
     { key: 'dashboard', iconName: 'MdDashboard', label: 'Dashboard', path: '/dashboard' },
-    { key: 'institutions', iconName: 'MdBusiness', label: 'Institutions', path: '/institutions' },
-    { key: 'subscriptions', iconName: 'MdCreditCard', label: 'Subscriptions', path: '/subscriptions' },
-    { key: 'analytics', iconName: 'MdTrendingUp', label: 'Analytics', path: '/analytics' },
+    { key: 'admin', iconName: 'MdAdminPanelSettings', label: 'Admin Console', path: '/admin' },
+    { key: 'admissions', iconName: 'MdBusiness', label: 'Admissions', path: '/admissions' },
+    { key: 'fees', iconName: 'MdCreditCard', label: 'Fees', path: '/fees' },
+    { key: 'analytics', iconName: 'MdTrendingUp', label: 'Performance', path: '/performance-analysis' },
     { key: 'settings', iconName: 'MdSettings', label: 'Settings', path: '/settings' },
   ],
   institution_admin: [
@@ -123,9 +124,9 @@ export const MENU_ITEMS = {
   ],
   teacher: [
     { key: 'dashboard', iconName: 'MdDashboard', label: 'Dashboard', path: '/dashboard' },
-    { key: 'my-classes', iconName: 'MdPeople', label: 'My Classes', path: '/my-classes' },
+    { key: 'my-classes', iconName: 'MdPeople', label: 'Students', path: '/students' },
     { key: 'attendance', iconName: 'MdAccessTime', label: 'Attendance', path: '/attendance' },
-    { key: 'lessons', iconName: 'MdBook', label: 'Lessons', path: '/lessons' },
+    { key: 'lessons', iconName: 'MdBook', label: 'Learning', path: '/lms' },
     { key: 'exams', iconName: 'MdBook', label: 'Exams', path: '/exams' },
     { key: 'ai-tutor', iconName: 'MdLightbulb', label: 'AI Tutor', path: '/ai-tutor' },
     { key: 'communication', iconName: 'MdChat', label: 'Communication', path: '/communication' },
@@ -141,7 +142,7 @@ export const MENU_ITEMS = {
   ],
   parent: [
     { key: 'dashboard', iconName: 'MdDashboard', label: 'Dashboard', path: '/dashboard' },
-    { key: 'child', iconName: 'MdPerson', label: 'Child Profile', path: '/child' },
+    { key: 'child', iconName: 'MdPerson', label: 'Profile', path: '/profile' },
     { key: 'attendance', iconName: 'MdAccessTime', label: 'Attendance', path: '/attendance' },
     { key: 'exams', iconName: 'MdBook', label: 'Exams', path: '/exams' },
     { key: 'performance-analysis', iconName: 'MdBarChart', label: 'Performance', path: '/performance-analysis' },
