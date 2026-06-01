@@ -43,7 +43,7 @@ export default function LoginPage() {
         setErrors({ form: msg });
       } else {
         notification.success('Welcome back!');
-        navigate('/dashboard');
+        navigate(result?.profile?.role === 'super_admin' ? '/admin' : '/dashboard');
       }
     } catch (err) {
       notification.error('Something went wrong');

@@ -79,12 +79,10 @@ export const STATUS_COLORS = {
 // Menu Items for different roles (icon names mapped in Sidebar component)
 export const MENU_ITEMS = {
   super_admin: [
-    { key: 'dashboard', iconName: 'MdDashboard', label: 'Dashboard', path: '/dashboard' },
-    { key: 'admin', iconName: 'MdAdminPanelSettings', label: 'Admin Console', path: '/admin' },
-    { key: 'admissions', iconName: 'MdBusiness', label: 'Admissions', path: '/admissions' },
-    { key: 'fees', iconName: 'MdCreditCard', label: 'Fees', path: '/fees' },
-    { key: 'analytics', iconName: 'MdTrendingUp', label: 'Performance', path: '/performance-analysis' },
-    { key: 'settings', iconName: 'MdSettings', label: 'Settings', path: '/settings' },
+    { key: 'admin', iconName: 'MdAdminPanelSettings', label: 'HQ Console', path: '/admin' },
+    { key: 'dashboard', iconName: 'MdDashboard', label: 'School Preview', path: '/dashboard' },
+    { key: 'analytics', iconName: 'MdTrendingUp', label: 'AI Insights', path: '/performance-analysis' },
+    { key: 'settings', iconName: 'MdSettings', label: 'Platform Settings', path: '/settings' },
   ],
   institution_admin: [
     { key: 'dashboard', iconName: 'MdDashboard', label: 'Dashboard', path: '/dashboard' },

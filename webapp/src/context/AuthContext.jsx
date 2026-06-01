@@ -78,7 +78,7 @@ export function AuthProvider({ children }) {
         .single();
 
       setProfile(profileData);
-      return { success: true };
+      return { success: true, profile: profileData };
     } catch (err) {
       setError(err.message);
       return { success: false, error: err.message };

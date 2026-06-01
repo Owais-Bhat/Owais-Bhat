@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "seed:demo": "node scripts/seed-demo-data.js",
+    "smoke:phase1": "node scripts/phase1-smoke-check.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.1",

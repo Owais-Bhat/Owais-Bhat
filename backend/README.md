@@ -23,6 +23,59 @@ SUPABASE_SERVICE_ROLE_KEY=...
 
 Never put `SUPABASE_SERVICE_ROLE_KEY` in the Vite frontend.
 
+## Seed Demo Data
+
+After applying `supabase_schema.sql` in Supabase and filling `.env`, run:
+
+```bash
+npm run seed:demo
+```
+
+This creates or refreshes:
+
+- one `super_admin`
+- one demo school institution
+- one institution admin
+- teachers
+- classes
+- students
+- 7 days of attendance
+- fee payments
+- exams
+- admissions
+- activity logs
+
+Default demo credentials:
+
+```text
+Super admin: superadmin@cybermilo.test / CyberMilo@123
+School admin: admin@greenvalley.test / SchoolAdmin@123
+```
+
+Run the Phase 1 smoke check after seeding and while the backend is running:
+
+```bash
+npm run smoke:phase1
+```
+
+The smoke check verifies:
+
+- backend `/health`
+- super admin login
+- school admin login
+- expected roles in `user_profiles`
+- demo institution exists
+- minimum demo counts for students, teachers, classes, attendance, fees, exams, admissions, and activity logs
+
+Override these with:
+
+```text
+DEMO_SUPER_ADMIN_EMAIL=
+DEMO_SUPER_ADMIN_PASSWORD=
+DEMO_SCHOOL_ADMIN_EMAIL=
+DEMO_SCHOOL_ADMIN_PASSWORD=
+```
+
 ## Auth
 
 Every `/api/admin/*` endpoint requires:
