@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import { useAppData } from '../../hooks/useAppData';
 import { MENU_ITEMS } from '../../config';
+import { canAccessPath } from '../../auth/permissions';
+import { getFeatureByRoute } from '../../saas/features';
 import Avatar from '../Common/Avatar';
 import {
   MdClose, MdChevronRight,
@@ -42,11 +45,28 @@ export default function Sidebar({ isOpen, onClose }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, profile, logout } = useAuth();
+  const { institution, hasFeature } = useAppData();
   const [expanded, setExpanded] = useState({});
 
   const role = profile?.role || user?.user_metadata?.role || 'student';
   const isSuperAdmin = role === 'super_admin';
-  const menuItems = MENU_ITEMS[role] || MENU_ITEMS.student;
+  const canShowPath = (path) => {
+    if (!canAccessPath(role, path)) return false;
+    if (isSuperAdmin) return true;
+
+    const feature = getFeatureByRoute(path);
+    return !feature || !institution || hasFeature(feature.key);
+  };
+  const filterMenuItem = (item) => {
+    if (item.subItems) {
+      const subItems = item.subItems.filter(sub => canShowPath(sub.path));
+      return subItems.length ? { ...item, subItems } : null;
+    }
+    return canShowPath(item.path) ? item : null;
+  };
+  const menuItems = (MENU_ITEMS[role] || MENU_ITEMS.student)
+    .map(filterMenuItem)
+    .filter(Boolean);
   const fullName = [profile?.first_name, profile?.last_name].filter(Boolean).join(' ') || 'User';
   const activeStyle = isSuperAdmin ? SUPER_ACTIVE_NAV_STYLE : ACTIVE_NAV_STYLE;
   const activeDotColor = isSuperAdmin ? '#13210C' : '#101827';

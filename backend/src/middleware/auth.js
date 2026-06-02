@@ -43,3 +43,48 @@ export async function requireSuperAdmin(req, res, next) {
     return res.status(500).json({ error: err.message || 'Authentication failed' });
   }
 }
+
+export async function requireAuthenticatedProfile(req, res, next) {
+  try {
+    const token = getBearerToken(req);
+    if (!token) {
+      return res.status(401).json({ error: 'Missing bearer token' });
+    }
+
+    const { data: userData, error: userError } = await authClient.auth.getUser(token);
+    if (userError || !userData?.user) {
+      return res.status(401).json({ error: 'Invalid or expired token' });
+    }
+
+    const { data: profile, error: profileError } = await adminClient
+      .from('user_profiles')
+      .select('id, user_id, institution_id, role, is_active, first_name, last_name')
+      .eq('user_id', userData.user.id)
+      .single();
+
+    if (profileError || !profile) {
+      return res.status(403).json({ error: 'Profile not found' });
+    }
+
+    if (profile.is_active === false) {
+      return res.status(403).json({ error: 'Account is inactive' });
+    }
+
+    req.auth = {
+      user: userData.user,
+      profile,
+      token,
+    };
+    return next();
+  } catch (err) {
+    return res.status(500).json({ error: err.message || 'Authentication failed' });
+  }
+}
+
+export function requireTenantAdmin(req, res, next) {
+  const role = req.auth?.profile?.role;
+  if (!['super_admin', 'institution_admin', 'principal'].includes(role)) {
+    return res.status(403).json({ error: 'Tenant admin access required' });
+  }
+  return next();
+}

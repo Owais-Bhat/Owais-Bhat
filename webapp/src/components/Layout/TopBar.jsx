@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MdMenu, MdNotifications, MdSettings, MdLogout, MdPerson } from 'react-icons/md';
 import { useAuth } from '../../hooks/useAuth';
+import { canAccessPath } from '../../auth/permissions';
 
 export default function TopBar({ onMenuToggle }) {
   const navigate = useNavigate();
@@ -9,6 +10,8 @@ export default function TopBar({ onMenuToggle }) {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const initials = `${profile?.first_name?.[0] || ''}${profile?.last_name?.[0] || ''}`.toUpperCase() || 'U';
+  const role = profile?.role || user?.user_metadata?.role || 'student';
+  const canOpenSettings = canAccessPath(role, '/settings');
 
   const handleLogout = async () => {
     setShowDropdown(false);
@@ -39,12 +42,14 @@ export default function TopBar({ onMenuToggle }) {
           <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#E0644A] rounded-full"></span>
         </button>
 
-        <button
-          onClick={() => navigate('/settings')}
-          className="p-2 text-slate-500 hover:text-slate-950 transition-colors rounded-lg hover:bg-slate-100"
-        >
-          <MdSettings className="w-6 h-6" />
-        </button>
+        {canOpenSettings && (
+          <button
+            onClick={() => navigate('/settings')}
+            className="p-2 text-slate-500 hover:text-slate-950 transition-colors rounded-lg hover:bg-slate-100"
+          >
+            <MdSettings className="w-6 h-6" />
+          </button>
+        )}
 
         {/* Profile Dropdown */}
         <div className="relative">
@@ -76,12 +81,14 @@ export default function TopBar({ onMenuToggle }) {
                   >
                     <MdPerson className="w-4 h-4" /> My Profile
                   </button>
-                  <button
-                    onClick={() => { setShowDropdown(false); navigate('/settings'); }}
-                    className="w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:text-slate-950 hover:bg-slate-100 rounded-lg transition"
-                  >
-                    <MdSettings className="w-4 h-4" /> Settings
-                  </button>
+                  {canOpenSettings && (
+                    <button
+                      onClick={() => { setShowDropdown(false); navigate('/settings'); }}
+                      className="w-full flex items-center gap-3 px-3 py-2 text-sm text-slate-600 hover:text-slate-950 hover:bg-slate-100 rounded-lg transition"
+                    >
+                      <MdSettings className="w-4 h-4" /> Settings
+                    </button>
+                  )}
                   <div className="border-t border-slate-200 mt-2 pt-2">
                     <button
                       onClick={handleLogout}

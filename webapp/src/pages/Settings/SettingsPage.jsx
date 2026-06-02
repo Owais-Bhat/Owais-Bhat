@@ -6,6 +6,7 @@ import GlassCard from '../../components/Common/GlassCard';
 import Button from '../../components/Common/Button';
 import Input from '../../components/Common/Input';
 import supabase from '../../lib/supabase';
+import { fetchInstitutionUsers, inviteInstitutionUser, updateInstitutionUser } from '../../lib/usersApi';
 import { MdBusiness, MdPeople, MdSettings, MdAdd, MdDelete, MdEmail } from 'react-icons/md';
 
 const TABS = [
@@ -52,7 +53,14 @@ export default function SettingsPage() {
       .eq('id', profile.institution_id)
       .single();
     if (data) {
-      setInstitution({ name: data.name || '', type: data.type || '', address: data.address || '', phone: data.phone || '', email: data.email || '' });
+      setInstitution({
+        name: data.name || '',
+        type: data.type || '',
+        address: data.address || '',
+        phone: data.phone || '',
+        email: data.email || '',
+        settings: data.settings || {},
+      });
       setModules(data.settings?.modules || {});
     }
     if (error) notification.error('Failed to load institution settings');
@@ -60,13 +68,12 @@ export default function SettingsPage() {
 
   const loadUsers = async () => {
     setLoadingUsers(true);
-    const { data, error } = await supabase
-      .from('user_profiles')
-      .select('*')
-      .eq('institution_id', profile.institution_id)
-      .order('created_at', { ascending: false });
-    if (data) setUsers(data);
-    if (error) notification.error('Failed to load users');
+    try {
+      const data = await fetchInstitutionUsers();
+      setUsers(data.users || []);
+    } catch (error) {
+      notification.error('Failed to load users: ' + error.message);
+    }
     setLoadingUsers(false);
   };
 
@@ -85,7 +92,7 @@ export default function SettingsPage() {
     setSaving(true);
     const { error } = await supabase
       .from('institutions')
-      .update({ settings: { modules } })
+      .update({ settings: { ...(institution.settings || {}), modules } })
       .eq('id', profile.institution_id);
     setSaving(false);
     if (error) notification.error('Failed to save modules');
@@ -99,18 +106,13 @@ export default function SettingsPage() {
     }
     setInviting(true);
     try {
-      const { data: authData, error: authErr } = await supabase.auth.admin.inviteUserByEmail(inviteForm.email, {
-        data: { first_name: inviteForm.firstName, last_name: inviteForm.lastName, role: inviteForm.role },
-      });
-      if (authErr) throw authErr;
-
-      await supabase.from('user_profiles').insert([{
-        user_id: authData.user.id,
-        institution_id: profile.institution_id,
+      await inviteInstitutionUser({
+        email: inviteForm.email,
         role: inviteForm.role,
-        first_name: inviteForm.firstName,
-        last_name: inviteForm.lastName,
-      }]);
+        firstName: inviteForm.firstName,
+        lastName: inviteForm.lastName,
+        institutionId: profile.institution_id,
+      });
 
       notification.success(`Invitation sent to ${inviteForm.email}`);
       setInviteForm({ email: '', role: 'teacher', firstName: '', lastName: '' });
@@ -123,9 +125,33 @@ export default function SettingsPage() {
   };
 
   const deactivateUser = async (userId) => {
-    const { error } = await supabase.from('user_profiles').update({ is_active: false }).eq('id', userId);
-    if (error) notification.error('Failed to deactivate user');
-    else { notification.success('User deactivated'); loadUsers(); }
+    try {
+      await updateInstitutionUser(userId, { isActive: false });
+      notification.success('User deactivated');
+      loadUsers();
+    } catch (error) {
+      notification.error('Failed to deactivate user: ' + error.message);
+    }
+  };
+
+  const reactivateUser = async (userId) => {
+    try {
+      await updateInstitutionUser(userId, { isActive: true });
+      notification.success('User reactivated');
+      loadUsers();
+    } catch (error) {
+      notification.error('Failed to reactivate user: ' + error.message);
+    }
+  };
+
+  const updateUserRole = async (userId, role) => {
+    try {
+      await updateInstitutionUser(userId, { role });
+      notification.success('Role updated');
+      loadUsers();
+    } catch (error) {
+      notification.error('Failed to update role: ' + error.message);
+    }
   };
 
   const toggleModule = (key) => {
@@ -226,7 +252,20 @@ export default function SettingsPage() {
                       {users.map(u => (
                         <tr key={u.id} className="border-b border-white/5 hover:bg-white/5">
                           <td className="py-3 px-4 text-white">{u.first_name} {u.last_name}</td>
-                          <td className="py-3 px-4 text-white/70 capitalize">{u.role?.replace('_', ' ')}</td>
+                          <td className="py-3 px-4">
+                            <select
+                              value={u.role || 'teacher'}
+                              onChange={e => updateUserRole(u.id, e.target.value)}
+                              disabled={u.user_id === user?.id}
+                              className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-sm capitalize text-white outline-none disabled:opacity-50"
+                            >
+                              {ROLE_OPTIONS.map(r => (
+                                <option key={r} value={r} className="bg-slate-900 text-white">
+                                  {r.replace('_', ' ')}
+                                </option>
+                              ))}
+                            </select>
+                          </td>
                           <td className="py-3 px-4">
                             <span className={`px-2 py-0.5 rounded-full text-xs ${u.is_active ? 'bg-emerald-500/20 text-emerald-300' : 'bg-red-500/20 text-red-300'}`}>
                               {u.is_active ? 'Active' : 'Inactive'}
@@ -234,9 +273,12 @@ export default function SettingsPage() {
                           </td>
                           <td className="py-3 px-4 text-white/60">{new Date(u.created_at).toLocaleDateString('en-IN')}</td>
                           <td className="py-3 px-4 text-center">
-                            {u.user_id !== user?.id && u.is_active && (
-                              <button onClick={() => deactivateUser(u.id)} className="text-red-400 hover:text-red-300">
-                                <MdDelete className="w-4 h-4" />
+                            {u.user_id !== user?.id && (
+                              <button
+                                onClick={() => u.is_active ? deactivateUser(u.id) : reactivateUser(u.id)}
+                                className={u.is_active ? 'text-red-400 hover:text-red-300' : 'text-emerald-300 hover:text-emerald-200'}
+                              >
+                                {u.is_active ? <MdDelete className="w-4 h-4" /> : 'Activate'}
                               </button>
                             )}
                           </td>

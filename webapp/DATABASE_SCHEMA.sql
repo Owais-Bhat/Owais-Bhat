@@ -7,3 +7,17 @@
 --
 -- Keeping a second full schema here caused drift between frontend docs and
 -- the actual Supabase tables used by the backend seed/admin API.
+--
+-- Step 2 adds SaaS usage tracking in ../supabase_schema.sql via:
+--   public.feature_usage_events
+--
+-- Step 3 adds billing/subscription readiness fields to public.institutions:
+--   subscription_status, trial_ends_at, current_period_ends_at, billing_email
+--
+-- Step 5 tightens Supabase RLS in ../supabase_schema.sql:
+--   active-role helper functions, safe self-profile updates, and role-aware
+--   write policies for academics, operations, finance, and tenant settings.
+--
+-- Step 6 extends public.activity_log for SaaS audit events:
+--   severity, ip_address, user_agent, metadata, and indexes for recent feed
+--   queries from the Super Admin console.

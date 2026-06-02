@@ -21,6 +21,10 @@ CREATE TABLE IF NOT EXISTS public.institutions (
   email             text,
   logo_url          text,
   subscription_plan text         NOT NULL DEFAULT 'free',
+  subscription_status text       NOT NULL DEFAULT 'trialing',
+  trial_ends_at     timestamptz,
+  current_period_ends_at timestamptz,
+  billing_email     text,
   settings          jsonb        NOT NULL DEFAULT '{}',
   created_at        timestamptz  NOT NULL DEFAULT now()
 );
@@ -250,6 +254,26 @@ CREATE TABLE IF NOT EXISTS public.activity_log (
   description    text,
   entity_type    text,
   entity_id      uuid,
+  severity       text         NOT NULL DEFAULT 'info',
+  ip_address     text,
+  user_agent     text,
+  metadata       jsonb        NOT NULL DEFAULT '{}',
+  created_at     timestamptz  NOT NULL DEFAULT now()
+);
+
+ALTER TABLE public.activity_log ADD COLUMN IF NOT EXISTS severity text NOT NULL DEFAULT 'info';
+ALTER TABLE public.activity_log ADD COLUMN IF NOT EXISTS ip_address text;
+ALTER TABLE public.activity_log ADD COLUMN IF NOT EXISTS user_agent text;
+ALTER TABLE public.activity_log ADD COLUMN IF NOT EXISTS metadata jsonb NOT NULL DEFAULT '{}';
+
+-- 19. feature_usage_events
+CREATE TABLE IF NOT EXISTS public.feature_usage_events (
+  id             uuid         PRIMARY KEY DEFAULT gen_random_uuid(),
+  institution_id uuid         NOT NULL REFERENCES public.institutions ON DELETE CASCADE,
+  user_id        uuid,
+  feature_key    text         NOT NULL,
+  event_type     text         NOT NULL DEFAULT 'view',
+  metadata       jsonb        NOT NULL DEFAULT '{}',
   created_at     timestamptz  NOT NULL DEFAULT now()
 );
 
@@ -271,6 +295,11 @@ CREATE INDEX IF NOT EXISTS idx_messages_institution_id         ON public.message
 CREATE INDEX IF NOT EXISTS idx_transport_routes_institution_id ON public.transport_routes (institution_id);
 CREATE INDEX IF NOT EXISTS idx_admissions_institution_id       ON public.admissions (institution_id);
 CREATE INDEX IF NOT EXISTS idx_activity_log_institution_id     ON public.activity_log (institution_id);
+CREATE INDEX IF NOT EXISTS idx_activity_log_created_at         ON public.activity_log (created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_activity_log_action             ON public.activity_log (action);
+CREATE INDEX IF NOT EXISTS idx_feature_usage_institution_id    ON public.feature_usage_events (institution_id);
+CREATE INDEX IF NOT EXISTS idx_feature_usage_feature_key       ON public.feature_usage_events (feature_key);
+CREATE INDEX IF NOT EXISTS idx_feature_usage_created_at        ON public.feature_usage_events (created_at);
 
 -- Attendance-specific indexes
 CREATE INDEX IF NOT EXISTS idx_attendance_student_id ON public.attendance (student_id);
@@ -295,7 +324,73 @@ AS $$
   SELECT institution_id
   FROM public.user_profiles
   WHERE user_id = auth.uid()
+    AND is_active = true
   LIMIT 1;
+$$;
+
+-- Helper: returns the active role for the calling user.
+CREATE OR REPLACE FUNCTION public.auth_role()
+RETURNS text
+LANGUAGE sql
+STABLE
+SECURITY DEFINER
+SET search_path = public
+AS $$
+  SELECT role
+  FROM public.user_profiles
+  WHERE user_id = auth.uid()
+    AND is_active = true
+  LIMIT 1;
+$$;
+
+CREATE OR REPLACE FUNCTION public.auth_has_any_role(allowed_roles text[])
+RETURNS boolean
+LANGUAGE sql
+STABLE
+SECURITY DEFINER
+SET search_path = public
+AS $$
+  SELECT COALESCE(public.auth_role() = ANY(allowed_roles), false);
+$$;
+
+CREATE OR REPLACE FUNCTION public.auth_is_tenant_admin()
+RETURNS boolean
+LANGUAGE sql
+STABLE
+SECURITY DEFINER
+SET search_path = public
+AS $$
+  SELECT public.auth_has_any_role(ARRAY['super_admin', 'institution_admin', 'principal']);
+$$;
+
+CREATE OR REPLACE FUNCTION public.auth_can_write_academics()
+RETURNS boolean
+LANGUAGE sql
+STABLE
+SECURITY DEFINER
+SET search_path = public
+AS $$
+  SELECT public.auth_has_any_role(ARRAY['institution_admin', 'principal', 'teacher']);
+$$;
+
+CREATE OR REPLACE FUNCTION public.auth_can_write_operations()
+RETURNS boolean
+LANGUAGE sql
+STABLE
+SECURITY DEFINER
+SET search_path = public
+AS $$
+  SELECT public.auth_has_any_role(ARRAY['institution_admin', 'principal', 'staff']);
+$$;
+
+CREATE OR REPLACE FUNCTION public.auth_can_write_finance()
+RETURNS boolean
+LANGUAGE sql
+STABLE
+SECURITY DEFINER
+SET search_path = public
+AS $$
+  SELECT public.auth_has_any_role(ARRAY['institution_admin', 'principal', 'staff']);
 $$;
 
 -- ── institutions ─────────────────────────────────────────────
@@ -523,6 +618,293 @@ CREATE POLICY "activity_log: tenant select" ON public.activity_log FOR SELECT  T
 CREATE POLICY "activity_log: tenant insert" ON public.activity_log FOR INSERT  TO authenticated WITH CHECK (institution_id = public.auth_institution_id());
 CREATE POLICY "activity_log: tenant update" ON public.activity_log FOR UPDATE  TO authenticated USING (institution_id = public.auth_institution_id());
 CREATE POLICY "activity_log: tenant delete" ON public.activity_log FOR DELETE  TO authenticated USING (institution_id = public.auth_institution_id());
+
+-- ── feature_usage_events ──────────────────────────────────────
+ALTER TABLE public.feature_usage_events ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "feature_usage_events: tenant select" ON public.feature_usage_events FOR SELECT TO authenticated USING (institution_id = public.auth_institution_id());
+CREATE POLICY "feature_usage_events: tenant insert" ON public.feature_usage_events FOR INSERT TO authenticated WITH CHECK (institution_id = public.auth_institution_id());
+
+-- ============================================================
+-- ROLE-AWARE RLS OVERRIDES
+-- Keep tenant-wide reads, but restrict writes by account role.
+-- These drops make the schema safe to re-run as a migration.
+-- ============================================================
+
+DROP POLICY IF EXISTS "user_profiles: safe own row insert" ON public.user_profiles;
+DROP POLICY IF EXISTS "user_profiles: safe own row update" ON public.user_profiles;
+DROP POLICY IF EXISTS "students: operations insert" ON public.students;
+DROP POLICY IF EXISTS "students: operations update" ON public.students;
+DROP POLICY IF EXISTS "students: operations delete" ON public.students;
+DROP POLICY IF EXISTS "teachers: tenant admin insert" ON public.teachers;
+DROP POLICY IF EXISTS "teachers: tenant admin update" ON public.teachers;
+DROP POLICY IF EXISTS "teachers: tenant admin delete" ON public.teachers;
+DROP POLICY IF EXISTS "classes: academics insert" ON public.classes;
+DROP POLICY IF EXISTS "classes: academics update" ON public.classes;
+DROP POLICY IF EXISTS "classes: tenant admin delete" ON public.classes;
+DROP POLICY IF EXISTS "attendance: academics insert" ON public.attendance;
+DROP POLICY IF EXISTS "attendance: academics update" ON public.attendance;
+DROP POLICY IF EXISTS "attendance: tenant admin delete" ON public.attendance;
+DROP POLICY IF EXISTS "fee_structures: finance insert" ON public.fee_structures;
+DROP POLICY IF EXISTS "fee_structures: finance update" ON public.fee_structures;
+DROP POLICY IF EXISTS "fee_structures: finance delete" ON public.fee_structures;
+DROP POLICY IF EXISTS "fee_payments: finance insert" ON public.fee_payments;
+DROP POLICY IF EXISTS "fee_payments: finance update" ON public.fee_payments;
+DROP POLICY IF EXISTS "fee_payments: finance delete" ON public.fee_payments;
+DROP POLICY IF EXISTS "exams: academics insert" ON public.exams;
+DROP POLICY IF EXISTS "exams: academics update" ON public.exams;
+DROP POLICY IF EXISTS "exams: tenant admin delete" ON public.exams;
+DROP POLICY IF EXISTS "exam_results: academics insert" ON public.exam_results;
+DROP POLICY IF EXISTS "exam_results: academics update" ON public.exam_results;
+DROP POLICY IF EXISTS "exam_results: tenant admin delete" ON public.exam_results;
+DROP POLICY IF EXISTS "courses: academics insert" ON public.courses;
+DROP POLICY IF EXISTS "courses: academics update" ON public.courses;
+DROP POLICY IF EXISTS "courses: tenant admin delete" ON public.courses;
+DROP POLICY IF EXISTS "lessons: academics insert" ON public.lessons;
+DROP POLICY IF EXISTS "lessons: academics update" ON public.lessons;
+DROP POLICY IF EXISTS "lessons: tenant admin delete" ON public.lessons;
+DROP POLICY IF EXISTS "announcements: staff insert" ON public.announcements;
+DROP POLICY IF EXISTS "announcements: staff update" ON public.announcements;
+DROP POLICY IF EXISTS "announcements: staff delete" ON public.announcements;
+DROP POLICY IF EXISTS "transport_routes: operations insert" ON public.transport_routes;
+DROP POLICY IF EXISTS "transport_routes: operations update" ON public.transport_routes;
+DROP POLICY IF EXISTS "transport_routes: operations delete" ON public.transport_routes;
+DROP POLICY IF EXISTS "student_routes: operations insert" ON public.student_routes;
+DROP POLICY IF EXISTS "student_routes: operations update" ON public.student_routes;
+DROP POLICY IF EXISTS "student_routes: operations delete" ON public.student_routes;
+DROP POLICY IF EXISTS "admissions: operations insert" ON public.admissions;
+DROP POLICY IF EXISTS "admissions: operations update" ON public.admissions;
+DROP POLICY IF EXISTS "admissions: operations delete" ON public.admissions;
+DROP POLICY IF EXISTS "activity_log: tenant admin update" ON public.activity_log;
+DROP POLICY IF EXISTS "activity_log: tenant admin delete" ON public.activity_log;
+
+DROP POLICY IF EXISTS "institutions: tenant admin update" ON public.institutions;
+CREATE POLICY "institutions: tenant admin update"
+  ON public.institutions
+  FOR UPDATE
+  TO authenticated
+  USING (id = public.auth_institution_id() AND public.auth_is_tenant_admin())
+  WITH CHECK (id = public.auth_institution_id() AND public.auth_is_tenant_admin());
+
+DROP POLICY IF EXISTS "user_profiles: own row insert" ON public.user_profiles;
+DROP POLICY IF EXISTS "user_profiles: own row update" ON public.user_profiles;
+CREATE POLICY "user_profiles: safe own row insert"
+  ON public.user_profiles
+  FOR INSERT
+  TO authenticated
+  WITH CHECK (
+    user_id = auth.uid()
+    AND COALESCE(role, 'student') <> 'super_admin'
+  );
+CREATE POLICY "user_profiles: safe own row update"
+  ON public.user_profiles
+  FOR UPDATE
+  TO authenticated
+  USING (user_id = auth.uid())
+  WITH CHECK (
+    user_id = auth.uid()
+    AND role = public.auth_role()
+    AND COALESCE(institution_id, '00000000-0000-0000-0000-000000000000'::uuid)
+      = COALESCE(public.auth_institution_id(), '00000000-0000-0000-0000-000000000000'::uuid)
+    AND is_active = true
+  );
+
+DROP POLICY IF EXISTS "students: tenant insert" ON public.students;
+DROP POLICY IF EXISTS "students: tenant update" ON public.students;
+DROP POLICY IF EXISTS "students: tenant delete" ON public.students;
+CREATE POLICY "students: operations insert" ON public.students FOR INSERT TO authenticated
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_operations());
+CREATE POLICY "students: operations update" ON public.students FOR UPDATE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_operations())
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_operations());
+CREATE POLICY "students: operations delete" ON public.students FOR DELETE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_operations());
+
+DROP POLICY IF EXISTS "teachers: tenant insert" ON public.teachers;
+DROP POLICY IF EXISTS "teachers: tenant update" ON public.teachers;
+DROP POLICY IF EXISTS "teachers: tenant delete" ON public.teachers;
+CREATE POLICY "teachers: tenant admin insert" ON public.teachers FOR INSERT TO authenticated
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_is_tenant_admin());
+CREATE POLICY "teachers: tenant admin update" ON public.teachers FOR UPDATE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_is_tenant_admin())
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_is_tenant_admin());
+CREATE POLICY "teachers: tenant admin delete" ON public.teachers FOR DELETE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_is_tenant_admin());
+
+DROP POLICY IF EXISTS "classes: tenant insert" ON public.classes;
+DROP POLICY IF EXISTS "classes: tenant update" ON public.classes;
+DROP POLICY IF EXISTS "classes: tenant delete" ON public.classes;
+CREATE POLICY "classes: academics insert" ON public.classes FOR INSERT TO authenticated
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_academics());
+CREATE POLICY "classes: academics update" ON public.classes FOR UPDATE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_academics())
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_academics());
+CREATE POLICY "classes: tenant admin delete" ON public.classes FOR DELETE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_is_tenant_admin());
+
+DROP POLICY IF EXISTS "attendance: tenant insert" ON public.attendance;
+DROP POLICY IF EXISTS "attendance: tenant update" ON public.attendance;
+DROP POLICY IF EXISTS "attendance: tenant delete" ON public.attendance;
+CREATE POLICY "attendance: academics insert" ON public.attendance FOR INSERT TO authenticated
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_academics());
+CREATE POLICY "attendance: academics update" ON public.attendance FOR UPDATE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_academics())
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_academics());
+CREATE POLICY "attendance: tenant admin delete" ON public.attendance FOR DELETE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_is_tenant_admin());
+
+DROP POLICY IF EXISTS "fee_structures: tenant insert" ON public.fee_structures;
+DROP POLICY IF EXISTS "fee_structures: tenant update" ON public.fee_structures;
+DROP POLICY IF EXISTS "fee_structures: tenant delete" ON public.fee_structures;
+CREATE POLICY "fee_structures: finance insert" ON public.fee_structures FOR INSERT TO authenticated
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_finance());
+CREATE POLICY "fee_structures: finance update" ON public.fee_structures FOR UPDATE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_finance())
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_finance());
+CREATE POLICY "fee_structures: finance delete" ON public.fee_structures FOR DELETE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_finance());
+
+DROP POLICY IF EXISTS "fee_payments: tenant insert" ON public.fee_payments;
+DROP POLICY IF EXISTS "fee_payments: tenant update" ON public.fee_payments;
+DROP POLICY IF EXISTS "fee_payments: tenant delete" ON public.fee_payments;
+CREATE POLICY "fee_payments: finance insert" ON public.fee_payments FOR INSERT TO authenticated
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_finance());
+CREATE POLICY "fee_payments: finance update" ON public.fee_payments FOR UPDATE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_finance())
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_finance());
+CREATE POLICY "fee_payments: finance delete" ON public.fee_payments FOR DELETE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_finance());
+
+DROP POLICY IF EXISTS "exams: tenant insert" ON public.exams;
+DROP POLICY IF EXISTS "exams: tenant update" ON public.exams;
+DROP POLICY IF EXISTS "exams: tenant delete" ON public.exams;
+CREATE POLICY "exams: academics insert" ON public.exams FOR INSERT TO authenticated
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_academics());
+CREATE POLICY "exams: academics update" ON public.exams FOR UPDATE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_academics())
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_academics());
+CREATE POLICY "exams: tenant admin delete" ON public.exams FOR DELETE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_is_tenant_admin());
+
+DROP POLICY IF EXISTS "exam_results: tenant insert" ON public.exam_results;
+DROP POLICY IF EXISTS "exam_results: tenant update" ON public.exam_results;
+DROP POLICY IF EXISTS "exam_results: tenant delete" ON public.exam_results;
+CREATE POLICY "exam_results: academics insert" ON public.exam_results FOR INSERT TO authenticated
+  WITH CHECK (
+    public.auth_can_write_academics()
+    AND exam_id IN (SELECT id FROM public.exams WHERE institution_id = public.auth_institution_id())
+  );
+CREATE POLICY "exam_results: academics update" ON public.exam_results FOR UPDATE TO authenticated
+  USING (
+    public.auth_can_write_academics()
+    AND exam_id IN (SELECT id FROM public.exams WHERE institution_id = public.auth_institution_id())
+  )
+  WITH CHECK (
+    public.auth_can_write_academics()
+    AND exam_id IN (SELECT id FROM public.exams WHERE institution_id = public.auth_institution_id())
+  );
+CREATE POLICY "exam_results: tenant admin delete" ON public.exam_results FOR DELETE TO authenticated
+  USING (
+    public.auth_is_tenant_admin()
+    AND exam_id IN (SELECT id FROM public.exams WHERE institution_id = public.auth_institution_id())
+  );
+
+DROP POLICY IF EXISTS "courses: tenant insert" ON public.courses;
+DROP POLICY IF EXISTS "courses: tenant update" ON public.courses;
+DROP POLICY IF EXISTS "courses: tenant delete" ON public.courses;
+CREATE POLICY "courses: academics insert" ON public.courses FOR INSERT TO authenticated
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_academics());
+CREATE POLICY "courses: academics update" ON public.courses FOR UPDATE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_academics())
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_academics());
+CREATE POLICY "courses: tenant admin delete" ON public.courses FOR DELETE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_is_tenant_admin());
+
+DROP POLICY IF EXISTS "lessons: tenant insert" ON public.lessons;
+DROP POLICY IF EXISTS "lessons: tenant update" ON public.lessons;
+DROP POLICY IF EXISTS "lessons: tenant delete" ON public.lessons;
+CREATE POLICY "lessons: academics insert" ON public.lessons FOR INSERT TO authenticated
+  WITH CHECK (
+    public.auth_can_write_academics()
+    AND course_id IN (SELECT id FROM public.courses WHERE institution_id = public.auth_institution_id())
+  );
+CREATE POLICY "lessons: academics update" ON public.lessons FOR UPDATE TO authenticated
+  USING (
+    public.auth_can_write_academics()
+    AND course_id IN (SELECT id FROM public.courses WHERE institution_id = public.auth_institution_id())
+  )
+  WITH CHECK (
+    public.auth_can_write_academics()
+    AND course_id IN (SELECT id FROM public.courses WHERE institution_id = public.auth_institution_id())
+  );
+CREATE POLICY "lessons: tenant admin delete" ON public.lessons FOR DELETE TO authenticated
+  USING (
+    public.auth_is_tenant_admin()
+    AND course_id IN (SELECT id FROM public.courses WHERE institution_id = public.auth_institution_id())
+  );
+
+DROP POLICY IF EXISTS "announcements: tenant insert" ON public.announcements;
+DROP POLICY IF EXISTS "announcements: tenant update" ON public.announcements;
+DROP POLICY IF EXISTS "announcements: tenant delete" ON public.announcements;
+CREATE POLICY "announcements: staff insert" ON public.announcements FOR INSERT TO authenticated
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_has_any_role(ARRAY['institution_admin', 'principal', 'teacher', 'staff']));
+CREATE POLICY "announcements: staff update" ON public.announcements FOR UPDATE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_has_any_role(ARRAY['institution_admin', 'principal', 'teacher', 'staff']))
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_has_any_role(ARRAY['institution_admin', 'principal', 'teacher', 'staff']));
+CREATE POLICY "announcements: staff delete" ON public.announcements FOR DELETE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_has_any_role(ARRAY['institution_admin', 'principal', 'teacher', 'staff']));
+
+DROP POLICY IF EXISTS "transport_routes: tenant insert" ON public.transport_routes;
+DROP POLICY IF EXISTS "transport_routes: tenant update" ON public.transport_routes;
+DROP POLICY IF EXISTS "transport_routes: tenant delete" ON public.transport_routes;
+CREATE POLICY "transport_routes: operations insert" ON public.transport_routes FOR INSERT TO authenticated
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_operations());
+CREATE POLICY "transport_routes: operations update" ON public.transport_routes FOR UPDATE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_operations())
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_operations());
+CREATE POLICY "transport_routes: operations delete" ON public.transport_routes FOR DELETE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_operations());
+
+DROP POLICY IF EXISTS "student_routes: tenant insert" ON public.student_routes;
+DROP POLICY IF EXISTS "student_routes: tenant update" ON public.student_routes;
+DROP POLICY IF EXISTS "student_routes: tenant delete" ON public.student_routes;
+CREATE POLICY "student_routes: operations insert" ON public.student_routes FOR INSERT TO authenticated
+  WITH CHECK (
+    public.auth_can_write_operations()
+    AND route_id IN (SELECT id FROM public.transport_routes WHERE institution_id = public.auth_institution_id())
+  );
+CREATE POLICY "student_routes: operations update" ON public.student_routes FOR UPDATE TO authenticated
+  USING (
+    public.auth_can_write_operations()
+    AND route_id IN (SELECT id FROM public.transport_routes WHERE institution_id = public.auth_institution_id())
+  )
+  WITH CHECK (
+    public.auth_can_write_operations()
+    AND route_id IN (SELECT id FROM public.transport_routes WHERE institution_id = public.auth_institution_id())
+  );
+CREATE POLICY "student_routes: operations delete" ON public.student_routes FOR DELETE TO authenticated
+  USING (
+    public.auth_can_write_operations()
+    AND route_id IN (SELECT id FROM public.transport_routes WHERE institution_id = public.auth_institution_id())
+  );
+
+DROP POLICY IF EXISTS "admissions: tenant insert" ON public.admissions;
+DROP POLICY IF EXISTS "admissions: tenant update" ON public.admissions;
+DROP POLICY IF EXISTS "admissions: tenant delete" ON public.admissions;
+CREATE POLICY "admissions: operations insert" ON public.admissions FOR INSERT TO authenticated
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_operations());
+CREATE POLICY "admissions: operations update" ON public.admissions FOR UPDATE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_operations())
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_can_write_operations());
+CREATE POLICY "admissions: operations delete" ON public.admissions FOR DELETE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_can_write_operations());
+
+DROP POLICY IF EXISTS "activity_log: tenant update" ON public.activity_log;
+DROP POLICY IF EXISTS "activity_log: tenant delete" ON public.activity_log;
+CREATE POLICY "activity_log: tenant admin update" ON public.activity_log FOR UPDATE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_is_tenant_admin())
+  WITH CHECK (institution_id = public.auth_institution_id() AND public.auth_is_tenant_admin());
+CREATE POLICY "activity_log: tenant admin delete" ON public.activity_log FOR DELETE TO authenticated
+  USING (institution_id = public.auth_institution_id() AND public.auth_is_tenant_admin());
 
 -- ============================================================
 -- TRIGGER: auto-create user_profiles row after auth.users insert

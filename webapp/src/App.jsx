@@ -4,6 +4,10 @@ import { AppDataProvider } from './context/AppDataContext';
 import { NotificationProvider } from './context/NotificationContext';
 import NotificationCenter from './components/Common/NotificationCenter';
 import ProtectedRoute from './components/Common/ProtectedRoute';
+import RoleGate from './components/Common/RoleGate';
+import FeatureGate from './components/Common/FeatureGate';
+import UsageTracker from './components/Common/UsageTracker';
+import BillingGate from './components/Common/BillingGate';
 
 // Auth Pages
 import LoginPage from './pages/Auth/LoginPage';
@@ -33,6 +37,24 @@ import FeeRecoveryPage from './pages/AI/FeeRecoveryPage';
 import SettingsPage from './pages/Settings/SettingsPage';
 import ProfilePage from './pages/Profile/ProfilePage';
 
+function GuardedPage({ path, feature, billing = true, children }) {
+  let page = children;
+
+  if (feature) {
+    page = <FeatureGate feature={feature}>{page}</FeatureGate>;
+  }
+
+  if (billing) {
+    page = <BillingGate>{page}</BillingGate>;
+  }
+
+  return (
+    <ProtectedRoute>
+      <RoleGate path={path}>{page}</RoleGate>
+    </ProtectedRoute>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -40,6 +62,7 @@ function App() {
         <AppDataProvider>
           <NotificationProvider>
             <NotificationCenter />
+            <UsageTracker />
             <Routes>
               {/* Public routes */}
               <Route path="/login" element={<LoginPage />} />
@@ -49,17 +72,17 @@ function App() {
               <Route
                 path="/dashboard"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/dashboard">
                     <DashboardPage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
               <Route
                 path="/admin"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/admin" billing={false}>
                     <AdminConsolePage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
 
@@ -67,65 +90,65 @@ function App() {
               <Route
                 path="/students"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/students" feature="students">
                     <StudentsPage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
               <Route
                 path="/fees"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/fees" feature="fees">
                     <FeesPage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
               <Route
                 path="/attendance"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/attendance" feature="attendance">
                     <AttendancePage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
               <Route
                 path="/exams"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/exams" feature="exams">
                     <ExamsPage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
               <Route
                 path="/lms"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/lms" feature="lms">
                     <LmsPage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
               <Route
                 path="/communication"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/communication" feature="communication">
                     <CommunicationPage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
               <Route
                 path="/transport"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/transport" feature="transport">
                     <TransportPage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
               <Route
                 path="/admissions"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/admissions" feature="admissions">
                     <AdmissionsPage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
 
@@ -133,33 +156,33 @@ function App() {
               <Route
                 path="/ai-tutor"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/ai-tutor" feature="ai_tutor">
                     <AiTutorPage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
               <Route
                 path="/career-path"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/career-path" feature="career_path">
                     <CareerPathPage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
               <Route
                 path="/performance-analysis"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/performance-analysis" feature="performance_analysis">
                     <PerformanceAnalysisPage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
               <Route
                 path="/fee-recovery"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/fee-recovery" feature="fee_recovery">
                     <FeeRecoveryPage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
 
@@ -167,17 +190,17 @@ function App() {
               <Route
                 path="/settings"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/settings" billing={false}>
                     <SettingsPage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
               <Route
                 path="/profile"
                 element={
-                  <ProtectedRoute>
+                  <GuardedPage path="/profile" billing={false}>
                     <ProfilePage />
-                  </ProtectedRoute>
+                  </GuardedPage>
                 }
               />
 

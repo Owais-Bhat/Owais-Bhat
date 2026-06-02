@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext, useCallback } from 'react';
 import supabase from '../lib/supabase';
 import { AuthContext } from './AuthContext';
+import { getPlanFeatureMap, isFeatureEnabled } from '../saas/features';
 
 export const AppDataContext = createContext();
 
@@ -560,6 +561,15 @@ export function AppDataProvider({ children }) {
     }
   }, [profile?.institution_id, profile?.user_id]);
 
+  const featureMap = getPlanFeatureMap(
+    institution?.subscription_plan || 'free',
+    institution?.settings?.modules || {}
+  );
+  const hasFeature = useCallback(
+    (featureKey) => isFeatureEnabled(institution, featureKey),
+    [institution]
+  );
+
   // ── Context value ──────────────────────────────────────────
 
   const value = {
@@ -573,6 +583,8 @@ export function AppDataProvider({ children }) {
     admissions,
     attendance,
     dashboardData,
+    featureMap,
+    hasFeature,
     isLoading,
     error,
 

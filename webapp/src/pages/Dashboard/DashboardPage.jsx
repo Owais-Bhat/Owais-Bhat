@@ -13,6 +13,8 @@ import {
   MdChecklist,
   MdSummarize,
   MdMessage,
+  MdCheckCircle,
+  MdRadioButtonUnchecked,
 } from 'react-icons/md';
 
 import { useAppData } from '../../hooks/useAppData';
@@ -103,7 +105,7 @@ function formatTimeAgo(dateStr) {
 // ─────────────────────────────────────────────────────────────
 export default function DashboardPage() {
   const navigate = useNavigate();
-  const { dashboardData, loadDashboard, isLoading } = useAppData();
+  const { dashboardData, loadDashboard, loadInstitution, institution, isLoading } = useAppData();
   const { profile } = useAuth();
 
   const [activityLog, setActivityLog]       = useState([]);
@@ -111,6 +113,8 @@ export default function DashboardPage() {
   const [chartData, setChartData]           = useState([]);
   const [chartLoading, setChartLoading]     = useState(true);
   const [refreshing, setRefreshing]         = useState(false);
+  const [checklistDismissed, setChecklistDismissed] = useState(false);
+  const [hasAnnouncement, setHasAnnouncement] = useState(false);
 
   // ── Load dashboard stats ─────────────────────────────────
   useEffect(() => {
@@ -130,6 +134,13 @@ export default function DashboardPage() {
         .limit(10);
       if (error) throw error;
       setActivityLog(data || []);
+
+      const { count, error: announcementError } = await supabase
+        .from('announcements')
+        .select('id', { count: 'exact', head: true })
+        .eq('institution_id', profile.institution_id);
+      if (announcementError) throw announcementError;
+      setHasAnnouncement((count || 0) > 0);
     } catch (err) {
       console.error('activity_log fetch error:', err.message);
     } finally {
@@ -196,6 +207,65 @@ export default function DashboardPage() {
   };
 
   // ── Quick-actions config ─────────────────────────────────
+  const canManageOnboarding = ['institution_admin', 'principal'].includes(profile?.role);
+  const onboardingDismissed = Boolean(institution?.settings?.onboarding?.checklist_dismissed_at) || checklistDismissed;
+  const onboardingTasks = [
+    {
+      key: 'institution',
+      label: 'Confirm institution profile',
+      description: 'Add contact email and phone in settings.',
+      done: Boolean(institution?.email && institution?.phone),
+      path: '/settings',
+    },
+    {
+      key: 'students',
+      label: 'Add first students',
+      description: 'Create student records for the tenant.',
+      done: (dashboardData?.totalStudents || 0) > 0,
+      path: '/students',
+    },
+    {
+      key: 'attendance',
+      label: 'Mark first attendance',
+      description: 'Start daily attendance tracking.',
+      done: (dashboardData?.presentToday || 0) > 0,
+      path: '/attendance',
+    },
+    {
+      key: 'fees',
+      label: 'Record first payment',
+      description: 'Validate fee collection workflow.',
+      done: (dashboardData?.totalFeesCollected || 0) > 0,
+      path: '/fees',
+    },
+    {
+      key: 'communication',
+      label: 'Send first announcement',
+      description: 'Test communication with the school community.',
+      done: hasAnnouncement,
+      path: '/communication',
+    },
+  ];
+  const completedOnboardingTasks = onboardingTasks.filter(task => task.done).length;
+  const showOnboardingChecklist = canManageOnboarding && !onboardingDismissed && completedOnboardingTasks < onboardingTasks.length;
+
+  const dismissOnboardingChecklist = async () => {
+    if (!profile?.institution_id || !institution) return;
+    setChecklistDismissed(true);
+    const nextSettings = {
+      ...(institution.settings || {}),
+      onboarding: {
+        ...(institution.settings?.onboarding || {}),
+        checklist_dismissed_at: new Date().toISOString(),
+      },
+    };
+    const { error } = await supabase
+      .from('institutions')
+      .update({ settings: nextSettings })
+      .eq('id', profile.institution_id);
+    if (!error) loadInstitution();
+  };
+
   const quickActions = [
     {
       label: 'Add Student',
@@ -253,6 +323,46 @@ export default function DashboardPage() {
         </div>
 
         {/* ── Stats Grid ──────────────────────────────────── */}
+        {showOnboardingChecklist && (
+          <GlassCard className="p-6 border border-[#0E7C7B]/20 bg-[#EEF7F6]/70">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between mb-5">
+              <div>
+                <p className="text-[#0E7C7B] text-xs font-extrabold uppercase tracking-[0.18em] mb-2">
+                  First Login Setup
+                </p>
+                <h2 className="text-xl font-bold text-slate-950 mb-1">Launch checklist</h2>
+                <p className="text-sm text-slate-500 mb-0">
+                  {completedOnboardingTasks} of {onboardingTasks.length} setup tasks completed.
+                </p>
+              </div>
+              <Button type="button" variant="ghost" size="sm" onClick={dismissOnboardingChecklist}>
+                Dismiss
+              </Button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-3">
+              {onboardingTasks.map(task => {
+                const Icon = task.done ? MdCheckCircle : MdRadioButtonUnchecked;
+                return (
+                  <button
+                    key={task.key}
+                    type="button"
+                    onClick={() => navigate(task.path)}
+                    className={`text-left rounded-xl border p-4 transition-all ${
+                      task.done
+                        ? 'border-emerald-200 bg-white/80'
+                        : 'border-slate-200 bg-white hover:border-[#0E7C7B]/30'
+                    }`}
+                  >
+                    <Icon className={`w-5 h-5 mb-3 ${task.done ? 'text-emerald-600' : 'text-slate-400'}`} />
+                    <p className="font-bold text-slate-950 text-sm mb-1">{task.label}</p>
+                    <p className="text-xs text-slate-500 mb-0">{task.description}</p>
+                  </button>
+                );
+              })}
+            </div>
+          </GlassCard>
+        )}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {statsLoading ? (
             <>

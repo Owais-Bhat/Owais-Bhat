@@ -120,6 +120,42 @@ export const MENU_ITEMS = {
     },
     { key: 'settings', iconName: 'MdSettings', label: 'Settings', path: '/settings' },
   ],
+  principal: [
+    { key: 'dashboard', iconName: 'MdDashboard', label: 'Dashboard', path: '/dashboard' },
+    {
+      key: 'academics',
+      iconName: 'MdBook',
+      label: 'Academics',
+      subItems: [
+        { key: 'students', label: 'Students', path: '/students' },
+        { key: 'attendance', label: 'Attendance', path: '/attendance' },
+        { key: 'exams', label: 'Exams', path: '/exams' },
+        { key: 'lms', label: 'Learning', path: '/lms' },
+      ]
+    },
+    {
+      key: 'operations',
+      iconName: 'MdBusiness',
+      label: 'Operations',
+      subItems: [
+        { key: 'admissions', label: 'Admissions', path: '/admissions' },
+        { key: 'transport', label: 'Transport', path: '/transport' },
+        { key: 'communication', label: 'Communication', path: '/communication' },
+      ]
+    },
+    { key: 'fees', iconName: 'MdAccountBalance', label: 'Fees', path: '/fees' },
+    {
+      key: 'ai',
+      iconName: 'MdLightbulb',
+      label: 'AI Tools',
+      subItems: [
+        { key: 'career-path', label: 'Career Path', path: '/career-path' },
+        { key: 'performance', label: 'Performance', path: '/performance-analysis' },
+        { key: 'fee-recovery', label: 'Fee Recovery', path: '/fee-recovery' },
+      ]
+    },
+    { key: 'settings', iconName: 'MdSettings', label: 'Settings', path: '/settings' },
+  ],
   teacher: [
     { key: 'dashboard', iconName: 'MdDashboard', label: 'Dashboard', path: '/dashboard' },
     { key: 'my-classes', iconName: 'MdPeople', label: 'Students', path: '/students' },
@@ -146,6 +182,14 @@ export const MENU_ITEMS = {
     { key: 'performance-analysis', iconName: 'MdBarChart', label: 'Performance', path: '/performance-analysis' },
     { key: 'fees', iconName: 'MdAccountBalance', label: 'Fees', path: '/fees' },
     { key: 'communication', iconName: 'MdChat', label: 'Messages', path: '/communication' },
+  ],
+  staff: [
+    { key: 'dashboard', iconName: 'MdDashboard', label: 'Dashboard', path: '/dashboard' },
+    { key: 'students', iconName: 'MdPeople', label: 'Students', path: '/students' },
+    { key: 'admissions', iconName: 'MdBusiness', label: 'Admissions', path: '/admissions' },
+    { key: 'transport', iconName: 'MdDirectionsBus', label: 'Transport', path: '/transport' },
+    { key: 'fees', iconName: 'MdAccountBalance', label: 'Fees', path: '/fees' },
+    { key: 'communication', iconName: 'MdChat', label: 'Communication', path: '/communication' },
   ],
 };
 

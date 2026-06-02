@@ -31,6 +31,22 @@ export function fetchAdminInstitutions() {
   return adminRequest('/institutions');
 }
 
+export function fetchAdminFeatures() {
+  return adminRequest('/features');
+}
+
+export function fetchAdminUsage() {
+  return adminRequest('/usage');
+}
+
+export function fetchAdminAudit(params = {}) {
+  const query = new URLSearchParams();
+  if (params.limit) query.set('limit', params.limit);
+  if (params.institutionId) query.set('institutionId', params.institutionId);
+  const suffix = query.toString() ? `?${query.toString()}` : '';
+  return adminRequest(`/audit${suffix}`);
+}
+
 export function createAdminInstitution(data) {
   return adminRequest('/institutions', {
     method: 'POST',
@@ -52,8 +68,22 @@ export function changeInstitutionPlan(data) {
   });
 }
 
+export function updateInstitutionSubscription(data) {
+  return adminRequest('/subscription', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
+}
+
 export function suspendInstitution(data) {
   return adminRequest('/suspend-institution', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
+}
+
+export function setInstitutionFeature(data) {
+  return adminRequest('/set-feature', {
     method: 'POST',
     body: JSON.stringify(data),
   });
