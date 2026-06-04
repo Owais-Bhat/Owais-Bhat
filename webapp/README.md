@@ -1,4 +1,4 @@
-# CyberMilo EduOS - AI-Powered Education Management System
+# Progress Web App
 
 ![CyberMilo](https://img.shields.io/badge/Status-Production%20Ready-green)
 ![React](https://img.shields.io/badge/React-18.3.1-blue)
@@ -101,6 +101,16 @@ CyberMilo EduOS is a next-generation, AI-powered Education Management Operating 
 - Approval workflow
 - Admission letters
 - Email communications
+
+
+### SkillVault Daily Practice (`/skill-vault`)
+A standalone web-first planner for saved Facebook/video learning content:
+- Manually add or bulk import saved video links, captions, transcripts, or notes.
+- Organise items by category, skill/technique, difficulty, priority, and planned practice minutes.
+- Generate a daily practice queue, copy the plan, log today’s practice, and export your local data.
+- Runs in the browser with localStorage (`cybermilo_skill_vault_v1`), so it does not require Facebook API access, backend setup, or Supabase login for the standalone route.
+
+Private Facebook saved videos should be added by link, caption, transcript, or personal notes because Facebook does not provide reliable normal API access to every private saved profile video.
 
 ### AI-Powered Features
 

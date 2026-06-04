@@ -11,14 +11,14 @@ import {
   MdDashboard, MdBusiness, MdCreditCard, MdTrendingUp, MdSettings,
   MdPeople, MdPerson, MdAccountBalance, MdAccessTime, MdBook,
   MdDirectionsBus, MdChat, MdBarChart, MdAutoAwesome, MdSchool,
-  MdGrade, MdNotifications, MdLogout, MdLightbulb, MdAdminPanelSettings,
+  MdGrade, MdNotifications, MdLogout, MdLightbulb, MdAdminPanelSettings, MdVideoLibrary,
 } from 'react-icons/md';
 
 const ICON_MAP = {
   MdDashboard, MdBusiness, MdCreditCard, MdTrendingUp, MdSettings,
   MdPeople, MdPerson, MdAccountBalance, MdAccessTime, MdBook,
   MdDirectionsBus, MdChat, MdBarChart, MdAutoAwesome, MdSchool,
-  MdGrade, MdNotifications, MdLogout, MdLightbulb, MdAdminPanelSettings,
+  MdGrade, MdNotifications, MdLogout, MdLightbulb, MdAdminPanelSettings, MdVideoLibrary,
 };
 
 const ACTIVE_NAV_STYLE = {

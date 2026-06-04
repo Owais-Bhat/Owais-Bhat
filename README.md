@@ -1,4 +1,4 @@
-# Education ERP Platform (In Progress)
+# Progress
 
 This repository is being prepared to build a **premium multi-institution ERP** for schools, colleges, universities, academies, and coaching centers using **Python + Supabase** with responsive web and mobile apps.
 

@@ -82,6 +82,7 @@ export const MENU_ITEMS = {
     { key: 'admin', iconName: 'MdAdminPanelSettings', label: 'HQ Console', path: '/admin' },
     { key: 'dashboard', iconName: 'MdDashboard', label: 'School Preview', path: '/dashboard' },
     { key: 'analytics', iconName: 'MdTrendingUp', label: 'AI Insights', path: '/performance-analysis' },
+    { key: 'skill-vault', iconName: 'MdVideoLibrary', label: 'SkillVault', path: '/skill-vault' },
     { key: 'settings', iconName: 'MdSettings', label: 'Platform Settings', path: '/settings' },
   ],
   institution_admin: [
@@ -114,6 +115,7 @@ export const MENU_ITEMS = {
       label: 'AI Tools',
       subItems: [
         { key: 'career-path', label: 'Career Path', path: '/career-path' },
+        { key: 'skill-vault', label: 'SkillVault', path: '/skill-vault' },
         { key: 'performance', label: 'Performance', path: '/performance-analysis' },
         { key: 'fee-recovery', label: 'Fee Recovery', path: '/fee-recovery' },
       ]
@@ -150,6 +152,7 @@ export const MENU_ITEMS = {
       label: 'AI Tools',
       subItems: [
         { key: 'career-path', label: 'Career Path', path: '/career-path' },
+        { key: 'skill-vault', label: 'SkillVault', path: '/skill-vault' },
         { key: 'performance', label: 'Performance', path: '/performance-analysis' },
         { key: 'fee-recovery', label: 'Fee Recovery', path: '/fee-recovery' },
       ]
@@ -163,6 +166,7 @@ export const MENU_ITEMS = {
     { key: 'lessons', iconName: 'MdBook', label: 'Learning', path: '/lms' },
     { key: 'exams', iconName: 'MdBook', label: 'Exams', path: '/exams' },
     { key: 'ai-tutor', iconName: 'MdLightbulb', label: 'AI Tutor', path: '/ai-tutor' },
+    { key: 'skill-vault', iconName: 'MdVideoLibrary', label: 'SkillVault', path: '/skill-vault' },
     { key: 'communication', iconName: 'MdChat', label: 'Communication', path: '/communication' },
   ],
   student: [
@@ -171,6 +175,7 @@ export const MENU_ITEMS = {
     { key: 'attendance', iconName: 'MdAccessTime', label: 'Attendance', path: '/attendance' },
     { key: 'exams', iconName: 'MdBook', label: 'Exams', path: '/exams' },
     { key: 'ai-tutor', iconName: 'MdLightbulb', label: 'AI Tutor', path: '/ai-tutor' },
+    { key: 'skill-vault', iconName: 'MdVideoLibrary', label: 'SkillVault', path: '/skill-vault' },
     { key: 'career-path', iconName: 'MdTrendingUp', label: 'Career Path', path: '/career-path' },
     { key: 'communication', iconName: 'MdChat', label: 'Messages', path: '/communication' },
   ],

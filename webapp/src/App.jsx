@@ -32,6 +32,7 @@ import AiTutorPage from './pages/AI/AiTutorPage';
 import CareerPathPage from './pages/AI/CareerPathPage';
 import PerformanceAnalysisPage from './pages/AI/PerformanceAnalysisPage';
 import FeeRecoveryPage from './pages/AI/FeeRecoveryPage';
+import SkillVaultPage from './pages/AI/SkillVaultPage';
 
 // Settings & Profile
 import SettingsPage from './pages/Settings/SettingsPage';
@@ -67,6 +68,7 @@ function App() {
               {/* Public routes */}
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
+              <Route path="/skill-vault" element={<SkillVaultPage />} />
 
               {/* Protected routes */}
               <Route
