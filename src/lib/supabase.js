@@ -1,7 +1,21 @@
 import { createClient } from '@supabase/supabase-js';
 import { SUPABASE_URL, SUPABASE_KEY } from '../config';
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+// The app is migrating off Supabase to a MySQL backend (see src/lib/api.js).
+// Pages that still import this file are pending conversion. Guard client
+// creation so an unconfigured Supabase project doesn't crash the entire
+// bundle at import time — Vite statically bundles every page referenced
+// from App.jsx, so even a page nobody navigated to can take the whole
+// app down if this throws during module init.
+export const isSupabaseConfigured = Boolean(SUPABASE_URL && SUPABASE_KEY);
+
+const supabase = isSupabaseConfigured
+  ? createClient(SUPABASE_URL, SUPABASE_KEY)
+  : new Proxy({}, {
+    get() {
+      throw new Error('Supabase is not configured — this feature has not been migrated to the MySQL backend yet.');
+    },
+  });
 
 export default supabase;
 

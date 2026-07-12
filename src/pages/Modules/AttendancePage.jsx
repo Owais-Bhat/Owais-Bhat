@@ -5,7 +5,7 @@ import Button from '../../components/Common/Button';
 import { useAppData } from '../../hooks/useAppData';
 import { useAuth } from '../../hooks/useAuth';
 import { useNotification } from '../../hooks/useNotification';
-import supabase from '../../lib/supabase';
+import api from '../../lib/api';
 import {
   MdCheckCircle,
   MdCancel,
@@ -129,12 +129,7 @@ export default function AttendancePage() {
     if (!profile?.institution_id) return;
     setLoadingAttendance(true);
     try {
-      const { data, error } = await supabase
-        .from('attendance')
-        .select('*, students(first_name, last_name, admission_no, class_name)')
-        .eq('institution_id', profile.institution_id)
-        .eq('date', date);
-      if (error) throw error;
+      const { data } = await api.get('/attendance', { params: { date } });
       const map = {};
       (data || []).forEach((rec) => {
         map[rec.student_id] = { status: rec.status, id: rec.id };
@@ -165,13 +160,7 @@ export default function AttendancePage() {
     setLoadingMonthly(true);
     try {
       const thirtyDaysAgo = toDateStr(new Date(Date.now() - 30 * 24 * 60 * 60 * 1000));
-      const { data, error } = await supabase
-        .from('attendance')
-        .select('date, status')
-        .eq('institution_id', profile.institution_id)
-        .gte('date', thirtyDaysAgo)
-        .lte('date', TODAY);
-      if (error) throw error;
+      const { data } = await api.get('/attendance/range', { params: { from: thirtyDaysAgo, to: TODAY } });
       const grouped = {};
       (data || []).forEach((rec) => {
         if (!grouped[rec.date]) grouped[rec.date] = { present: 0, total: 0 };
@@ -204,17 +193,12 @@ export default function AttendancePage() {
         return;
       }
       const records = filtered.map((s) => ({
-        institution_id: profile.institution_id,
         student_id: s.id,
         class_name: s.class_name,
         date: selectedDate,
         status: markingMap[s.id] || 'present',
-        marked_by: profile.id,
       }));
-      const { error } = await supabase
-        .from('attendance')
-        .upsert(records, { onConflict: 'institution_id,student_id,date' });
-      if (error) throw error;
+      await api.post('/attendance/mark', { records });
       notification.success(`Attendance saved for ${records.length} student(s) on ${selectedDate}`);
       await loadAttendanceForDate(selectedDate);
       await loadMonthlyOverview();

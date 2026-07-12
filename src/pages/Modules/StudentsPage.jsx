@@ -9,7 +9,6 @@ import Avatar from '../../components/Common/Avatar';
 import { useAppData } from '../../hooks/useAppData';
 import { useAuth } from '../../hooks/useAuth';
 import { useNotification } from '../../hooks/useNotification';
-import supabase from '../../lib/supabase';
 import { formatDate } from '../../utils/helpers';
 import {
   MdAdd,
@@ -191,7 +190,7 @@ function StudentFormFields({ form, onChange, errors }) {
 }
 
 export default function StudentsPage() {
-  const { students, loadStudents, addStudent, updateStudent } = useAppData();
+  const { students, loadStudents, addStudent, updateStudent, deleteStudent } = useAppData();
   const { profile } = useAuth();
   const notification = useNotification();
 
@@ -345,13 +344,8 @@ export default function StudentsPage() {
     if (!deleteTarget) return;
     setDeleting(deleteTarget.id);
     try {
-      const { error } = await supabase
-        .from('students')
-        .delete()
-        .eq('id', deleteTarget.id);
-      if (error) throw error;
-      // Reload list from server to stay in sync
-      await loadStudents(profile?.institution_id);
+      const result = await deleteStudent(deleteTarget.id);
+      if (!result.success) throw new Error(result.error);
       notification.success('Student deleted successfully');
       setDeleteTarget(null);
     } catch (err) {

@@ -4,7 +4,7 @@ import { useNotification } from '../../hooks/useNotification';
 import AuthLayout from '../../components/Layout/AuthLayout';
 import Input from '../../components/Common/Input';
 import Button from '../../components/Common/Button';
-import supabase from '../../lib/supabase';
+import { useAuth } from '../../hooks/useAuth';
 import { MdEmail, MdLock, MdPerson, MdBusiness, MdPhone, MdLocationOn } from 'react-icons/md';
 
 const INSTITUTION_TYPES = ['School', 'College', 'University', 'Coaching Center'];
@@ -13,6 +13,7 @@ const STEPS = ['Institution', 'Admin Account'];
 export default function RegisterPage() {
   const navigate = useNavigate();
   const notification = useNotification();
+  const { register } = useAuth();
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(0);
   const [errors, setErrors] = useState({});
@@ -79,56 +80,24 @@ export default function RegisterPage() {
 
     setLoading(true);
     try {
-      const { data: authData, error: authError } = await supabase.auth.signUp({
-        email: accountData.email,
-        password: accountData.password,
-        options: {
-          data: {
-            first_name: accountData.firstName,
-            last_name: accountData.lastName,
-            role: 'institution_admin',
-          },
-        },
+      const result = await register(accountData.email, accountData.password, {
+        first_name: accountData.firstName,
+        last_name: accountData.lastName,
+        institution_name: institutionData.name,
+        institution_type: institutionData.type,
+        institution_address: institutionData.address,
+        institution_phone: institutionData.phone,
+        institution_email: institutionData.email,
       });
 
-      if (authError) throw authError;
-
-      const userId = authData.user?.id;
-      if (!userId) throw new Error('User creation failed');
-
-      const { data: inst, error: instError } = await supabase
-        .from('institutions')
-        .insert([{
-          name: institutionData.name,
-          type: institutionData.type,
-          address: institutionData.address,
-          phone: institutionData.phone,
-          email: institutionData.email,
-          subscription_plan: 'free',
-        }])
-        .select()
-        .single();
-
-      if (instError) throw instError;
-
-      const { error: profileError } = await supabase
-        .from('user_profiles')
-        .insert([{
-          user_id: userId,
-          institution_id: inst.id,
-          role: 'institution_admin',
-          first_name: accountData.firstName,
-          last_name: accountData.lastName,
-          is_active: true,
-        }]);
-
-      if (profileError) throw profileError;
+      if (!result.success) throw new Error(result.error);
 
       notification.success('Institution registered successfully! Welcome to CyberMilo.');
       navigate('/dashboard');
     } catch (err) {
-      notification.error(err.message || 'Registration failed');
-      setErrors({ form: err.message });
+      const message = err.message || 'Registration failed';
+      notification.error(message);
+      setErrors({ form: message });
     } finally {
       setLoading(false);
     }

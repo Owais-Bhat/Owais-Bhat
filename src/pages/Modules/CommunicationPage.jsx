@@ -5,7 +5,7 @@ import Button from '../../components/Common/Button';
 import Input from '../../components/Common/Input';
 import { useAuth } from '../../hooks/useAuth';
 import { useNotification } from '../../hooks/useNotification';
-import supabase from '../../lib/supabase';
+import supabase, { isSupabaseConfigured } from '../../lib/supabase';
 import { notifyInstitution } from '../../lib/notificationsApi';
 import {
   MdSend, MdCampaign, MdMessage, MdInbox, MdOutbox,
@@ -100,15 +100,17 @@ export default function CommunicationPage() {
   };
 
   useEffect(() => {
-    if (profile) {
+    if (profile && isSupabaseConfigured) {
       loadAnnouncements();
       loadMessages();
     }
   }, [profile]);
 
   // ─── Realtime subscription for new messages ────────────────────────
+  // TODO: Communication is not yet migrated off Supabase to the MySQL
+  // backend — announcements/messages/realtime here are inert until then.
   useEffect(() => {
-    if (!profile?.id) return;
+    if (!profile?.id || !isSupabaseConfigured) return;
 
     const channel = supabase
       .channel('messages')

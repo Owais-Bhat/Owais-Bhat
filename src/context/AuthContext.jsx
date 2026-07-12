@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import supabase, { signUpUser, signInUser, signOutUser, getCurrentUser } from '../lib/supabase';
+import api, { getToken, setToken } from '../lib/api';
 
 export const AuthContext = createContext();
 
@@ -10,138 +10,94 @@ export function AuthProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Check if user is already logged in
+  // Restore session from a stored JWT on load
   useEffect(() => {
     const checkAuth = async () => {
+      const token = getToken();
+      if (!token) {
+        setIsLoading(false);
+        return;
+      }
       try {
-        setIsLoading(true);
-        const { data: { user } } = await supabase.auth.getUser();
-
-        if (user) {
-          setUser(user);
-          setIsAuthenticated(true);
-
-          // Fetch user profile
-          const { data: profileData } = await supabase
-            .from('user_profiles')
-            .select('*')
-            .eq('user_id', user.id)
-            .single();
-
-          if (profileData) {
-            setProfile(profileData);
-          }
-        }
+        const { data } = await api.get('/auth/me');
+        setUser(data.user);
+        setProfile(data.profile);
+        setIsAuthenticated(true);
       } catch (err) {
-        console.error('Auth check error:', err);
-        setError(err.message);
+        setToken(null);
       } finally {
         setIsLoading(false);
       }
     };
-
     checkAuth();
-
-    // Listen for auth state changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        if (session?.user) {
-          setUser(session.user);
-          setIsAuthenticated(true);
-        } else {
-          setUser(null);
-          setIsAuthenticated(false);
-          setProfile(null);
-        }
-      }
-    );
-
-    return () => subscription?.unsubscribe();
   }, []);
 
   const login = async (email, password) => {
     try {
       setError(null);
       setIsLoading(true);
-      const { data, error: signInError } = await signInUser(email, password);
-
-      if (signInError) throw signInError;
-
-      setUser(data?.user);
+      const { data } = await api.post('/auth/login', { email, password });
+      setToken(data.token);
+      setUser(data.user);
+      setProfile(data.user.profile);
       setIsAuthenticated(true);
-
-      // Fetch profile
-      const { data: profileData } = await supabase
-        .from('user_profiles')
-        .select('*')
-        .eq('user_id', data.user.id)
-        .single();
-
-      setProfile(profileData);
-      return { success: true, profile: profileData };
+      return { success: true, profile: data.user.profile };
     } catch (err) {
-      setError(err.message);
-      return { success: false, error: err.message };
+      const message = err.response?.data?.error || err.message;
+      setError(message);
+      return { success: false, error: message };
     } finally {
       setIsLoading(false);
     }
   };
 
-  const register = async (email, password, userData) => {
+  const register = async (email, password, userData = {}) => {
     try {
       setError(null);
       setIsLoading(true);
-      const { data, error: signUpError } = await signUpUser(email, password, userData);
-
-      if (signUpError) throw signUpError;
-
-      setUser(data?.user);
+      const { data } = await api.post('/auth/register', {
+        email,
+        password,
+        firstName: userData.first_name,
+        lastName: userData.last_name,
+        institutionName: userData.institution_name,
+        institutionType: userData.institution_type,
+        institutionAddress: userData.institution_address,
+        institutionPhone: userData.institution_phone,
+        institutionEmail: userData.institution_email,
+      });
+      setToken(data.token);
+      setUser(data.user);
+      setProfile(data.user.profile);
       setIsAuthenticated(true);
-      return { success: true };
+      return { success: true, profile: data.user.profile };
     } catch (err) {
-      setError(err.message);
-      return { success: false, error: err.message };
+      const message = err.response?.data?.error || err.message;
+      setError(message);
+      return { success: false, error: message };
     } finally {
       setIsLoading(false);
     }
   };
 
   const logout = async () => {
-    try {
-      setIsLoading(true);
-      const { error: signOutError } = await signOutUser();
-
-      if (signOutError) throw signOutError;
-
-      setUser(null);
-      setProfile(null);
-      setIsAuthenticated(false);
-      return { success: true };
-    } catch (err) {
-      setError(err.message);
-      return { success: false, error: err.message };
-    } finally {
-      setIsLoading(false);
-    }
+    setToken(null);
+    setUser(null);
+    setProfile(null);
+    setIsAuthenticated(false);
+    return { success: true };
   };
 
   const updateProfile = async (updates) => {
     try {
       setIsLoading(true);
-      const { data, error: updateError } = await supabase
-        .from('user_profiles')
-        .update(updates)
-        .eq('user_id', user.id)
-        .select()
-        .single();
-
-      if (updateError) throw updateError;
-
-      setProfile(data);
+      const { data } = await api.put('/auth/me', updates);
+      setProfile(data.profile);
       return { success: true };
     } catch (err) {
-      setError(err.message);
-      return { success: false, error: err.message };
+      const message = err.response?.data?.error || err.message;
+      setError(message);
+      return { success: false, error: message };
     } finally {
       setIsLoading(false);
     }

@@ -20,7 +20,7 @@ import {
 import { useAppData } from '../../hooks/useAppData';
 import { useAuth } from '../../hooks/useAuth';
 import useCountUp from '../../hooks/useCountUp';
-import supabase from '../../lib/supabase';
+import api from '../../lib/api';
 import MainLayout from '../../components/Layout/MainLayout';
 import GlassCard from '../../components/Common/GlassCard';
 import Button from '../../components/Common/Button';
@@ -134,28 +134,16 @@ export default function DashboardPage() {
     loadDashboard();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // ── Load recent activity log (direct Supabase call) ──────
+  // ── Load recent activity log ──────────────────────────────
   const fetchActivityLog = useCallback(async () => {
     if (!profile?.institution_id) return;
     setActivityLoading(true);
     try {
-      const { data, error } = await supabase
-        .from('activity_log')
-        .select('*')
-        .eq('institution_id', profile.institution_id)
-        .order('created_at', { ascending: false })
-        .limit(10);
-      if (error) throw error;
-      setActivityLog(data || []);
-
-      const { count, error: announcementError } = await supabase
-        .from('announcements')
-        .select('id', { count: 'exact', head: true })
-        .eq('institution_id', profile.institution_id);
-      if (announcementError) throw announcementError;
-      setHasAnnouncement((count || 0) > 0);
+      const { data } = await api.get('/dashboard/activity');
+      setActivityLog(data.log || []);
+      setHasAnnouncement(Boolean(data.hasAnnouncement));
     } catch (err) {
-      console.error('activity_log fetch error:', err.message);
+      console.error('activity_log fetch error:', err.response?.data?.error || err.message);
     } finally {
       setActivityLoading(false);
     }
@@ -166,38 +154,10 @@ export default function DashboardPage() {
     if (!profile?.institution_id) return;
     setChartLoading(true);
     try {
-      // Build last 7 dates (most recent last, for natural x-axis order)
-      const dates = Array.from({ length: 7 }, (_, i) => {
-        const d = new Date();
-        d.setDate(d.getDate() - (6 - i));
-        return d.toISOString().split('T')[0];
-      });
-
-      const sevenDaysAgo = dates[0];
-
-      const { data, error } = await supabase
-        .from('attendance')
-        .select('date, status')
-        .eq('institution_id', profile.institution_id)
-        .eq('status', 'present')
-        .gte('date', sevenDaysAgo);
-
-      if (error) throw error;
-
-      // Count present records per date
-      const countByDate = (data || []).reduce((acc, row) => {
-        acc[row.date] = (acc[row.date] || 0) + 1;
-        return acc;
-      }, {});
-
-      const formatted = dates.map(date => ({
-        date: date.slice(5), // MM-DD for display
-        present: countByDate[date] || 0,
-      }));
-
-      setChartData(formatted);
+      const { data } = await api.get('/dashboard/attendance-trend');
+      setChartData(data || []);
     } catch (err) {
-      console.error('attendance trend fetch error:', err.message);
+      console.error('attendance trend fetch error:', err.response?.data?.error || err.message);
     } finally {
       setChartLoading(false);
     }
@@ -272,11 +232,12 @@ export default function DashboardPage() {
         checklist_dismissed_at: new Date().toISOString(),
       },
     };
-    const { error } = await supabase
-      .from('institutions')
-      .update({ settings: nextSettings })
-      .eq('id', profile.institution_id);
-    if (!error) loadInstitution();
+    try {
+      await api.put('/institutions/settings', { settings: nextSettings });
+      loadInstitution();
+    } catch (err) {
+      console.error('dismiss checklist failed:', err.response?.data?.error || err.message);
+    }
   };
 
   const quickActions = [

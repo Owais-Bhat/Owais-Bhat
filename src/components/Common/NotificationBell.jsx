@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   MdNotifications, MdCheckCircle, MdError, MdWarning, MdInfo, MdDoneAll, MdCampaign,
 } from 'react-icons/md';
-import supabase from '../../lib/supabase';
+import supabase, { isSupabaseConfigured } from '../../lib/supabase';
 import {
   fetchNotifications,
   markNotificationRead,
@@ -40,11 +40,16 @@ export default function NotificationBell() {
   const unreadCount = items.filter(n => !n.read_at).length;
 
   const load = useCallback(async () => {
-    if (!profile?.id) return;
+    if (!profile?.id || !isSupabaseConfigured) return;
     setLoading(true);
-    const { data } = await fetchNotifications(profile.id);
-    setItems(data);
-    setLoading(false);
+    try {
+      const { data } = await fetchNotifications(profile.id);
+      setItems(data);
+    } catch {
+      // Notifications aren't wired to the MySQL backend yet — fail quietly.
+    } finally {
+      setLoading(false);
+    }
   }, [profile?.id]);
 
   useEffect(() => {
@@ -52,8 +57,10 @@ export default function NotificationBell() {
   }, [load]);
 
   // Live updates: prepend new notifications as they arrive
+  // TODO: no MySQL/backend equivalent yet — re-enable once notifications
+  // move off Supabase Realtime (polling or socket.io).
   useEffect(() => {
-    if (!profile?.id) return undefined;
+    if (!profile?.id || !isSupabaseConfigured) return undefined;
     const channel = subscribeToNotifications(profile.id, (row) => {
       setItems(prev => [row, ...prev].slice(0, 20));
     });
