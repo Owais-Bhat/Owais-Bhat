@@ -1,0 +1,14 @@
+# Block direct browsing into Hostinger's internal build workspace
+# (mirrors the rule Hostinger auto-generates — kept here so it survives
+# even though this file replaces their generated .htaccess on deploy).
+RewriteEngine On
+RewriteRule ^\.builds - [F,L]
+
+# SPA fallback: this is a client-side-routed React app (react-router-dom).
+# Serve index.html for any request that isn't a real file or directory so
+# routes like /login, /dashboard, /students resolve on direct navigation
+# or page refresh instead of 404ing.
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
