@@ -8,15 +8,19 @@ feature gating, role-aware dashboards, and an AI assistance layer.
 
 | Path | What it is |
 |------|-----------|
-| `webapp/` | React 18 + Vite web application (the product UI) |
+| `src/`, `index.html`, `vite.config.js` | The React 18 + Vite web application (the product UI) — lives at repo root so hosting platforms that build from the root (e.g. Hostinger) find `package.json` directly |
 | `backend/` | Express (Node.js) admin/API service — SaaS console, tenant + user management, usage |
-| `supabase_schema.sql` | Full database schema with RLS policies — run in the Supabase SQL editor |
-| `docs/` | Master plan, roadmaps, phase tracker, SaaS next steps |
+| `mysql_schema.sql` | MySQL/MariaDB schema (converted from the Supabase schema) for hosts without Postgres |
+| `supabase_schema.sql` | Full Postgres database schema with RLS policies — run in the Supabase SQL editor |
+| `docs/` | Master plan, roadmaps, phase tracker, SaaS next steps, webapp reference docs |
 | `assets/` | CyberMilo brand assets (icon, logo, splash) for the future mobile app |
 
 > The former root-level React Native app was an unused shopping-template
-> scaffold and was removed on 2026-07-12 (recoverable from git history).
-> `app.json` + `assets/` are kept ready for a real CyberMilo mobile app.
+> scaffold, removed on 2026-07-12 (recoverable from git history). The webapp
+> itself was moved from `webapp/` to the repo root on 2026-07-12 so that
+> hosting platforms with a fixed build root (Hostinger's Web App product
+> locks "Root directory" to `./` and cannot be reconfigured) can build it
+> without a proxy `package.json`.
 
 ## Stack
 
@@ -27,9 +31,8 @@ feature gating, role-aware dashboards, and an AI assistance layer.
 
 ## Quick Start
 
-### Web app
+### Web app (repo root)
 ```bash
-cd webapp
 npm install
 npm run dev
 ```
@@ -42,7 +45,7 @@ npm run dev
 ```
 
 ### Environment
-1. Copy `webapp/.env.example` to `webapp/.env` and set:
+1. Copy `.env.example` to `.env` and set:
    - `VITE_SUPABASE_URL`
    - `VITE_SUPABASE_ANON_KEY`
    - `VITE_OPENROUTER_API_KEY`
@@ -55,7 +58,6 @@ Never commit credentials. If any were exposed, rotate them in the provider dashb
 
 ## Key Docs
 
-- Product blueprint: `CYBERMILO_DOCUMENTATION.md`
 - Master plan: `docs/ERP_MASTER_PLAN.md`
 - Production roadmap: `docs/PRODUCTION_ROADMAP.md` and `docs/FEATURE_ROADMAP_2026.md`
 - SaaS build continuation: `docs/saas-next-steps.md`
