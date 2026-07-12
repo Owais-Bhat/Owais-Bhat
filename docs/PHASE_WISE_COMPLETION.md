@@ -1,6 +1,11 @@
 # Phase-wise Completion Tracker
 
-_Last updated: 2026-05-25_
+_Last updated: 2026-07-12_
+
+> **Note (2026-07-12):** the root-level React Native scaffold referenced in the
+> Phase 0 evidence below (`contexts/`, `navigation/`, `screens/`) was an unused
+> shopping-template leftover and has been removed from the repo (still in git
+> history). The webapp (`webapp/`) and backend (`backend/`) are the product.
 
 ## Phase 0 — Foundation ✅ Completed
 

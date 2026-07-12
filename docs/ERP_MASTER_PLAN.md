@@ -1,10 +1,14 @@
-# Premium Multi-Institution ERP (Python + Supabase) — Master Plan
+# Premium Multi-Institution ERP (Node + Supabase) — Master Plan
+
+> **Note (2026-07-12):** this plan originally specified a FastAPI/Python backend.
+> The implemented backend is **Express/Node** (`backend/`); the tech sections
+> below have been updated to match reality.
 
 ## 1) Product Vision
 Build a premium, white-label, multi-tenant education ERP that supports schools, colleges, coaching institutes, and universities across web and mobile with role-aware dashboards and real-time communication.
 
 ## 2) Technology Architecture
-- **Backend API**: FastAPI (Python 3.12+)
+- **Backend API**: Express (Node.js)
 - **Database/Auth/Storage**: Supabase (PostgreSQL + Auth + Storage)
 - **Authorization**: Role + Permission + Row Level Security (RLS)
 - **Realtime/Queue**: Supabase Realtime + Celery/Redis for jobs
@@ -63,7 +67,7 @@ Permission strategy:
 
 ## 6) Suggested Build Sequence (Execution Plan)
 ### Phase 0 — Foundation (Weeks 1–2)
-- Project setup (FastAPI + Supabase)
+- Project setup (Express + Supabase)
 - Auth, user profile, tenant model, role/permission engine
 - Design system tokens + responsive shell
 - Audit logging + file storage + backup jobs

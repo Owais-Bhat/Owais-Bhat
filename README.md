@@ -1,61 +1,68 @@
-# Education ERP Platform (In Progress)
+# CyberMilo — Multi-Tenant Education ERP (SaaS)
 
-This repository is being prepared to build a **premium multi-institution ERP** for schools, colleges, universities, academies, and coaching centers using **Python + Supabase** with responsive web and mobile apps.
+CyberMilo is a multi-tenant SaaS education ERP for schools, colleges, universities,
+and coaching centers. Each institution runs in its own tenant with plan-based
+feature gating, role-aware dashboards, and an AI assistance layer.
 
-## Product Direction
-- Multi-tenant architecture
-- Role-specific dashboards (Admin, Teacher, Parent, Student, Accountant, Reception, Principal)
-- Modular rollout (admissions, students, attendance, fees, academics, exams, LMS, HR, transport, hostel, library, analytics)
+## Repository Structure
 
-## Planning Docs
-- Master implementation strategy: `docs/ERP_MASTER_PLAN.md`
-- Prioritized backlog: `docs/FEATURE_BACKLOG.md`
+| Path | What it is |
+|------|-----------|
+| `webapp/` | React 18 + Vite web application (the product UI) |
+| `backend/` | Express (Node.js) admin/API service — SaaS console, tenant + user management, usage |
+| `supabase_schema.sql` | Full database schema with RLS policies — run in the Supabase SQL editor |
+| `docs/` | Master plan, roadmaps, phase tracker, SaaS next steps |
+| `assets/` | CyberMilo brand assets (icon, logo, splash) for the future mobile app |
 
-## Next Build Step
-Phase 0 foundation:
-1. Create FastAPI backend service
-2. Add Supabase schema + RLS migration scripts
-3. Implement auth/profile/tenant/role-permission core
-4. Add dashboard shell aligned with premium UI reference
+> The former root-level React Native app was an unused shopping-template
+> scaffold and was removed on 2026-07-12 (recoverable from git history).
+> `app.json` + `assets/` are kept ready for a real CyberMilo mobile app.
 
+## Stack
 
-## Current Implementation Progress
-- ✅ Responsive Education ERP dashboard scaffold added in app
-- ✅ Module tracker screen added for phased delivery
-- ⏭️ Next: Supabase integration service + auth roles + tenant-aware APIs
+- **Frontend:** React 18, Vite 5, Tailwind CSS 4, Recharts, Framer Motion
+- **Backend:** Express (Node.js)
+- **Database / Auth / Realtime / Storage:** Supabase (PostgreSQL with RLS)
+- **AI:** OpenRouter (multi-model LLM access)
 
+## Quick Start
 
-## Web App (Vite)
-A dedicated responsive web application scaffold is added in `webapp/` for desktop + tablet + mobile web views.
+### Web app
+```bash
+cd webapp
+npm install
+npm run dev
+```
 
-Run locally:
-1. `cd webapp`
-2. `npm install`
-3. `npm run dev`
+### Backend API
+```bash
+cd backend
+npm install
+npm run dev
+```
 
-
-## Phase-wise Completion
-- Phase 0 (Foundation): ✅ **100% complete**
-- Phase 1 (Core Operations): ✅ **100% complete**
-- Phase 2 (Academic Depth): ✅ **100% complete**
-- Phase 3 (Institution Extensions): ✅ **100% complete**
-- Phase 4 (Intelligence & Premium): ✅ **100% complete**
-
-Detailed tracker: `docs/PHASE_WISE_COMPLETION.md`
-
-
-## Secrets & Environment
-For security, keep credentials in environment variables (never hardcode in source files).
-
-### Webapp env setup
-1. Copy `webapp/.env.example` to `webapp/.env`
-2. Set:
+### Environment
+1. Copy `webapp/.env.example` to `webapp/.env` and set:
    - `VITE_SUPABASE_URL`
    - `VITE_SUPABASE_ANON_KEY`
    - `VITE_OPENROUTER_API_KEY`
    - `VITE_OPENROUTER_MODEL`
+2. Apply `supabase_schema.sql` in the Supabase SQL editor (idempotent — safe to re-run).
+3. In Supabase → Authentication → URL Configuration, add `<your-app-url>/reset-password`
+   to the Redirect URLs list (required for the password reset flow).
 
-If any credentials were exposed publicly, rotate them immediately in provider dashboards.
+Never commit credentials. If any were exposed, rotate them in the provider dashboards.
 
+## Key Docs
 
-- Web app now persists input data in browser localStorage (`erp_webapp_data_v1`) so entries are retained across refreshes.
+- Product blueprint: `CYBERMILO_DOCUMENTATION.md`
+- Master plan: `docs/ERP_MASTER_PLAN.md`
+- Production roadmap: `docs/PRODUCTION_ROADMAP.md` and `docs/FEATURE_ROADMAP_2026.md`
+- SaaS build continuation: `docs/saas-next-steps.md`
+- Phase tracker: `docs/PHASE_WISE_COMPLETION.md`
+
+## Knowledge Graph
+
+`graphify-out/` contains a navigable knowledge graph of this codebase
+(`graph.html` for the interactive view, `GRAPH_REPORT.md` for the audit).
+Rebuild with `/graphify --update` after significant changes.
