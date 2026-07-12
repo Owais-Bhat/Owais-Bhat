@@ -1,0 +1,8 @@
+{
+  "name": "cybermilo-hostinger-deploy-proxy",
+  "private": true,
+  "description": "Root-level proxy so Hostinger's Web App (which builds from the repo root) can build the actual app in webapp/. The real app lives in webapp/package.json; this file only forwards install+build into that folder. Output directory on Hostinger is set to webapp/dist.",
+  "scripts": {
+    "build": "npm install --prefix webapp && npm run build --prefix webapp"
+  }
+}
