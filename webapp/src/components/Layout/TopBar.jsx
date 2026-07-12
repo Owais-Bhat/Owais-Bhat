@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MdMenu, MdNotifications, MdSettings, MdLogout, MdPerson } from 'react-icons/md';
+import { MdMenu, MdSettings, MdLogout, MdPerson, MdSearch } from 'react-icons/md';
 import { useAuth } from '../../hooks/useAuth';
 import { canAccessPath } from '../../auth/permissions';
+import NotificationBell from '../Common/NotificationBell';
 
-export default function TopBar({ onMenuToggle }) {
+export default function TopBar({ onMenuToggle, onSearchOpen }) {
   const navigate = useNavigate();
   const { user, logout, profile } = useAuth();
   const [showDropdown, setShowDropdown] = useState(false);
@@ -35,12 +36,28 @@ export default function TopBar({ onMenuToggle }) {
         </div>
       </div>
 
-      {/* Right: Notifications & Profile */}
+      {/* Right: Search, Notifications & Profile */}
       <div className="flex items-center gap-3">
-        <button className="relative p-2 text-slate-500 hover:text-slate-950 transition-colors rounded-lg hover:bg-slate-100">
-          <MdNotifications className="w-6 h-6" />
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#E0644A] rounded-full"></span>
-        </button>
+        {onSearchOpen && (
+          <>
+            <button
+              onClick={onSearchOpen}
+              className="hidden md:flex items-center gap-2.5 pl-3 pr-2 py-2 rounded-lg border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#0E7C7B]/40 transition-colors text-slate-400 text-sm w-56"
+            >
+              <MdSearch className="w-4.5 h-4.5 shrink-0" />
+              <span className="flex-1 text-left">Search...</span>
+              <kbd className="text-[10px] font-bold text-slate-400 border border-slate-200 bg-white rounded px-1.5 py-0.5">Ctrl K</kbd>
+            </button>
+            <button
+              onClick={onSearchOpen}
+              className="md:hidden p-2 text-slate-500 hover:text-slate-950 transition-colors rounded-lg hover:bg-slate-100"
+            >
+              <MdSearch className="w-6 h-6" />
+            </button>
+          </>
+        )}
+
+        <NotificationBell />
 
         {canOpenSettings && (
           <button

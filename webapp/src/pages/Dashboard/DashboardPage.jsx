@@ -19,6 +19,7 @@ import {
 
 import { useAppData } from '../../hooks/useAppData';
 import { useAuth } from '../../hooks/useAuth';
+import useCountUp from '../../hooks/useCountUp';
 import supabase from '../../lib/supabase';
 import MainLayout from '../../components/Layout/MainLayout';
 import GlassCard from '../../components/Common/GlassCard';
@@ -41,13 +42,25 @@ function SkeletonCard() {
 }
 
 // ── Individual stat card ───────────────────────────────────────
-function StatCard({ icon: Icon, label, value, subtitle, color }) {
+function StatCard({
+  icon: Icon,
+  label,
+  value,
+  format = (v) => Math.round(v).toLocaleString('en-IN'),
+  subtitle,
+  accent = '#0E7C7B',
+  color,
+}) {
+  const animated = useCountUp(value);
   return (
-    <GlassCard className="p-6 border-l-4 border-l-[#0E7C7B]">
+    <GlassCard
+      className="p-6 border-l-4 hover:-translate-y-1 cursor-default"
+      style={{ borderLeftColor: accent }}
+    >
       <div className="flex items-start justify-between">
         <div>
           <p className="text-slate-500 text-sm font-semibold mb-2">{label}</p>
-          <p className="text-3xl font-extrabold text-slate-950">{value}</p>
+          <p className="text-3xl font-extrabold text-slate-950 tabular-nums">{format(animated)}</p>
           {subtitle && (
             <p className="text-xs mt-2 text-slate-500">{subtitle}</p>
           )}
@@ -302,7 +315,11 @@ export default function DashboardPage() {
               Command Center
             </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-slate-950 mb-2">
-              Welcome back, {profile?.first_name || 'User'}!
+              {(() => {
+                const hour = new Date().getHours();
+                const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+                return `${greeting}, ${profile?.first_name || 'User'}!`;
+              })()}
             </h1>
             <p className="text-slate-500 text-sm">
               {new Date().toLocaleDateString('en-IN', {
@@ -378,20 +395,25 @@ export default function DashboardPage() {
                 label="Total Students"
                 value={dashboardData?.totalStudents ?? 0}
                 subtitle="enrolled"
+                accent="#4059AD"
                 color="bg-[#EEF4FF] text-[#4059AD]"
               />
               <StatCard
                 icon={MdSchool}
                 label="Attendance Today"
-                value={`${dashboardData?.attendancePercentage ?? 0}%`}
+                value={dashboardData?.attendancePercentage ?? 0}
+                format={(v) => `${Math.round(v)}%`}
                 subtitle={`${dashboardData?.presentToday ?? 0} present`}
+                accent="#16845D"
                 color="bg-emerald-50 text-emerald-700"
               />
               <StatCard
                 icon={MdAttachMoney}
                 label="Fees Collected"
-                value={`Rs ${(dashboardData?.totalFeesCollected ?? 0).toLocaleString('en-IN')}`}
+                value={dashboardData?.totalFeesCollected ?? 0}
+                format={(v) => `Rs ${Math.round(v).toLocaleString('en-IN')}`}
                 subtitle={`Rs ${(dashboardData?.totalFeesDue ?? 0).toLocaleString('en-IN')} pending`}
+                accent="#E0644A"
                 color="bg-orange-50 text-[#E0644A]"
               />
               <StatCard
@@ -399,6 +421,7 @@ export default function DashboardPage() {
                 label="Active Exams"
                 value={dashboardData?.activeExams ?? 0}
                 subtitle="currently running"
+                accent="#6F5BD7"
                 color="bg-violet-50 text-[#6F5BD7]"
               />
             </>
