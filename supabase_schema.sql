@@ -934,3 +934,68 @@ DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
 CREATE TRIGGER on_auth_user_created
   AFTER INSERT ON auth.users
   FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
+
+
+-- ============================================================
+-- NOTIFICATIONS (in-app notification center) — added 2026-07-12
+-- ============================================================
+
+-- Helper: returns the user_profiles.id for the calling user.
+CREATE OR REPLACE FUNCTION public.auth_profile_id()
+RETURNS uuid
+LANGUAGE sql
+STABLE
+SECURITY DEFINER
+SET search_path = public
+AS $$
+  SELECT id
+  FROM public.user_profiles
+  WHERE user_id = auth.uid()
+    AND is_active = true
+  LIMIT 1;
+$$;
+
+CREATE TABLE IF NOT EXISTS public.notifications (
+  id             uuid         PRIMARY KEY DEFAULT gen_random_uuid(),
+  institution_id uuid         NOT NULL REFERENCES public.institutions ON DELETE CASCADE,
+  user_id        uuid         NOT NULL REFERENCES public.user_profiles ON DELETE CASCADE,
+  title          text         NOT NULL,
+  body           text,
+  type           text         NOT NULL DEFAULT 'info',
+  link           text,
+  read_at        timestamptz,
+  created_by     uuid         REFERENCES public.user_profiles ON DELETE SET NULL,
+  created_at     timestamptz  NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_notifications_user_created
+  ON public.notifications (user_id, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_notifications_user_unread
+  ON public.notifications (user_id) WHERE read_at IS NULL;
+
+ALTER TABLE public.notifications ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "notifications: recipient select" ON public.notifications;
+DROP POLICY IF EXISTS "notifications: recipient update" ON public.notifications;
+DROP POLICY IF EXISTS "notifications: recipient delete" ON public.notifications;
+DROP POLICY IF EXISTS "notifications: staff insert" ON public.notifications;
+
+CREATE POLICY "notifications: recipient select" ON public.notifications FOR SELECT TO authenticated
+  USING (user_id = public.auth_profile_id());
+CREATE POLICY "notifications: recipient update" ON public.notifications FOR UPDATE TO authenticated
+  USING (user_id = public.auth_profile_id())
+  WITH CHECK (user_id = public.auth_profile_id());
+CREATE POLICY "notifications: recipient delete" ON public.notifications FOR DELETE TO authenticated
+  USING (user_id = public.auth_profile_id());
+CREATE POLICY "notifications: staff insert" ON public.notifications FOR INSERT TO authenticated
+  WITH CHECK (
+    institution_id = public.auth_institution_id()
+    AND (public.auth_can_write_operations() OR public.auth_can_write_academics())
+  );
+
+-- Realtime delivery for the in-app bell
+DO $$
+BEGIN
+  ALTER PUBLICATION supabase_realtime ADD TABLE public.notifications;
+EXCEPTION WHEN duplicate_object THEN NULL;
+END $$;

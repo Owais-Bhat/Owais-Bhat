@@ -6,6 +6,7 @@ import Input from '../../components/Common/Input';
 import { useAuth } from '../../hooks/useAuth';
 import { useNotification } from '../../hooks/useNotification';
 import supabase from '../../lib/supabase';
+import { notifyInstitution } from '../../lib/notificationsApi';
 import {
   MdSend, MdCampaign, MdMessage, MdInbox, MdOutbox,
   MdAdd, MdDelete, MdClose, MdSearch, MdCircle,
@@ -167,6 +168,15 @@ export default function CommunicationPage() {
       setAnnForm({ title: '', content: '', priority: 'normal', target_audience: 'all' });
       setShowAnnForm(false);
       notification.success('Announcement posted!');
+      // Fan out to everyone's in-app notification bell (fire and forget)
+      notifyInstitution({
+        institutionId: profile.institution_id,
+        title: data.title,
+        body: data.content,
+        type: 'announcement',
+        link: '/communication',
+        createdBy: profile.id,
+      });
     }
     setAnnSaving(false);
   };

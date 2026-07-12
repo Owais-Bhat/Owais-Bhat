@@ -101,13 +101,12 @@ export default function LoginPage() {
             />
             <span className="text-slate-500">Remember me</span>
           </label>
-          <button
-            type="button"
-            onClick={() => notification.info('Password reset is not enabled yet. Ask an admin to reset this account.')}
+          <Link
+            to="/forgot-password"
             className="text-[#0E7C7B] hover:text-[#0A5F5E] transition-colors text-sm font-semibold"
           >
             Forgot password?
-          </button>
+          </Link>
         </div>
 
         <Button type="submit" variant="primary" loading={loading} disabled={loading} className="w-full" size="lg">
